@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>个人中心</title>
+    <% include _head.html %>
+    <style>
+        body{
+            background-color: #ededed;
+        }
+        .per-title{
+            width: 100%;
+            height:214px;
+            background-image:url("images/beijing.png");
+        }
+        .person{
+            width: 90%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 22px;
+        }
+        .person-meg img{
+            width: 60px;
+            height: 60px;
+        }
+        .person-meg{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .person-meg .name{
+            font-size: 13px;
+            color: #FFFFFF;
+        }
+        .person-meg .yong{
+            font-size: 13px;
+            color:#CC933F ;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 1px;
+        }
+        .person-meg .meg-tt{
+            padding-left:17px ;
+        }
+        .box{
+            width: 90%;
+            margin: 0 5%;
+            height: 90px;
+            background-color: #FFFFFF;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 27px;
+        }
+        .weui_grid_icon img{
+            width:40px ;
+            height: 40px;
+        }
+        .weui_grid_label{
+            font-size: 13px;
+            color: #666666;
+        }
+        .weui_grids{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .box .box-nei{
+            width: 90%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-cell{
+            width: 90%;
+            padding: 0 5%;
+            height: 45px;
+            display: flex;
+            align-items: center;
+        }
+        .border{
+            border-bottom: 1px solid  #ededed;
+        }
+        .wen{
+            font-size: 13px;
+            color: #000000;
+        }
+        .pad{
+            border-bottom: 10px solid  #ededed;
+        }
+        .bgcolor{
+            background-color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="per-title">
+       <div class="person">
+           <div class="person-meg">
+                <div><img src="images/portrait.png"></div>
+                <div class="meg-tt">
+                    <p class="name">灰太狼</p>
+                    <p class="yong">佣金:8888</p>
+                </div>
+           </div>
+           <div class="person-tt"><img src="images/tiao.png"></div>
+       </div>
+        <div class="box">
+           <div class="box-nei">
+               <div class="weui_grids">
+                   <a href="order.html#tab1" class="weui_grid js_grid" data-id="button">
+                       <div class="weui_grid_icon">
+                           <img src="images/fukuan.png" alt="">
+                       </div>
+                       <p class="weui_grid_label">
+                           待付款
+                       </p>
+                   </a>
+               </div>
+               <div class="weui_grids">
+                   <a href="order.html#tab2" class="weui_grid js_grid" data-id="button">
+                       <div class="weui_grid_icon">
+                           <img src="images/fahuo.png" alt="">
+                       </div>
+                       <p class="weui_grid_label">
+                           待发货
+                       </p>
+                   </a>
+               </div>
+               <div class="weui_grids">
+                   <a href="order.html#tab3" class="weui_grid js_grid" data-id="button">
+                       <div class="weui_grid_icon">
+                           <img src="images/shouhuo.png" alt="">
+                       </div>
+                       <p class="weui_grid_label">
+                           待收货
+                       </p>
+                   </a>
+               </div>
+               <div class="weui_grids">
+                   <a href="order.html#tab4" class="weui_grid js_grid" data-id="button">
+                       <div class="weui_grid_icon">
+                           <img src="images/qianshou.png" alt="">
+                       </div>
+                       <p class="weui_grid_label">
+                           已签收
+                       </p>
+                   </a>
+               </div>
+               <div class="weui_grids">
+                   <a href="order.html#tab5" class="weui_grid js_grid" data-id="button">
+                       <div class="weui_grid_icon">
+                           <img src="images/fuwu.png" alt="">
+                       </div>
+                       <p class="weui_grid_label">
+                           售后服务
+                       </p>
+                   </a>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="form">
+        <a class="weui-cell weui-cell_access form-cell border bgcolor" href="information.html">
+            <div class="weui-cell__hd"><img src="images/geren.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">个人信息</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access form-cell bgcolor" href="addressmanagement.html">
+            <div class="weui-cell__hd"><img src="images/address.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">地址管理</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="pad"></div>
+    <div class="form">
+        <a class="weui-cell weui-cell_access form-cell border bgcolor" href="commission.html">
+            <div class="weui-cell__hd"><img src="images/yongjin.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">我的佣金</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access form-cell bgcolor" href="team.html">
+            <div class="weui-cell__hd"><img src="images/team.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">我的团队</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="pad"></div>
+    <div class="form">
+        <a class="weui-cell weui-cell_access form-cell border service bgcolor" href="javascript:;">
+            <div class="weui-cell__hd"><img src="images/kefu.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">联系客服</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access form-cell bgcolor" href="about.html">
+            <div class="weui-cell__hd"><img src="images/guanyu.png" alt="" style="width:15px;margin-right:10px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p class="wen">关于我们</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="pad"></div>
+    <script>
+        menu_index = 4;
+    </script>
+    <% include _foot.html %>
+    <% include menu.html %>
+    <script>
+        $(function () {
+            $('.service').on('click',function () {
+                //如果参数过多，通过 object 方式传入
+                $.modal({
+                    title: "",
+                    text: "0519-88888888",
+                    buttons: [
+                        { text: "取消", className: "default", onClick: function(){ console.log(3)} },
+                    ]
+                });
+            })
+        })
+    </script>
+</body>
+</html>

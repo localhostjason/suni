@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>售后服务</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../lib/weui.carry.css">
+    <style>
+        .boxes{
+            width: 90%;
+            padding: 0 5%;
+        }
+        .shou .shou-tt{
+            font-size: 17px;
+            color: #C88F3A;
+            padding-top: 20px;
+            padding-bottom: 12px;
+        }
+        .shou{
+            border-bottom: 2px solid #F5F5F5;
+        }
+        .shou .shou-wenben{
+            padding-bottom: 24px;
+        }
+        .choo{
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="boxes">
+    <div class="shou">
+        <div class="shou-tt">售后原因</div>
+        <div class="shou-wenben">
+            <textarea style="height: 80px;background-color: #EEEEEE;border-radius: 5px;width: 95%;font-size: 14px;color: #999999;border: 0;padding: 10px">请填写需要售后的原因</textarea>
+        </div>
+    </div>
+    <div class="mode">退款方式</div>
+    <div class="choo">
+        <div class="choose">
+            <div class="choose-tt">微信号</div>
+            <div class="checkbox01">
+                <input type="radio" id="btn1" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+            </div>
+        </div>
+        <div class="choose">
+            <div class="choose-tt">支付宝</div>
+            <div class="checkbox01">
+                <input type="radio" id="btn2" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+            </div>
+        </div>
+        <div class="choose">
+            <div class="choose-tt">银行卡</div>
+            <div class="checkbox01">
+                <input type="radio" id="btn3" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+            </div>
+        </div>
+    </div>
+</div>
+    <% include _foot.html %>
+</body>
+</html>

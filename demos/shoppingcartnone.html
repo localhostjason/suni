@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>购物车</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background-color: #e5e5e5;
+        }
+
+        .Spinner a i {
+            background-image: url("images/BuynBtn.png");
+        }
+
+
+        .boxes {
+            width: 92%;
+            margin: 4%;
+        }
+        .weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+            color: #666666;
+        }
+        .xiang{
+            display: flex;
+            background-color: #FFFFFF;
+            padding:4%;
+        }
+        .xiang-zh{
+            width: 42%;
+            height: 42%;
+        }
+        .xiang-zh img{
+            width: 100%;
+            width: 100%;
+        }
+        .xiang-left{
+            width: 100%;
+            padding-left: 10px;
+        }
+        .xiang-left .left-title{
+            font-size: 7px;
+            color: #101010;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient: vertical;
+        }
+        .left-price .prices{
+            font-size: 14px;
+            color: #101010;
+        }
+        .left-price{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding-top: 20px;
+        }
+        .quan{
+            padding-left: 4%;
+        }
+        .weui-cell.allsec-well{
+            padding: 0px;
+        }
+        .xuan{
+            font-size: 14px;
+            color: #000000;
+        }
+        .heji{
+            font-size: 14px;
+            color: #000000;
+        }
+        .shan{
+            width: 80px;
+            background:linear-gradient(180deg,rgba(146,146,146,1),rgba(102,102,102,1));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+        .jiesuan{
+            width: 80px;
+            background:linear-gradient(0deg,rgba(200,143,58,1),rgba(229,173,91,1));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+        .anniu{
+            display: flex;
+        }
+        .shan a{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        .car_box{
+            background: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            bottom: 48px;
+        }
+        .crat_list{
+            margin-bottom: 120px;
+        }
+        [class*=" weui-icon-"]:before, [class^=weui-icon-]:before{
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<div ontouchstart>
+    <div class="crat_list">
+        <!--主体-->
+        <div class="boxes">
+            <div class="xiang">
+                <div class="check-w weui-cells_checkbox">
+                    <label class="weui-check__label" for="cart-pto1">
+                        <div class="weui-cell__hd cat-check"><input type="checkbox" class="weui-check" name="cartpro"
+                                                                    id="cart-pto1"><i class="weui-icon-checked"></i></div>
+                    </label>
+                </div>
+                <div class="xiang-zh"><img class="" src="images/shangping.png"></div>
+                <div class="xiang-left">
+                    <div class="left-title">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                    <div class="left-price">
+                        <div class="prices">¥<em class="">296.00</em></div>
+                        <div class="pro-amount fr">
+                            <div class="Spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxes">
+            <div class="xiang">
+                <div class="check-w weui-cells_checkbox">
+                    <label class="weui-check__label" for="cart-pto2">
+                        <div class="weui-cell__hd cat-check"><input type="checkbox" class="weui-check" name="cartpro"
+                                                                    id="cart-pto2"><i class="weui-icon-checked"></i></div>
+                    </label>
+                </div>
+                <div class="xiang-zh"><img class="" src="images/shangping.png"></div>
+                <div class="xiang-left">
+                    <div class="left-title">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                    <div class="left-price">
+                        <div class="prices">¥<em class="">296.00</em></div>
+                        <div class="pro-amount fr">
+                            <div class="Spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxes">
+            <div class="xiang">
+                <div class="check-w weui-cells_checkbox">
+                    <label class="weui-check__label" for="cart-pto3">
+                        <div class="weui-cell__hd cat-check"><input type="checkbox" class="weui-check" name="cartpro"
+                                                                    id="cart-pto3"><i class="weui-icon-checked"></i></div>
+                    </label>
+                </div>
+                <div class="xiang-zh"><img class="" src="images/shangping.png"></div>
+                <div class="xiang-left">
+                    <div class="left-title">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                    <div class="left-price">
+                        <div class="prices">¥<em class="">296.00</em></div>
+                        <div class="pro-amount fr">
+                            <div class="Spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部导航-->
+    <div class="car_box">
+        <div class="weui-cells_checkbox allselect quan">
+            <label class="weui-cell allsec-well weui-check__label" for="all">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="all-sec" id="all">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="xuan">
+                    <p>全选</p>
+                </div>
+            </label>
+        </div>
+        <div class="heji">
+            合计: 22222.00
+        </div>
+        <div class="anniu">
+            <div class="shan">
+                <a href="javascript:;" class="wy-delete">删除</a>
+            </div>
+            <a href="shoppingdetails.html" >
+                <div class="jiesuan">
+                    <p>结算</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<% include _foot.html %>
+<% include menu.html %>
+
+<script src="../js/jquery.Spinner.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $(".Spinner").Spinner({value: 1, len: 3, max: 999});
+    });
+</script>
+<!---全选按钮-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".allselect").click(function () {
+            if ($(this).find("input[name=all-sec]").prop("checked")) {
+                $("input[name=cartpro]").each(function () {
+                    $(this).prop("checked", true);
+                });
+            } else {
+                $("input[name=cartpro]").each(function () {
+                    if ($(this).prop("checked")) {
+                        $(this).prop("checked", false);
+                    } else {
+                        $(this).prop("checked", true);
+                    }
+                });
+            }
+        });
+    });
+</script>
+<script>
+    $(document).on("click", ".wy-delete", function () {
+        $.confirm("您确定要把此商品从购物车删除吗?", "确认删除?", function () {
+            $.toast("文件已经删除!");
+        }, function () {
+            //取消操作
+        });
+    });
+</script>
+<script>
+    menu_index = 4;
+</script>
+
+</body>
+</html>

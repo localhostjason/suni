@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>银行卡号</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        .log-button { /* 按钮美化 */
+            width: 100%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #C88F3A; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .log {
+            width: 90%;
+            padding: 0 5%;
+        }
+
+        .num {
+            width: 90%;
+            margin: 0 5%;
+            height: 270px;
+            background-color: #FFFFFF;
+            margin-top: 16px;
+        }
+
+        .num .num-tt {
+            font-size: 13px;
+            color: #333333;
+            padding-bottom: 15px;
+            padding-left: 14px;
+            padding-top: 22px;
+        }
+
+        .num .num-in {
+            padding-bottom: 2px;
+            padding-left: 14px;
+        }
+
+        .num .num-in input {
+            font-size: 15px;
+            color: #999999;
+        }
+
+        .num .fen {
+            width: 92%;
+            padding: 0 4%;
+        }
+
+        .num .fen .fen-t {
+            border: 1px solid #CCCCCC;
+        }
+    </style>
+</head>
+<body>
+<div class="num">
+    <div class="num-tt">收款人</div>
+    <div class="num-in">
+        <input class="input" type="text" placeholder="请填写收款人的真实姓名" style="border-style:none" name="name">
+    </div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+    <div class="num-tt">收款银行</div>
+    <div class="num-in">
+        <input class="input" type="text" placeholder="请填写收款银行" style="border-style:none" name="bank">
+    </div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+    <div class="num-tt">银行卡号</div>
+    <div class="num-in">
+        <input class="input" type="text" placeholder="请填写收款银行卡号" style="border-style:none" name="banknum">
+    </div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+</div>
+<div class="log">
+    <button class="log-button">确&nbsp;认</button>
+</div>
+<% include _foot.html %>
+</body>
+<script>
+    $(function () {
+        $(".log-button").on('click', function () {
+            var name = $("input[name='name']").val()
+            var bank = $("input[name='bank']").val()
+            var banknum = $("input[name='banknum']").val()
+            if (name == '') {
+                LayerAlert1("请输入收款人姓名");
+                return false;
+            }
+            if (bank == '') {
+                LayerAlert1("请输入收款银行");
+                return false;
+            }
+            if (banknum == '') {
+                LayerAlert1("请输入收款银行卡号");
+                return false;
+            }
+            var data = {receipt_user: name,receipt_bank:bank,bank_card:banknum}
+            //console.log(datas);
+            sendAjax('api/user/2', data, 'PATCH', 'json', function (res) {
+                setTimeLoad(function () {
+                    window.location.href = "information.html"
+                })
+            })
+        })
+    })
+</script>
+</html>

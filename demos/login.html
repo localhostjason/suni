@@ -1,0 +1,69 @@
+<head>
+    <title>登录</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        a {
+            text-decoration: none;
+            out-line: none;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <div class="title-img">
+        <img src="images/login.png">
+    </div>
+</div>
+<form onsubmit="return false">
+    <div class="cell">
+        <div class="cell-phone">
+            <input class="weui-input" type="tel" placeholder="请输入您的手机号码" maxlength="11" name="phone">
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-phon">
+            <input class="weui-input" type="password" placeholder="请输入您的密码" name="password">
+            <img src="images/see.png" class="see_pass" type="1">
+        </div>
+    </div>
+    <div class="login">
+        <button class="login-button">登&nbsp;录</button>
+    </div>
+</form>
+<div class="text">
+    <div class="text-tt"><a href="register.html">快速注册</a></div>
+    <div class="text-tt"><a href="password.html">找回密码</a></div>
+</div>
+<% include _foot.html %>
+</body>
+<script>
+    $(function () {
+        $(".login-button").on('click', function () {
+            var phone = $("input[name='phone']").val();
+            var password = $("input[name='password']").val();
+            if (phone == '') {
+               LayerAlert1("请输入手机号");
+                return false;
+            }
+            if (checkPhone(phone) == false) {
+                LayerAlert1("手机号格式不正确");
+                return false;
+            }
+            if (password == '') {
+                LayerAlert1("请输入密码");
+                return false;
+            }
+            var data = {phone:phone,password:password };
+            //console.log(datas);
+            sendAjax('api/login', data, 'post', 'json', function (res) {
+                var token=res.token;
+                localStorage.setItem("token", token);
+                LayerAlert1("登录成功");
+                window.location.href="home.html";
+            })
+        })
+    })
+</script>
+</html>

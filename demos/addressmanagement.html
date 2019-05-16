@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>地址管理</title>
+    <% include _head.html %>
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+
+        .bg {
+            background-image: url("images/dizhibj.png");
+            width: 100%;
+            height: 80px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .address {
+            width: 90%;
+            margin: 0 5%;
+            margin-top: 15px;
+        }
+
+        .xiangxi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            padding: 15px 5%;
+        }
+
+        .xiangxi .xiangxi-right {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        .message .message-name {
+            padding-right: 10px;
+        }
+
+        .message {
+            padding-bottom: 10px;
+        }
+
+        .xiangxi-left img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .background {
+            background-color: #FFFFFF;
+            height: 80px;
+        }
+        .background .xiangxi-right{
+            font-size: 14px;
+            color: #959595;
+        }
+       .newadd img{
+           width: 50px;
+           height: 50px;
+       }
+        .newadd{
+            border-radius: 100%;
+            position: fixed;
+            bottom: 50px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9;
+        }
+    </style>
+</head>
+<a href="newaddress.html">
+<div class="address">
+    <div class="bg">
+        <div class="xiangxi">
+            <div class="xiangxi-right">
+                <div class="message">
+                    <span class="message-name">灰太狼</span>
+                    <span>12345678901</span>
+                </div>
+                <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
+            </div>
+            <div class="xiangxi-left"><img src="images/baibiao.png"></div>
+        </div>
+    </div>
+</div>
+    <div class="address">
+        <div class="background">
+            <div class="xiangxi">
+                <div class="xiangxi-right">
+                    <div class="message">
+                        <span class="message-name">灰太狼</span>
+                        <span>12345678901</span>
+                    </div>
+                    <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
+                </div>
+                <div class="xiangxi-left"><img src="images/huibiao.png"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="address">
+        <div class="background">
+            <div class="xiangxi">
+                <div class="xiangxi-right">
+                    <div class="message">
+                        <span class="message-name">灰太狼</span>
+                        <span>12345678901</span>
+                    </div>
+                    <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
+                </div>
+                <div class="xiangxi-left"><img src="images/huibiao.png"></div>
+            </div>
+        </div>
+    </div>
+</a>
+    <a href="newaddress.html">
+    <div class="newadd">
+        <img src="images/newaddress.png">
+    </div>
+    </a>
+    <body>
+    <% include _foot.html %>
+    </body>
+</html>

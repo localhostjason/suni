@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>售后服务</title>
+    <% include _head.html %>
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+        .boxx{
+            width: 90%;
+            padding: 0 5%;
+            background-color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+        .shenq{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height:65px ;
+        }
+        .shenq .shenq-tt{
+            font-size: 17px;
+            color:#C88F3A;
+        }
+        .shenq .shenq-time{
+            font-size: 14px;
+            color: #999999;
+        }
+        .shou .shou-tt{
+            font-size: 17px;
+            color: #C88F3A;
+            padding-top: 20px;
+            padding-bottom: 12px;
+        }
+        .shou .shou-wenben{
+            padding-bottom: 20px;
+        }
+        .tuik{
+            padding:22px 0px ;
+        }
+        .tuik .tuik-mode{
+            font-size: 15px;
+            color: #C88F3A;
+            padding-bottom: 20px;
+        }
+        .tuik .tuik-card{
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #999999;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxx">
+        <div class="shenq">
+            <div class="shenq-tt">售后申请</div>
+            <div class="shenq-time">19/03/13&nbsp;12:22</div>
+        </div>
+    </div>
+    <div class="boxx">
+        <div class="shou">
+            <div class="shou-tt">售后原因</div>
+            <div class="shou-wenben">
+                <textarea style="height: 80px;background-color: #EEEEEE;border-radius: 5px;width: 95%;font-size: 14px;color: #999999;border: 0;padding: 10px">请填写需要售后的原因</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="boxx">
+        <div class="tuik">
+            <div class="tuik-mode">退款方式</div>
+            <div class="tuik-card">
+                <div>银行卡</div>
+                <div>32232352211515422</div>
+            </div>
+        </div>
+    </div>
+<% include _foot.html %>
+</body>
+</html>

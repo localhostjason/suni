@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>首页</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+    <style>
+        .title {
+            background-image: url(images/home1.png);
+            width: 100%;
+            height: 205px;
+            background-repeat: no-repeat;
+            /* background: red; */
+            background-size: 100% 90%;
+        }
+
+        .imgage img {
+            width: 25px;
+            height: 25px;
+            filter: drop-shadow(0 0 0 #FFF);
+        }
+
+        .imgage .weui-search-bar {
+            width: 64%;
+            height: 36px;
+        }
+
+        .imgage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            padding: 0 5%;
+            padding-top: 16px;
+        }
+
+        .weui-search-bar__form {
+            position: relative;
+            -webkit-box-flex: 1;
+            -webkit-flex: auto;
+            flex: auto;
+            background-color: #EFEFF4;
+            border-radius: 3px;
+        }
+        .swiper-container{
+            overflow: hidden;
+            width: 90%;
+            margin-top: 26px;
+        }
+        .swiper-slide{
+            height: 120px;
+            overflow: hidden;
+        }
+        .swiper-slide img{
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <div class="imgage">
+        <img src="images/wei.png">
+        <div class="search" id="search_bar">
+            <form class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索"/>
+                    <!--<a href="javascript:" class="weui-icon-clear" id="search_clear"></a>-->
+                </div>
+            </form>
+        </div>
+        <img src="images/head.png">
+        <img src="images/message.png">
+    </div>
+    <div >
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="images/swiper.png"/></div>
+                <div class="swiper-slide"><img src="images/swiper.png"/></div>
+                <div class="swiper-slide"><img src="images/swiper.png"/></div>
+            </div>
+            <!--&lt;!&ndash; If we need pagination &ndash;&gt;-->
+            <!--<div class="swiper-pagination"></div>-->
+        </div>
+    </div>
+</div>
+<style>
+    .hot_sale_txt{
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .sale_box{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .sale_box .left{
+        width: 30%;
+    }
+    .sale_box .right{
+        width: 70%;
+    }
+    .sale_box .show_pic{
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        display:inline-block;
+    }
+    .sale_box .show_pic img{
+        width: 100%;
+        height: 100%;
+    }
+    .sale_box .desc_title{
+        font-size: 14px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+    }
+    .desc_box{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .desc_box .buy_now{
+        padding: 5px;
+        text-align: center;
+        background:#C9903B ;
+        color:#fff;
+        border-radius: 50px;
+        font-size: 10px;
+    }
+</style>
+<div class="hot_sale">
+    <div class="hot_sale_txt">近期热卖</div>
+    <div class="sale_list">
+        <div class="sale_box">
+            <div class="left"><a href="javascript:;" class="show_pic"><img src="images/swiper.png"/></a></div>
+            <div class="right">
+                <div class="desc_title">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                <div class="desc_box">
+                    <div class="desc_up">
+                        <div>￥188.00</div>
+                        <div>月销666</div>
+                    </div>
+                    <div><span class="buy_now">立即购买</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+<script src="../js/swiper.js"></script>
+
+<script>
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+</script>
+</body>
+</html>

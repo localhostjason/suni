@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>消息通知</title>
+    <% include _head.html %>
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        .weui-navbar {
+            height: 61px;
+            align-items: center;
+            width: 96%;
+            margin: 4% 2%;
+            background-color: #f5f5f5;
+        }
+
+        .weui-navbar__item:after {
+            border: 0px;
+        }
+
+        .weui-navbar:after {
+            border: 0px;
+        }
+
+        .weui-navbar__item.proinfo-tab-tit.weui-bar__item--on:before {
+            content: "";
+            width: 50%;
+            height: 61px;
+            position: absolute;
+            left: 50%;
+            margin-left: -25px;
+            bottom: -1px;
+            z-index: 10;
+            border-radius: 3px;
+        }
+
+        .weui-navbar__item.weui-bar__item--on {
+            color: #FFFFFF;
+            background-image: url(images/hui.png);
+            width: 48%;
+            background-size: 100% 100%;
+        }
+
+
+        .weui-navbar__item {
+            padding: 0;
+            color: #FFFFFF;
+            font-size: 16px;
+            background-image: url(images/mesg.png);
+            height: 61px;
+            width: 48%;
+            background-size: 100% 100%;
+            margin: 0 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wu img {
+            width: 163px;
+            height: 163px;
+        }
+
+        .xiang{
+            width: 92%;
+            margin: 0 4%;
+            height: auto;
+            background-color:#FFFFFF ;
+            margin-top: 15px;
+        }
+        .state{
+            display: flex;
+            height: 42px;
+            width: 92%;
+            margin: 0 4%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .state .state-time{
+            font-size: 13px;
+            color: #AFAFAF;
+        }
+        .state .state-tt{
+            font-size: 13px;
+            color: #333333;
+        }
+        .details{
+            width: 92%;
+            margin: 0 4%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .details-left{
+            width: 25%;
+            height: 25%;
+            overflow: hidden;
+        }
+        .details-left img{
+            width: 100%;
+            height: 100%;
+        }
+        .details-right{
+            /*padding-left: 10px;*/
+            width: 100%;
+            margin-left: 10px;
+        }
+        .details-right .right-name{
+            font-size: 6px;
+            color: #666666;
+            /*width: 235px;*/
+            height: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .details-right .right-price{
+            color: #999999;
+            font-size: 13px;
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            height: auto;
+            padding-top: 5px;
+        }
+        .weui-navbar + .weui-tab__bd{
+            padding-top: 76px;
+        }
+        .message img{
+            width: 20px;
+            height: 17px;
+        }
+        .mesg{
+            width: 16px;
+            height: 20px;
+        }
+        .message{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+            height: 60px;
+        }
+        .mesg{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+            height: 60px;
+        }
+    </style>
+</head>
+<body ontouchstart>
+<div class="weui-tab">
+    <div class="weui-navbar">
+        <a class="weui-navbar__item proinfo-tab-tit font-14 weui-bar__item--on" href="#tab1">
+          <div class="message">
+              <img src="images/xiaoche.png">
+              <p>交易配送</p>
+          </div>
+        </a>
+        <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab2">
+            <div class="mesg ">
+                <img src="images/xiaoche.png">
+                <p>通知中心</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="xiang">
+                <div class="state">
+                    <div class="state-time">支付成功</div>
+                    <div class="state-tt">19/03/13&nbsp;12:22</div>
+                </div>
+                <a>
+                    <div class="details">
+                        <div class="details-left">
+                            <img src="images/shangping.png">
+                        </div>
+                        <div class="details-right">
+                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                            <div class="right-price">
+                                <div class="price">订单编号:</div>
+                                <div class="num">123321123321123321</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--待发货-->
+        <div id="tab2" class="weui-tab__bd-item">
+            <div class="xiang">
+                <div class="state">
+                    <div class="state-time">订单已取消</div>
+                    <div class="state-tt">19/03/13&nbsp;12:22</div>
+                </div>
+                <a>
+                    <div class="details">
+                        <div class="details-left">
+                            <img src="images/shangping.png">
+                        </div>
+                        <div class="details-right">
+                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                            <div class="right-price">
+                                <div class="price">订单编号:</div>
+                                <div class="num">123321123321123</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<% include _foot.html %>
+</body>
+</html>

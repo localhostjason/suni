@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>新建地址</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+        .log-button { /* 按钮美化 */
+            width: 100%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #C88F3A; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+        .log{
+            width: 90%;
+            padding: 0 5%;
+        }
+        .num{
+            width: 90%;
+            margin: 0 5%;
+            height: 354px;
+            background-color: #FFFFFF;
+            margin-top: 16px;
+        }
+        .num .num-tt{
+            font-size: 13px;
+            color: #333333;
+            padding-bottom: 15px;
+            padding-left: 14px;
+            padding-top: 22px;
+        }
+        .num .num-in {
+            padding-bottom: 5px;
+            padding-left: 14px;
+        }
+        .num .num-in input{
+            font-size: 15px;
+            color: #999999;
+        }
+        .num .fen{
+            width:92% ;
+            padding: 0 4%;
+        }
+        .num .fen .fen-t{
+            border: 1px solid #CCCCCC;
+        }
+        .num-ttt{
+            font-size: 13px;
+            color: #333333;
+            padding-left: 14px;
+        }
+        select {
+            width: 70px;
+            height: 20px;
+            font-size: 15px;
+            color: #888888;
+        }
+        .checke{
+            position: relative;
+            -webkit-appearance: none;
+            width:33px;
+            height: 20px;
+            line-height: 44px;
+            background: #999999;
+            border-radius: 10px;
+            outline: none;
+        }
+        .checke:before{
+            position: absolute;
+            left: 0;
+            content: '';
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: rgba(255,255,255,1);
+            box-shadow: 0px 3px 3px 0px rgba(14,5,10,0.21);
+            transition: all 0.2s linear;
+        }
+
+        .checke:checked{
+            background: #C88F3A;
+        }
+        .checke:checked:before{
+            left: 15px;
+            transition: all 0.2s linear;
+        }
+        .moren{
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 14px;
+        }
+        .log-btn{ /* 按钮美化 */
+            width: 50%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #888888; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+        .log-bton{ /* 按钮美化 */
+            width: 50%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #C88F3A; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+        .button{
+            width: 90%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="num">
+    <div class="num-tt">收件人姓名</div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人姓名"  style="border-style:none" name="recipient_name"></div>
+    <div class="fen"><div class="fen-t"></div></div>
+    <div class="num-tt">收件人电话</div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人电话号码"  style="border-style:none" name="recipient_phone"></div>
+    <div class="fen"><div class="fen-t"></div></div>
+    <div class="num-tt">收件人地址</div>
+    <div class="num-in">
+        <form action="#">
+        <!--省份选择-->
+        <select id="prov" onchange="showCity(this)" style="border: 0" name="province">
+            <option>请选择</option>
+        </select>
+        <!--城市选择-->
+        <select id="city" onchange="showCountry(this)" style="border: 0" name="city">
+            <option>请选择</option>
+        </select>
+        <!--县区选择-->
+        <select id="country" onchange="selecCountry(this)" style="border: 0" name="area">
+            <option>请选择</option>
+        </select>
+        </form>
+    </div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人详细地址"  style="border-style:none" name="address"></div>
+    <div class="fen"><div class="fen-t"></div></div>
+    <div class="moren">
+        <div class="num-ttt">设为默认地址</div>
+        <div class="check"><input type="checkbox" class="checke" name="btn"></div>
+    </div>
+</div>
+
+<div class="log">
+    <button class="log-button">确&nbsp;认</button>
+</div>
+    <!--<div class="button">-->
+        <!--<button class="log-btn">删&nbsp;除</button>-->
+        <!--<button class="log-bton">编&nbsp;辑</button>-->
+    <!--</div>-->
+
+<% include _foot.html %>
+</body>
+<script>
+    $(function () {
+        $(".log-button").on('click', function () {
+            var recipient_name = $("input[name='recipient_name']").val();
+            var recipient_phone = $("input[name='recipient_phone']").val();
+            var province = $("select[name='province']").val();
+            var city = $("select[name='city']").val();
+            var area = $("select[name='area']").val();
+            var address = $("input[name='address']").val();
+            var is_default = $("input[name='is_default']").val();
+            if (recipient_name == '') {
+                LayerAlert1("请输入收件人姓名");
+                return false;
+            }
+            if (recipient_phone == '') {
+                LayerAlert1("请输入收件人电话");
+                return false;
+            }
+            if (checkPhone(recipient_phone) == false) {
+                LayerAlert1("手机号格式不正确");
+                return false;
+            }
+            if (province == '') {
+                LayerAlert1("请选择省份");
+                return false;
+            }
+            if (city == '') {
+                LayerAlert1("请选择城市");
+                return false;
+            }
+            if (area == '') {
+                LayerAlert1("请选择区域");
+                return false;
+            }
+            if (address == '') {
+                LayerAlert1("请输入详细地址");
+                return false;
+            }
+            if ($("input[name='btn']").is(":checked")) {
+            } else {
+                LayerAlert1("是否设为默认地址");
+                return false;
+            }
+
+            var data = {recipient_name: recipient_name,recipient_phone:recipient_phone,province:province,city:city,area:area,address:address,is_default:Boolean("is_default")};
+            sendAjax('api/address', data, 'post', 'json', function (res) {
+                var user=res.user;
+                LayerAlert1("新建成功");
+            })
+        })
+    })
+</script>
+</html>

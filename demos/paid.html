@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>确认订单</title>
+    <% include _head.html %>
+    <link rel="stylesheet" href="../lib/weui.order.css">
+    <style>
+        body{
+            background-color: #EDEDED;
+        }
+        .kuang{
+            width: 90%;
+            padding: 0 5%;
+            background-color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+        .dingdan{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 65px;
+        }
+        .dingdan .dingdan-tai{
+            font-size: 18px;
+            color: #C88F3A;
+        }
+        .dingdan .dingdan-num{
+            font-size: 13px;
+            color: #999999;
+        }
+        .weui-cell{
+            padding: 0;
+        }
+        .weui-cell:before{
+            border: 0;
+        }
+        .weui-cell__bd .wen{
+            font-size: 13px;
+            color: #333333;
+            position: relative;
+            top: -10px;
+            padding-right: 15px;
+        }
+        .weui-cell__bd .num{
+            font-size: 13px;
+            color: #999999;
+            position: relative;
+            top: -10px;
+        }
+        .weui-cell__bd .dizhi{
+            font-size: 6px;
+            color: #999999;
+        }
+        .diqu{
+            height: 100px;
+        }
+        .juti{
+            padding-left:20px ;
+        }
+        /*.xiang{*/
+        /*width: 100%;*/
+        /*height: auto;*/
+        /*background-color: #FFFFFF;*/
+        /*margin-top: 10px;*/
+        /*}*/
+        .details-left{
+            width: 32%;
+            height: 32%;
+        }
+        .right-price .price{
+            font-size: 15px;
+            color: #C88F3A;
+        }
+        .right-price .num{
+            font-size: 16px;
+            color: #C88F3A;
+        }
+        .details{
+            padding-top: 15px;
+            padding-bottom: 5px;
+            width:100%;
+            margin: 0;
+        }
+        .details-right {
+            margin-left: 14px;
+        }
+        .details-right .right-name{
+            margin-bottom: 20px;
+        }
+        .dingdanxi{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .dingdanxi .xinxi{
+            color: #333333;
+            font-size: 13px;
+        }
+        .dingdanxi .jine{
+            color: #E51C23;
+            font-size: 14px;
+        }
+        .ddxinxi{
+            height: auto;
+            padding: 18px 0px;
+        }
+        .ddxinxi .ddxinxi-zz{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #999999;
+        }
+        .ddxinxi .ddxinxi-zzz{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #999999;
+            padding-top: 14px;
+        }
+        .shouhou{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 45px;
+            padding-left: 10px;
+        }
+        .shouhou .shouhou-tt{
+            color: #000000;
+            border: 1px solid #BBBBBB;
+            border-radius: 15px;
+            font-size: 13px;
+            width: 90px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .kuangg{
+            width: 90%;
+            padding: 0 5%;
+            background-color: #FFFFFF;
+        }
+        .an{
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+<div class="kuang">
+    <div class="dingdan">
+        <div class="dingdan-tai">待付款</div>
+        <div class="dingdan-num">订单编号:123321123321123212</div>
+    </div>
+</div>
+<div class="kuang">
+    <a class="weui-cell weui-cell_access form-cell bgcolor diqu" href="javascript:;">
+        <div class="weui-cell__hd"><img src="images/dibiao.png"></div>
+        <div class="weui-cell__bd juti">
+            <spanp class="wen">小灰灰</spanp>
+            <span class="num">188888888</span>
+            <div class="dizhi">江苏省常州市武进区湖塘镇大学城科教城信息产业园研发楼226</div>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+</div>
+<div class="kuang">
+    <a>
+        <div class="details">
+            <div class="details-left">
+                <img src="images/shangping.png">
+            </div>
+            <div class="details-right">
+                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                <div class="right-price">
+                    <div class="price">￥188.00</div>
+                    <div class="num">*2</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a>
+        <div class="details">
+            <div class="details-left">
+                <img src="images/shangping.png">
+            </div>
+            <div class="details-right">
+                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                <div class="right-price">
+                    <div class="price">￥188.00</div>
+                    <div class="num">*2</div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="kuang">
+    <div class="dingdanxi">
+        <div class="xinxi">订单信息</div>
+        <div class="jine">金额:8888.00</div>
+    </div>
+    <div class="ddxinxi">
+        <div class="ddxinxi-zz">
+            <span>支付方式</span><span>微信支付</span>
+        </div>
+        <div class="ddxinxi-zzz">
+            <span>创建时间</span><span>19/03/16&nbsp;12:22</span>
+        </div>
+        <!--<div class="ddxinxi-zzz">-->
+            <!--<span>支付时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--</div>-->
+        <!--<div class="ddxinxi-zzz">-->
+            <!--<span>发货时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--</div>-->
+        <!--<div class="ddxinxi-zzz">-->
+            <!--<span>签收时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="kuangg">
+    <div class="an">
+        <div class="shouhou">
+            <div class="shouhou-tt">删除订单</div>
+        </div>
+        <div class="shouhou">
+            <div class="shouhou-tt">立即支付</div>
+        </div>
+    </div>
+</div>
+<% include _foot.html %>
+</body>
+</html>
