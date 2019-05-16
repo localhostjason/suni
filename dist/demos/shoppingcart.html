@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>购物车</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+<link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <style>
+        body{
+            background-color: #e5e5e5;
+        }
+        .wu {
+            padding-top: 81px;
+        }
+
+        .wu .wu-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wu img {
+            width: 130px;
+            height: 130px;
+        }
+
+        .wu .wu-tt {
+            font-size: 13px;
+            color: #666666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 39px;
+        }
+    </style>
+</head>
+<body>
+    <!--<div class="wu">-->
+        <!--<div class="wu-img"><img src="images/logoo.png"></div>-->
+        <!--<a href="login.html"><div class="wu-tt">立即登录</div></a>-->
+        <!--<div class="wu-tt">购物车空空如也,快去挑选商品吧!</div>-->
+    <!--</div>-->
+
+    <script>
+        menu_index = 4;
+    </script>
+    <script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+    <style>
+    .weui-tabbar__icon{
+        width: 20px;
+        height: 20px;
+    }
+    .weui-tabbar__label{
+        font-size: 13px;
+        color: #000000;
+    }
+    .weui-tabbar{
+        background-color: #FFFFFF;
+        position: fixed;
+    }
+</style>
+<div class="">
+    <div class="weui-tabbar">
+    </div>
+</div>
+<script>
+
+    var menu_list = [
+        {
+            'id':1,
+            'name':'首页',
+            'orgin_path':'images/shouye.png',
+            'select_path':'images/me.png',
+            'src':'home.html'
+        },
+        {
+            'id':2,
+            'name':'分类',
+            'orgin_path':'images/fenlei.png',
+            'select_path':'images/me.png',
+            'src':'classification.html'
+        },
+        {
+            'id':3,
+            'name':'购物车',
+            'orgin_path':'images/gouwuche.png',
+            'select_path':'images/me.png',
+            'src':'shoppingcartnone.html'
+        },
+        {
+            'id':4,
+            'name':'我的',
+            'orgin_path':'images/me.png',
+            'select_path':'images/me.png',
+            'src':'person.html'
+        },
+    ];
+    $(function () {
+        var html = '';
+        $.each(menu_list,function (k,v) {
+            html += '<a href="'+v.src+'" class="weui-tabbar__item" data-src="'+v.src+'">'
+            if(v.id == menu_index){
+                html += '<img src="'+v.select_path+'" alt="" class="weui-tabbar__icon">'
+            }else{
+                html += '<img src="'+v.orgin_path+'" alt="" class="weui-tabbar__icon">'
+            }
+            html +=   '<p class="weui-tabbar__label">'+v.name+'</p>'
+            html +=    '</a>';
+        });
+        $('.weui-tabbar').html('');
+        $('.weui-tabbar').html(html);
+    })
+
+</script>
+</body>
+</html>

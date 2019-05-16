@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>注册</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        .height {
+            height: 61px;
+        }
+
+        .return {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            color: #666666;
+            padding-top: 19px;
+        }
+
+        .cll {
+            width: 90%;
+            padding: 0 5%;
+            padding-bottom: 15px;
+        }
+
+        .cll .cll-phone {
+            height: 45px;
+            background: rgba(237, 237, 237, 1);
+            border-radius: 23px;
+            font-size: 13px;
+            color: #666666;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cll .cll-phone .code {
+            font-size: 13px;
+            color: #C88F3A;
+            padding-right: 18px;
+        }
+
+        .cll .cll-phone .weui-input {
+            width: 60%;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 18px;
+            position: relative;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #999999;
+            width: 100%;
+            height: 100%;
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: "\2713";
+            background-color: #999999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #ffffff;
+            /*font-size: 20px;*/
+            font-weight: bold;
+        }
+
+        .checkbox01 {
+            width: 90%;
+            padding: 0 5%;
+        }
+
+        .checkbox01 .xie {
+            font-size: 6px;
+            color: #9F9F9F;
+        }
+
+        a {
+            text-decoration: none;
+            out-line: none;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+<div class="height"></div>
+<form onsubmit="return false">
+    <div class="cell">
+        <div class="cell-phone">
+            <input class="weui-input" type="tel" placeholder="请输入您的手机号码" maxlength="11" name="phone">
+        </div>
+    </div>
+    <div class="cll">
+        <div class="cll-phone">
+            <input class="weui-input" type="tel" placeholder="获取验证码" name="code">
+            <div class="code" id="bt01" type="reg">获取验证码</div>
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-phon">
+            <input class="weui-input" type="password" placeholder="请输入您的密码" name="password">
+            <img src="images/see.png" class="see_pass" type="1">
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-phon">
+            <input class="weui-input" type="password" placeholder="请输入您的密码" name="twopassword">
+        </div>
+    </div>
+
+    <div class="checkbox01">
+        <input type="checkbox" id="btn1" name="btn" value="1"/>
+        <label for="btn1" class="xie">我已阅读并同意</label><a href="register_agreement.html"
+                                                        style="font-size:6px; color: #9F9F9F;">《塑妮用户注册使用协议》</a>
+    </div>
+</form>
+
+<div class="login">
+    <button class="login-button">注 册</button>
+</div>
+<div class="return">
+    <div><a href="login.html">已有账号，去登录</a></div>
+</div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+<script>
+    var bt01 = document.getElementById("bt01");
+    bt01.onclick = function () {
+        if ($("input[name='phone']").val() == '') {
+            LayerAlert1("请输入手机号");
+            return false;
+        }
+        var type = $(this).attr('type');
+        var tel = $("input[name='phone']").val();
+        var data = {type: type, phone: tel};
+        bt01.disabled = true;  //当点击后倒计时时候不能点击此按钮
+        var time = 60;  //倒计时5秒
+        var timer = setInterval(fun1, 1000);  //设置定时器
+        function fun1() {
+            time--;
+            if (time >= 0) {
+                bt01.innerHTML = time + "s后重新发送";
+            } else {
+                bt01.innerHTML = "重新发送验证码";
+                bt01.disabled = false;  //倒计时结束能够重新点击发送的按钮
+                clearTimeout(timer);  //清除定时器
+                time = 1;  //设置循环重新开始条件
+            }
+        }
+
+        sendAjax('api/sms', data, 'post', function (res) {
+            console.log(res);
+            LayerAlert1("发送成功");
+            return false;
+        }, false)
+    }
+</script>
+<script>
+    $(function () {
+        $(".login-button").on('click', function () {
+            var tel = $("input[name='phone']").val();
+            var password = $("input[name='password']").val();
+            var code = $("input[name='code']").val();
+
+            if (tel == '') {
+                LayerAlert1("请输入手机号");
+                return false;
+            }
+            if (checkPhone(tel) == false) {
+                LayerAlert1("手机号格式不正确");
+                return false;
+            }
+            if (code == '') {
+                LayerAlert1("请输入验证码");
+                return false;
+            }
+            if (password == '') {
+                LayerAlert1("请输入密码");
+                return false;
+            }
+            if ($("input[name='twopassword']").val() == '') {
+                LayerAlert1("请再次输入密码");
+                return false;
+            }
+            if ($("input[name='twopassword']").val() != password) {
+                LayerAlert1("两次密码输入不一致");
+                return false;
+            }
+            if ($("input[name='btn']").is(":checked")) {
+            } else {
+                LayerAlert1("请勾选用户注册使用协议");
+                return false;
+            }
+            var data = {phone: tel, password: password, code: code};
+            sendAjax('api/register', data, 'post', function (res) {
+                LayerAlert1("注册成功");
+            }, false)
+        })
+    })
+</script>
+</html>

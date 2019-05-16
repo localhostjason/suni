@@ -1,0 +1,100 @@
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        a {
+            text-decoration: none;
+            out-line: none;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <div class="title-img">
+        <img src="images/login.png">
+    </div>
+</div>
+<form onsubmit="return false">
+    <div class="cell">
+        <div class="cell-phone">
+            <input class="weui-input" type="tel" placeholder="请输入您的手机号码" maxlength="11" name="phone">
+        </div>
+    </div>
+    <div class="cell">
+        <div class="cell-phon">
+            <input class="weui-input" type="password" placeholder="请输入您的密码" name="password">
+            <img src="images/see.png" class="see_pass" type="1">
+        </div>
+    </div>
+    <div class="login">
+        <button class="login-button">登&nbsp;录</button>
+    </div>
+</form>
+<div class="text">
+    <div class="text-tt"><a href="register.html">快速注册</a></div>
+    <div class="text-tt"><a href="password.html">找回密码</a></div>
+</div>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+<script>
+    $(function () {
+        $(".login-button").on('click', function () {
+            var phone = $("input[name='phone']").val();
+            var password = $("input[name='password']").val();
+            if (phone == '') {
+                LayerAlert1("请输入手机号");
+                return false;
+            }
+            if (checkPhone(phone) == false) {
+                LayerAlert1("手机号格式不正确");
+                return false;
+            }
+            if (password == '') {
+                LayerAlert1("请输入密码");
+                return false;
+            }
+            var data = {phone: phone, password: password};
+            //console.log(datas);
+            sendAjax('api/login', data, 'post', function (res) {
+                var token = res.token;
+
+
+                localStorage.setItem("user_id", res.data.id);
+                localStorage.setItem('phone', res.data.phone);
+                localStorage.setItem("token", token);
+                localStorage.setItem('total_profit', res.data.total_profit);
+
+                LayerAlert1("登录成功");
+                window.location.href = "home.html";
+
+
+            }, true)
+        })
+    })
+</script>
+</html>

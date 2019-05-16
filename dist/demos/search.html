@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>搜索</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+<link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.order.css">
+    <link rel="stylesheet" href="../lib/weui.detail.css">
+    <style>
+        body{
+            background-color: #FFFFFF;
+        }
+        .imgage img {
+            width: 17px;
+            height: 17px;
+            filter: drop-shadow(0 0 0 #FFF);
+        }
+        .imgage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 92%;
+            padding: 10px 4%;
+        }
+        .weui-search-bar__form {
+            position: relative;
+            -webkit-box-flex: 1;
+            -webkit-flex: auto;
+            flex: auto;
+            background-color: #FFFFFF;
+            border-radius: 100px;
+        }
+        .imgage .head{
+            width: 18px;
+            height: 18px;
+            background-color:#e5e5e5 ;
+            padding: 9px;
+            border-radius: 50%;
+        }
+        .alarm img{
+            width: 17px;
+            height: 17px;
+        }
+        .imgage .fang{
+            width: 36px;
+            height: 36px;
+        }
+        .weui-search-bar__form:after{
+            background-color: #e5e5e5;
+            border-radius: 100px;
+        }
+        .weui-search-bar__box{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .weui-icon-search:before{
+            color: #FFFFFF;
+        }
+        input::-webkit-input-placeholder{
+            color: #FFFFFF;
+        }
+        .weui-search-bar__box .weui-search-bar__input{
+            padding-left: 5px;
+        }
+        .choosed{
+            width: 92%;
+            padding: 0 4%;
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            align-items: center;
+            font-size: 14px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        .choosed .img{
+            position: relative;
+            bottom: 5px;
+            padding-left: 3px;
+        }
+        .choosed .select{
+            color: #E60012;
+        }
+        .recommend{
+            padding-top: 2%;
+        }
+        .con{
+            font-size: 13px;
+            color: #666666;
+        }
+        .con .xiao{
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .con .xiao-tt{
+            padding: 15px 0;
+        }
+        .cove{
+            width:100%;
+            height:100%;
+            background-color:rgba(0, 0, 0, 0.5);
+            z-index:1000;
+            position:fixed;
+            text-align:center;
+            font-size: 16px;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .cover{
+            width:100%;
+            height:100%;
+            background-color:rgba(0, 0, 0, 0.5);
+            z-index:1000;
+            position:fixed;
+            text-align:center;
+            font-size: 16px;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .wu {
+            padding-top: 60px;
+        }
+        .wu .wu-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wu img {
+            width: 130px;
+            height: 130px;
+        }
+
+        .wu .wu-tt {
+            font-size: 13px;
+            color: #666666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 39px;
+        }
+    </style>
+</head>
+<body>
+<div class="imgage">
+    <img class="fang" src="images/fang.png">
+    <div class="search" id="search_bar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索"/>
+            </div>
+        </form>
+    </div>
+    <img  class="head" src="images/yuanq.png">
+</div>
+<div class="choosed">
+    <div id="color1" class="select">综合</div>
+    <div id="color2" onclick="showCon();">销量<img class="img" src="images/heijian.png"></div>
+    <div id="color3" onclick="growCon();">价格<img class="img" src="images/heijian.png"></div>
+    <div id="color4" onclick="openCon();">类型<img class="img" src="images/heijian.png"></div>
+</div>
+<!-- 搜索结果为空 -->
+<!--<div class="wu">-->
+<!--<div class="wu-img"><img src="images/logoo.png"></div>-->
+<!--<div class="wu-tt">购物车空空如也,快去挑选商品吧!</div>-->
+<!--</div>-->
+<div class="recommend">
+    <div class="recommend-list">
+        <a>
+            <div class="list"  >
+                <div class="list-biao">
+                    <div class="list-up">
+                        <img src="images/shangping1.png">
+                    </div>
+                    <div class="list-down">
+                        <div class="down-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="price">
+                            <div class="dowan-price">¥188.00</div>
+                            <div class="down-num">月销6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="list">
+                <div class="list-biao">
+                    <div class="list-up">
+                        <img src="images/shangping1.png">
+                    </div>
+                    <div class="list-down">
+                        <div class="down-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="price">
+                            <div class="dowan-price">¥188.00</div>
+                            <div class="down-num">月销6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="list">
+                <div class="list-biao">
+                    <div class="list-up">
+                        <img src="images/shangping1.png">
+                    </div>
+                    <div class="list-down">
+                        <div class="down-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="price">
+                            <div class="dowan-price">¥188.00</div>
+                            <div class="down-num">月销6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="list">
+                <div class="list-biao">
+                    <div class="list-up">
+                        <img src="images/shangping1.png">
+                    </div>
+                    <div class="list-down">
+                        <div class="down-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="price">
+                            <div class="dowan-price">¥188.00</div>
+                            <div class="down-num">月销6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a>
+            <div class="list">
+                <div class="list-biao">
+                    <div class="list-up">
+                        <img src="images/shangping1.png">
+                    </div>
+                    <div class="list-down">
+                        <div class="down-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="price">
+                            <div class="dowan-price">¥188.00</div>
+                            <div class="down-num">月销6666</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class = "cov" style="display: none">
+    <div class = "con">
+        <div class="xiao" onclick = "closeCon();">销量从高到底</div>
+        <div class="xiao-tt" onclick = "closeCon();">销量从低到高</div>
+    </div>
+</div>
+<div class = "cove" style="display: none">
+    <div class = "con">
+        <div class="xiao" onclick = "shutCon();">价格从高到底</div>
+        <div class="xiao-tt" onclick = "shutCon();">价格从低到高</div>
+    </div>
+</div>
+<div class = "cover" style="display: none">
+    <div class = "con">
+        <div class="xiao" onclick = "closedCon();">液体</div>
+        <div class="xiao" onclick = "closedCon();">粉类</div>
+        <div class="xiao-tt" onclick = "closedCon();">膏霜类</div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script>
+    $('.choosed div').click(function () {
+        $(this).addClass('select').siblings().removeClass('select')
+    })
+    function showCon(){
+        $(".cov").show();
+    }
+    function closeCon(){
+        $(".cov").hide();
+    }
+    function growCon(){
+        $(".cove").show();
+    }
+    function shutCon(){
+        $(".cove").hide();
+    }
+    function openCon(){
+        $(".cover").show();
+    }
+    function closedCon(){
+        $(".cover").hide();
+    }
+</script>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>我的佣金</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+<link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <style>
+        .per-title{
+            height:116px;
+            background-image:url("images/beijing.png");
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .person{
+            width: 90%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 22px;
+        }
+        .person-meg img{
+            width: 60px;
+            height: 60px;
+        }
+        .person-meg{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .person-meg .name{
+            font-size: 21px;
+            color: #FFFFFF;
+        }
+        .person-meg .yong{
+            font-size: 15px;
+            color:#FFFFFF ;
+        }
+        .person-meg .meg-tt{
+            padding-left:17px ;
+        }
+        .person-tt{
+            font-size: 17px;
+            color: #C88F3A;
+            background-color:#FFFFFF ;
+            border-radius: 15px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 90%;
+            padding: 0 5%;
+        }
+        .detailed{
+            font-size: 16px;
+            color: #626262;
+            padding-top: 35px;
+        }
+        .carry{
+            border-bottom: 1px solid #e5e5e5;
+            padding-top: 20px;
+        }
+        .carry-num{
+            display: flex;
+            justify-content: space-between;
+        }
+        .carry-num .num-name{
+            font-size: 16px;
+            color: #626262;
+        }
+        .carry-num .num-yuan{
+            font-size: 17px;
+            color: #626262;
+        }
+        .carry-time {
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-size: 13px;
+            color: #626262;
+            display: flex;
+        }
+        .carry-time .time-jt{
+            padding-right: 20px;
+        }
+        a{
+            text-decoration: none;
+            outline: none;
+            color:#C88F3A;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="per-title">
+        <div class="person">
+            <div class="person-meg">
+                <div><img src="images/portrait.png"></div>
+                <div class="meg-tt">
+                    <p class="name">888888.00元</p>
+                    <p class="yong">佣金金额</p>
+                </div>
+            </div>
+            <div class="person-tt"><a href="carry.html">提现</a></div>
+        </div>
+    </div>
+    <div class="detailed">佣金明细</div>
+    <div class="carry">
+        <div class="carry-num">
+            <div class="num-name">提现</div>
+            <div class="num-yuan" id="money">-200.00</div>
+        </div>
+        <div class="carry-time">
+            <div class="time-jt">19/03/16&nbsp;12:25</div>
+            <div class="time-yi">已打款</div>
+        </div>
+    </div>
+    <div class="carry">
+        <div class="carry-num">
+            <div class="num-name">佣金</div>
+            <div class="num-yuan" id="money1">+200.00</div>
+        </div>
+        <div class="carry-time">
+            <div class="time-jt">19/03/16&nbsp;12:25</div>
+            <div class="time-yi">订单编号:123231511</div>
+        </div>
+    </div>
+    <div class="carry">
+        <div class="carry-num">
+            <div class="num-name">提现</div>
+            <div class="num-yuan">-200.00</div>
+        </div>
+        <div class="carry-time">
+            <div class="time-jt">19/03/16&nbsp;12:25</div>
+            <div class="time-yi">已打款</div>
+        </div>
+    </div>
+    <div class="carry">
+        <div class="carry-num">
+            <div class="num-name">佣金</div>
+            <div class="num-yuan">+200.00</div>
+        </div>
+        <div class="carry-time">
+            <div class="time-jt">19/03/16&nbsp;12:25</div>
+            <div class="time-yi">订单编号:123231511</div>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+<script>
+    $(function () {
+        var data = { };
+        sendAjax('api/rebate_detail', data,'GET', 'json', function (res) {
+            $("#money").html(res.money);
+
+        },2)
+    })
+</script>
+</html>

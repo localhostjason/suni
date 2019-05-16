@@ -1,0 +1,84 @@
+.per-title{
+    width: 100%;
+    height:214px;
+    background-image:url("images/beijing.png");
+}
+.person{
+    width: 90%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+}
+.person-meg img{
+    width: 60px;
+    height: 60px;
+}
+.person-meg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.person-meg .name{
+    font-size: 13px;
+    color: #FFFFFF;
+}
+.person-meg .yong{
+    font-size: 13px;
+    color:#CC933F ;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 1px;
+}
+.person-meg .meg-tt{
+    padding-left:17px ;
+}
+.box{
+    width: 90%;
+    margin: 0 5%;
+    height: 90px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 27px;
+}
+.weui_grid_icon img{
+    width:40px ;
+    height: 40px;
+}
+.weui_grid_label{
+    font-size: 13px;
+    color: #666666;
+}
+.weui_grids{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.box .box-nei{
+    width: 90%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.form-cell{
+    width: 90%;
+    padding: 0 5%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+.border{
+    border-bottom: 1px solid  #ededed;
+}
+.wen{
+    font-size: 13px;
+    color: #000000;
+}
+.pad{
+    border-bottom: 10px solid  #ededed;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>个人信息</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.person.css">
+    <style>
+        .weui-cell__ft img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .weui-cell__bd .wen {
+            font-size: 15px;
+            color: #666666;
+        }
+
+        .weui-cell__ft {
+            font-size: 15px;
+            color: #666666;
+        }
+
+        .pad {
+            border-bottom: 5px solid #EDEDED;
+        }
+
+        body {
+            background-color: #EDEDED;
+            padding-top: 10px;
+        }
+
+        .bgcolor {
+            background-color: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form">
+
+    <a class="weui-cell weui-cell_access form-cell bgcolor" href="javascript:;">
+        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"/>
+        <div class="weui-cell__bd">
+            <p class="wen">头像</p>
+        </div>
+        <div class="weui-cell__ft"><img src="images/header.png"></div>
+    </a>
+    <div class="pad"></div>
+    <a class="weui-cell weui-cell_access form-cell bgcolor" href="phone.html">
+        <div class="weui-cell__bd">
+            <p class="wen">手机</p>
+        </div>
+        <div class="weui-cell__ft" id="phone">1888888888</div>
+    </a>
+    <div class="pad"></div>
+
+    <a class="weui-cell weui-cell_access form-cell border bgcolor" href="changepassword.html">
+        <div class="weui-cell__bd">
+            <p class="wen">密码</p>
+        </div>
+        <div class="weui-cell__ft">*******</div>
+    </a>
+    <div class="pad"></div>
+    <a class="weui-cell weui-cell_access form-cell bgcolor" href="relname.html">
+        <div class="weui-cell__bd">
+            <p class="wen">真实姓名</p>
+        </div>
+        <div class="weui-cell__ft" id="real_name" name="relname">灰太狼</div>
+    </a>
+
+    <div class="pad"></div>
+
+    <a class="weui-cell weui-cell_access form-cell border bgcolor" href="idnumber.html">
+        <div class="weui-cell__bd">
+            <p class="wen">身份证号</p>
+        </div>
+        <div class="weui-cell__ft" id="id_card">1111111111111111111111</div>
+    </a>
+    <div class="pad"></div>
+    <a class="weui-cell weui-cell_access form-cell bgcolor" href="wechatnum.html">
+        <div class="weui-cell__bd">
+            <p class="wen">微信号</p>
+        </div>
+        <div class="weui-cell__ft" id="we_chart">88888888888</div>
+    </a>
+
+    <div class="pad"></div>
+    <a class="weui-cell weui-cell_access form-cell border bgcolor" href="alipay.html">
+        <div class="weui-cell__bd">
+            <p class="wen">支付宝</p>
+        </div>
+        <div class="weui-cell__ft" id="alipay">1111111111111111111111</div>
+    </a>
+    <div class="pad"></div>
+    <a class="weui-cell weui-cell_access form-cell bgcolor" href="banknum.html">
+        <div class="weui-cell__bd">
+            <p class="wen">银行卡</p>
+        </div>
+        <div class="weui-cell__ft" id="bank_card">88888888888</div>
+    </a>
+</div>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+<script>
+    $(function () {
+        var user_id = localStorage.getItem('user_id') || 0;
+        // var id_card =  $("#id_card").val();
+        // var we_chart =  $("#we_chart").val();
+        // var alipay =  $("#alipay").val();
+        // var bank_card =  $("#bank_card").val();
+        sendAjax('api/user/' + user_id, {}, 'GET', function (res) {
+            $("#phone").html(res.phone);
+            $("#real_name").html(res.real_name);
+            $("#id_card").html(res.id_card);
+            $("#we_chart").html(res.we_chart);
+            $("#alipay").html(res.alipay);
+            $("#bank_card").html(res.bank_card);
+        })
+    })
+</script>
+</html>

@@ -2,9 +2,9 @@
 *.swo
 *.log
 node_modules
-dist/
 .package/
 .sass-cache/
 .DS_Store
 _site/
 *.orig
+.idea

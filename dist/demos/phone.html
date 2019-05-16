@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>更换手机绑定</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        .height {
+            height: 61px;
+        }
+
+        .return {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            color: #666666;
+            padding-top: 19px;
+        }
+
+        .cll {
+            width: 90%;
+            padding: 0 5%;
+            padding-bottom: 15px;
+        }
+
+        .cll .cll-phone {
+            height: 45px;
+            background: rgba(237, 237, 237, 1);
+            border-radius: 23px;
+            font-size: 13px;
+            color: #666666;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cll .cll-phone .code {
+            font-size: 13px;
+            color: #C88F3A;
+            padding-right: 18px;
+        }
+
+        .cll .cll-phone .weui-input {
+            width: 60%;
+        }
+
+        a {
+            text-decoration: none;
+            out-line: none;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+<div class="height"></div>
+<div class="cell">
+    <div class="cell-phone">
+        <input class="weui-input" type="tel" placeholder="" maxlength="11" disabled="true" name="phone" id="phone">
+    </div>
+</div>
+<div class="cll">
+    <div class="cll-phone">
+        <input class="weui-input" type="tel" placeholder="请输入验证码" name="code">
+        <div class="code" id="bt01" type="change_phone">获取验证码</div>
+    </div>
+</div>
+<div class="cell">
+    <div class="cell-phon">
+        <input class="weui-input" type="tel" placeholder="请输入新的手机号码" name="newphone" maxlength="11">
+    </div>
+</div>
+<div class="cll">
+    <div class="cll-phone">
+        <input class="weui-input" type="tel" placeholder="请输入验证码" name="newcode">
+        <div class="code" id="bt02" type="change_phone">获取验证码</div>
+    </div>
+</div>
+<div class="login">
+    <button class="login-button">更&nbsp;换&nbsp;手&nbsp;机</button>
+</div>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+<script>
+    var phone = localStorage.getItem('phone');
+
+    $("input[name='phone']").val(phone);
+    var bt01 = document.getElementById("bt01");
+    bt01.onclick = function () {
+        $("input[name='phone']").val(phone);
+        var type = $(this).attr('type');
+        var data = {type: type, phone: phone};
+        bt01.disabled = true;  //当点击后倒计时时候不能点击此按钮
+        var time = 60;  //倒计时5秒
+        var timer = setInterval(fun1, 1000);  //设置定时器
+        function fun1() {
+            time--;
+            if (time >= 0) {
+                bt01.innerHTML = time + "s后重新发送";
+            } else {
+                bt01.innerHTML = "重新发送验证码";
+                bt01.disabled = false;  //倒计时结束能够重新点击发送的按钮
+                clearTimeout(timer);  //清除定时器
+                time = 1;  //设置循环重新开始条件
+            }
+        }
+
+        console.log(data);
+        sendAjax('api/sms', data, 'post', function (res) {
+            LayerAlert1("发送成功");
+            return false;
+        }, true)
+    };
+    var bt02 = document.getElementById("bt02");
+    bt02.onclick = function () {
+        var newphone = $("input[name='newphone']").val();
+
+        if (newphone === '') {
+            LayerAlert1("请输入新手机号");
+            return false;
+        }
+        if (newphone !== $("input[name='phone']").val()) {
+            LayerAlert1("新手机号不能跟原来一样");
+            return false;
+        }
+        var type = $(this).attr('type');
+
+        var data = {type: type, phone: newphone};
+        bt02.disabled = true;  //当点击后倒计时时候不能点击此按钮
+        var time = 60;  //倒计时5秒
+        var timer = setInterval(fun1, 1000);  //设置定时器
+        function fun1() {
+            time--;
+            if (time >= 0) {
+                bt02.innerHTML = time + "s后重新发送";
+            } else {
+                bt02.innerHTML = "重新发送验证码";
+                bt02.disabled = false;  //倒计时结束能够重新点击发送的按钮
+                clearTimeout(timer);  //清除定时器
+                time = 1;  //设置循环重新开始条件
+            }
+        }
+
+        sendAjax('api/sms', data, 'post', function (res) {
+            LayerAlert1("发送成功");
+            return false;
+        }, true)
+    }
+</script>
+<script>
+    $(function () {
+        $(".login-button").on('click', function () {
+            var tel = $("input[name='phone']").val();
+            var newphone = $("input[name='newphone']").val();
+            var newcode = $("input[name='newcode']").val();
+            var code = $("input[name='code']").val();
+            if (code == '') {
+                LayerAlert1("请输入验证码");
+                return false;
+            }
+            if (newphone == '') {
+                LayerAlert1("请输入新手机号");
+                return false;
+            }
+            if (checkPhone(newphone) == false) {
+                LayerAlert1("新手机号格式不正确");
+                return false;
+            }
+            if (newcode == '') {
+                LayerAlert1("请输入新验证码");
+                return false;
+            }
+            var data = {
+                phone: tel,
+                new_phone: newphone,
+                code: code,
+                new_code: newcode
+            };
+            sendAjax('api/change/phone', data, 'post', function (res) {
+                LayerAlert1("更换成功");
+                localStorage.setItem('phone', newphone);
+                setTimeLoad(function () {
+                    window.location.href = "information.html"
+                })
+            })
+        })
+    })
+</script>
+</html>

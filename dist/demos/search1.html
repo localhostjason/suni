@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>搜索</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+<link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <style>
+        .imgage img {
+            width: 17px;
+            height: 17px;
+            filter: drop-shadow(0 0 0 #FFF);
+        }
+        .imgage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 92%;
+            padding: 10px 4%;
+        }
+        .weui-search-bar__form {
+            position: relative;
+            -webkit-box-flex: 1;
+            -webkit-flex: auto;
+            flex: auto;
+            background-color: #FFFFFF;
+            border-radius: 100px;
+        }
+        .imgage .head{
+            width: 18px;
+            height: 18px;
+            background-color:#e5e5e5 ;
+            padding: 9px;
+            border-radius: 50%;
+        }
+        .alarm img{
+            width: 17px;
+            height: 17px;
+        }
+        .imgage .fang{
+            width: 36px;
+            height: 36px;
+        }
+        .weui-search-bar__form:after{
+            background-color: #e5e5e5;
+            border-radius: 100px;
+        }
+        .weui-search-bar__box{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .weui-icon-search:before{
+            color: #FFFFFF;
+        }
+        input::-webkit-input-placeholder{
+            color: #FFFFFF;
+        }
+        .weui-search-bar__box .weui-search-bar__input{
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="imgage">
+    <img class="fang" src="images/fang.png">
+    <div class="search" id="search_bar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索"/>
+            </div>
+        </form>
+    </div>
+    <img  class="head" src="images/yuanq.png">
+</div>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+</body>
+</html>

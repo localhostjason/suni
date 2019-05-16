@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>新建地址</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <link rel="stylesheet" href="../lib/weui.login.css">
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        .log-button { /* 按钮美化 */
+            width: 100%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #C88F3A; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .log {
+            width: 90%;
+            padding: 0 5%;
+        }
+
+        .num {
+            width: 90%;
+            margin: 0 5%;
+            height: 354px;
+            background-color: #FFFFFF;
+            margin-top: 16px;
+        }
+
+        .num .num-tt {
+            font-size: 13px;
+            color: #333333;
+            padding-bottom: 15px;
+            padding-left: 14px;
+            padding-top: 22px;
+        }
+
+        .num .num-in {
+            padding-bottom: 5px;
+            padding-left: 14px;
+        }
+
+        .num .num-in input {
+            font-size: 15px;
+            color: #999999;
+        }
+
+        .num .fen {
+            width: 92%;
+            padding: 0 4%;
+        }
+
+        .num .fen .fen-t {
+            border: 1px solid #CCCCCC;
+        }
+
+        .num-ttt {
+            font-size: 13px;
+            color: #333333;
+            padding-left: 14px;
+        }
+
+        select {
+            width: 70px;
+            height: 20px;
+            font-size: 15px;
+            color: #888888;
+        }
+
+        .checke {
+            position: relative;
+            -webkit-appearance: none;
+            width: 33px;
+            height: 20px;
+            line-height: 44px;
+            background: #999999;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .checke:before {
+            position: absolute;
+            left: 0;
+            content: '';
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 3px 3px 0px rgba(14, 5, 10, 0.21);
+            transition: all 0.2s linear;
+        }
+
+        .checke:checked {
+            background: #C88F3A;
+        }
+
+        .checke:checked:before {
+            left: 15px;
+            transition: all 0.2s linear;
+        }
+
+        .moren {
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 14px;
+        }
+
+        .log-btn { /* 按钮美化 */
+            width: 50%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #888888; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .log-bton { /* 按钮美化 */
+            width: 50%;
+            height: 45px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            background: #C88F3A; /* 背景颜色 */
+            outline: none; /* 不显示轮廓线 */
+            color: #FFFFFF; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .button {
+            width: 90%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="num">
+    <div class="num-tt">收件人姓名</div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人姓名" style="border-style:none"
+                               name="recipient_name"></div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+    <div class="num-tt">收件人电话</div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人电话号码" style="border-style:none"
+                               name="recipient_phone"></div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+    <div class="num-tt">收件人地址</div>
+    <div class="num-in">
+        <form action="#">
+            <!--省份选择-->
+            <select id="prov" style="border: 0" name="province">
+                <option>请选择</option>
+            </select>
+            <!--城市选择-->
+            <select id="city" style="border: 0" name="city">
+                <option>请选择</option>
+            </select>
+            <!--县区选择-->
+            <select id="country" style="border: 0" name="area">
+                <option>请选择</option>
+            </select>
+        </form>
+    </div>
+    <div class="num-in"><input class="input" type="text" placeholder="请填写收件人详细地址" style="border-style:none"
+                               name="address"></div>
+    <div class="fen">
+        <div class="fen-t"></div>
+    </div>
+    <div class="moren">
+        <div class="num-ttt">设为默认地址</div>
+        <div class="check"><input type="checkbox" class="checke" name="is_default" value="true"></div>
+    </div>
+</div>
+
+<div class="log">
+    <button class="log-button">确&nbsp;认</button>
+</div>
+<!--<div class="button">-->
+<!--<button class="log-btn">删&nbsp;除</button>-->
+<!--<button class="log-bton">编&nbsp;辑</button>-->
+<!--</div>-->
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script src="./address/areas.js"></script>
+<script src="./address/provinces.js"></script>
+<script src="./address/cities.js"></script>
+
+</body>
+
+<script>
+    function getProvince() {
+        var provinceArr = [];
+        provinces.forEach(function (item) {
+            var obj = {};
+            obj.name = item.name;
+            obj.code = item.code;
+            provinceArr.push(obj);
+        });
+        return provinceArr;
+    }
+
+    function getCity(provinceCode) {
+        console.log("省：" + provinceCode);
+        if (!provinceCode) {
+            provinceCode = '11'
+        }
+        var cityArr = [];
+        cities.forEach(function (item) {
+            if (item.provinceCode === provinceCode) {
+                var obj = {};
+                obj.name = item.name;
+                obj.code = item.code;
+                obj.provinceCode = item.provinceCode;
+                cityArr.push(obj);
+            }
+        });
+        return cityArr;
+    }
+
+    function getArea(cityCode) {
+        console.log("市：" + cityCode);
+        if (!cityCode) {
+            cityCode = '1101'
+        }
+        var areaArr = [];
+        areas.forEach(function (item) {
+            if (item.cityCode === cityCode) {
+                var obj = {};
+                obj.name = item.name;
+                obj.code = item.code;
+                obj.provinceCode = item.provinceCode;
+                obj.cityCode = item.cityCode;
+                areaArr.push(obj);
+            }
+        });
+        return areaArr;
+    }
+</script>
+<script>
+    $(function () {
+
+        var prov = $('#prov');
+        var province_list = getProvince();
+
+        function set_pro_option(province_list) {
+            var province_option_html = '<option>请选择</option>';
+            province_list.forEach(function (value) {
+                province_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
+            });
+            prov.html(province_option_html);
+        }
+
+        set_pro_option(province_list);
+
+        var city = $('#city');
+        var city_list = getCity();
+
+        function set_city_option(city_list) {
+            var city_option_html = '<option>请选择</option>';
+            city_list.forEach(function (value) {
+                city_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
+            });
+            city.html(city_option_html);
+        }
+
+        set_city_option(city_list);
+
+
+        var area = $('#country');
+        var area_list = getArea();
+
+        function set_area_option(area_list) {
+            var area_option_html = '<option>请选择</option>';
+            area_list.forEach(function (value) {
+                area_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
+            });
+            area.html(area_option_html);
+        }
+
+        set_area_option(area_list);
+
+
+        prov.change(function () {
+            var code = $(this).val();
+            var city_info = getCity(code);
+            set_city_option(city_info);
+            city.val(city_info[0].code);
+
+            var area_info = getArea(city_info[0].code);
+            set_area_option(area_info);
+            area.val(area_info[0].code)
+        });
+
+        city.change(function () {
+            var area_info = getArea($(this).val());
+            set_area_option(area_info);
+            area.val(area_info[0].code)
+        });
+    })
+</script>
+<script>
+    $(function () {
+        $(".log-button").on('click', function () {
+            var recipient_name = $("input[name='recipient_name']").val();
+            var recipient_phone = $("input[name='recipient_phone']").val();
+            var province = $("select[name='province']").val();
+            var city = $("select[name='city']").val();
+            var area = $("select[name='area']").val();
+            var address = $("input[name='address']").val();
+            var is_default = $("input[name='is_default']").val();
+            // console.log(is_default)
+            if (recipient_name == '') {
+                LayerAlert1("请输入收件人姓名");
+                return false;
+            }
+            if (recipient_phone == '') {
+                LayerAlert1("请输入收件人电话");
+                return false;
+            }
+            if (checkPhone(recipient_phone) == false) {
+                LayerAlert1("手机号格式不正确");
+                return false;
+            }
+            if (province == '') {
+                LayerAlert1("请选择省份");
+                return false;
+            }
+            if (city == '') {
+                LayerAlert1("请选择城市");
+                return false;
+            }
+            if (area == '') {
+                LayerAlert1("请选择区域");
+                return false;
+            }
+            if (address == '') {
+                LayerAlert1("请输入详细地址");
+                return false;
+            }
+            // if ($("input[name='is_default']").is(":checked")) {
+            // } else {
+            //     LayerAlert1("是否设为默认地址");
+            // return false;
+            // }
+
+            var data = {
+                recipient_name: recipient_name,
+                recipient_phone: recipient_phone,
+                province: province,
+                city: city,
+                area: area,
+                address: address,
+                is_default: is_default === 'true'
+            };
+            sendAjax('api/address', data, 'post', function (res) {
+                LayerAlert1("新建成功");
+                window.location.href = "addressmanagement.html";
+            })
+        })
+    })
+</script>
+</html>

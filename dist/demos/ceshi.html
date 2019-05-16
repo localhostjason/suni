@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>商城分类</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../lib/weui.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body{
+            background-color: #EDEDED;
+        }
+        .menu-left{
+            background-color: #FFFFFF;
+        }
+        .menu-left, .menu-right{
+            top:0;
+            width: 32%;
+        }
+        .menu-left ul li{
+            width: 100%;
+            height: 45px;
+            line-height: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #101010;
+        }
+        .menu-left ul li.active:before{
+            width: 100%;
+            z-index: -1;
+            background: linear-gradient(0deg,rgba(200,143,58,1),rgba(229,173,91,1));;
+        }
+        .menu-left ul li.active{
+            background: none;
+        }
+        .menu-right{
+            width: 60%;
+            margin-left: 36%;
+            background: none;
+            margin-top: 24px;
+        }
+        .list{
+            background: #ffffff;
+            display: flex;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #101010;
+            margin-bottom: 10px;
+            height: 80px;
+        }
+        .list .list-juti{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            padding: 0 5%;
+        }
+        .list .list-juti img{
+            width: 100%;
+            height: 100%;
+        }
+        .list .list-juti .tu{
+            width: 47px;
+            height: 66px;
+        }
+        .list .list-juti .tup{
+            width: 43px;
+            height: 54px;
+        }
+        .list .list-juti .tupi{
+            width: 64px;
+            height: 60px;
+        }
+        .list .list-juti .tupi{
+            width: 70px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body ontouchstart>
+<!--顶部搜索-->
+<!--主体-->
+<div class="wy-content">
+    <aside>
+        <div class="menu-left scrollbar-none" id="sidebar">
+            <ul>
+                <li class="active">塑妮护理类</li>
+                <li>保健护理类</li>
+                <li>面部护理类</li>
+                <li>口服护理类</li>
+            </ul>
+        </div>
+    </aside>
+    <section class="menu-right  j-content" >
+        <div class="list">
+            <div class="list-juti"><span>黄金体雕乳</span><div class="tu"><img src="images/huli.png" ></div></div>
+        </div>
+
+    </section>
+    <section class="menu-right j-content" style="display:none;">
+        <div class="list">
+            <div class="list-juti"><span>塑妮腹部贴膜</span><div class="tup"><img src="images/baojian.png" ></div></div>
+        </div>
+        <div class="list">
+            <div class="list-juti"><span>女神养生调理垫</span><div class="tup"><img src="images/baojian.png" ></div></div>
+        </div>
+    </section>
+    <section class="menu-right j-content" style="display:none">
+        <div class="list">
+            <div class="list-juti"><span>多肽修护蚕丝面膜</span><div class="tupi"><img src="images/mianbu.png" ></div></div>
+        </div>
+
+    </section>
+    <section class="menu-right j-content" style="display:none">
+        <div class="list">
+            <div class="list-juti"><span>果蔬复合酵素原液</span><div class="tupian"><img src="images/koufu.png" ></div></div>
+        </div>
+
+    </section>
+
+</div>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script type="text/javascript">
+    menu_index = 2;
+    $(function($){
+        $('#sidebar ul li').click(function(){
+            $(this).addClass('active').siblings('li').removeClass('active');
+            var index = $(this).index();
+            $('.j-content').eq(index).show().siblings('.j-content').hide();
+        })
+    })
+</script>
+<style>
+    .weui-tabbar__icon{
+        width: 20px;
+        height: 20px;
+    }
+    .weui-tabbar__label{
+        font-size: 13px;
+        color: #000000;
+    }
+    .weui-tabbar{
+        background-color: #FFFFFF;
+        position: fixed;
+    }
+</style>
+<div class="">
+    <div class="weui-tabbar">
+    </div>
+</div>
+<script>
+
+    var menu_list = [
+        {
+            'id':1,
+            'name':'首页',
+            'orgin_path':'images/shouye.png',
+            'select_path':'images/me.png',
+            'src':'home.html'
+        },
+        {
+            'id':2,
+            'name':'分类',
+            'orgin_path':'images/fenlei.png',
+            'select_path':'images/me.png',
+            'src':'http://www.baidu.com'
+        },
+        {
+            'id':3,
+            'name':'购物车',
+            'orgin_path':'images/gouwuche.png',
+            'select_path':'images/me.png',
+            'src':'shoppingcartnone.html'
+        },
+        {
+            'id':4,
+            'name':'我的',
+            'orgin_path':'images/me.png',
+            'select_path':'images/me.png',
+            'src':'person.html'
+        },
+    ];
+    $(function () {
+        var html = '';
+        $.each(menu_list,function (k,v) {
+            html += '<a href="'+v.src+'" class="weui-tabbar__item" data-src="'+v.src+'">'
+            if(v.id == menu_index){
+                html += '<img src="'+v.select_path+'" alt="" class="weui-tabbar__icon">'
+            }else{
+                html += '<img src="'+v.orgin_path+'" alt="" class="weui-tabbar__icon">'
+            }
+            html +=   '<p class="weui-tabbar__label">'+v.name+'</p>'
+            html +=    '</a>';
+        });
+        $('.weui-tabbar').html('');
+        $('.weui-tabbar').html(html);
+    })
+
+</script>
+</body>
+</html>
