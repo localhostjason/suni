@@ -88,51 +88,9 @@
         }
     </style>
 </head>
-<a href="newaddress.html">
-    <div class="address">
-        <div class="bg">
-            <div class="xiangxi">
-                <div class="xiangxi-right">
-                    <div class="message">
-                        <span class="message-name">灰太狼</span>
-                        <span>12345678901</span>
-                    </div>
-                    <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
-                </div>
-                <div class="xiangxi-left"><img src="images/baibiao.png"></div>
-            </div>
-        </div>
-    </div>
-    <div class="address">
-        <div class="background">
-            <div class="xiangxi">
-                <div class="xiangxi-right">
-                    <div class="message">
-                        <span class="message-name">灰太狼</span>
-                        <span>12345678901</span>
-                    </div>
-                    <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
-                </div>
-                <div class="xiangxi-left"><img src="images/huibiao.png"></div>
-            </div>
-        </div>
-    </div>
+<div class="address_x">
 
-    <div class="address">
-        <div class="background">
-            <div class="xiangxi">
-                <div class="xiangxi-right">
-                    <div class="message">
-                        <span class="message-name">灰太狼</span>
-                        <span>12345678901</span>
-                    </div>
-                    <div class="zhuzhi">江苏省常州市武进区科教城研发楼</div>
-                </div>
-                <div class="xiangxi-left"><img src="images/huibiao.png"></div>
-            </div>
-        </div>
-    </div>
-</a>
+</div>
 <a href="newaddress.html">
     <div class="newadd">
         <img src="images/newaddress.png">
@@ -149,6 +107,34 @@
     });
 </script>
 <script src="../js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        var sorts = '-is_default';
+        sendAjax('api/address?sort=' + sorts, '', 'GET', function (resp) {
+            var data = resp._items;
+            var address_html = '';
 
+            data.forEach(function (val) {
+                var bg = val.is_default ? 'bg' : 'background';
+                address_html += `<a href="newaddress.html?id=${val.id}"><div class="address"><div class="${bg}">
+            <div class="xiangxi">
+                <div class="xiangxi-right">
+                    <div class="message">
+                        <span class="message-name">${val.recipient_name}</span>
+                        <span>${val.recipient_phone}</span>
+                    </div>
+                    <div class="zhuzhi">${val.province_zh}${val.city_zh}${val.area_zh} ${val.address}</div>
+                </div>
+                <div class="xiangxi-left"><img src="images/baibiao.png"></div>
+            </div>
+        </div></div></a>`
+            });
+
+            $('.address_x').html(address_html);
+
+        })
+
+    })
+</script>
 </body>
 </html>

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d27d2ea7-d8e6-4aed-a910-adbebb99111e" name="Default Changelist" comment="" />
+    <list default="true" id="5968e28a-fcfb-4c80-a0e8-b45982eef787" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/areas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/areas.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/cities.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/cities.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/provinces.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/lib/json/provinces.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/suni_project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/demos/addressmanagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/demos/addressmanagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/demos/newaddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/demos/newaddress.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/lib/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/lib/common.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -11,136 +26,70 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-254031973">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="12" />
-          <entry key="js" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="12" />
-          <entry key="JavaScript" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="485" />
-          <entry key="js" value="170" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="485" />
-          <entry key="JavaScript" value="170" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/demos/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="88" column="53" lean-forward="true" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+            <state relative-caret-position="-244">
+              <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/demos/addressmanagement.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/information.html">
+        <entry file="file://$PROJECT_DIR$/dist/lib/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
+            <state relative-caret-position="346">
+              <caret line="112" column="20" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/phone.html">
+        <entry file="file://$PROJECT_DIR$/dist/demos/newaddress.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-152">
-              <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
+            <state relative-caret-position="404">
+              <caret line="417" column="13" selection-start-line="417" selection-start-column="13" selection-end-line="417" selection-end-column="13" />
               <folding>
-                <element signature="e#4473#4802#0" />
+                <element signature="e#6458#6708#0" />
+                <element signature="e#6745#7231#0" />
+                <element signature="e#7264#7777#0" />
+                <element signature="e#9027#9337#0" />
+                <element signature="e#9373#9516#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/changepassword.html">
+        <entry file="file://$PROJECT_DIR$/dist/lib/json/areas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="156" column="29" lean-forward="true" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
-            </state>
+            <state relative-caret-position="-1800" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/relname.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="106" column="54" lean-forward="true" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/password.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="133" column="8" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/idnumber.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="121" column="45" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/wechatnum.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="114" column="36" lean-forward="true" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/demos/alipay.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="120" column="9" lean-forward="true" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dist/demos/banknum.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="137" column="57" selection-start-line="137" selection-start-column="57" selection-end-line="137" selection-end-column="57" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/dist/lib/json/provinces.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>common.js</find>
+      <find>addressmanagement</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -148,120 +97,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dist/demos/register.html" />
-        <option value="$PROJECT_DIR$/dist/demos/password.html" />
-        <option value="$PROJECT_DIR$/dist/demos/information.html" />
+        <option value="$PROJECT_DIR$/dist/lib/address.js" />
         <option value="$PROJECT_DIR$/dist/lib/common.js" />
-        <option value="$PROJECT_DIR$/dist/demos/login.html" />
-        <option value="$PROJECT_DIR$/dist/demos/phone.html" />
-        <option value="$PROJECT_DIR$/dist/demos/changepassword.html" />
-        <option value="$PROJECT_DIR$/dist/demos/relname.html" />
-        <option value="$PROJECT_DIR$/dist/demos/idnumber.html" />
-        <option value="$PROJECT_DIR$/dist/demos/wechatnum.html" />
-        <option value="$PROJECT_DIR$/dist/demos/alipay.html" />
-        <option value="$PROJECT_DIR$/dist/demos/banknum.html" />
+        <option value="$PROJECT_DIR$/dist/demos/newaddress.html" />
+        <option value="$PROJECT_DIR$/dist/demos/addressmanagement.html" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <gulpfiles>
-      <GulpfileState>
-        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
-      </GulpfileState>
-    </gulpfiles>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-200" />
-    <option name="y" value="85" />
-    <option name="width" value="1944" />
-    <option name="height" value="1104" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Assignment issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Bitwise operation issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Code quality toolsJavaScript</id>
-          </State>
-          <State>
-            <id>Code style issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Control flow issuesJavaScript</id>
-          </State>
-          <State>
-            <id>DOM issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Data flowJavaScript</id>
-          </State>
-          <State>
-            <id>ECMAScript 6 migration aidsJavaScript</id>
-          </State>
-          <State>
-            <id>Error handlingJavaScript</id>
-          </State>
-          <State>
-            <id>Flow type checkerJavaScript</id>
-          </State>
-          <State>
-            <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript function metricsJavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript validity issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Naming conventionsJavaScript</id>
-          </State>
-          <State>
-            <id>Node.jsJavaScript</id>
-          </State>
-          <State>
-            <id>Potentially confusing code constructsJavaScript</id>
-          </State>
-          <State>
-            <id>Probable bugsJavaScript</id>
-          </State>
-          <State>
-            <id>TypeScript</id>
-          </State>
-          <State>
-            <id>Unit testingJavaScript</id>
-          </State>
-        </expanded-state>
-      </profile-state>
-    </entry>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="23" />
+    <option name="width" value="1121" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -273,19 +119,32 @@
         <subPane>
           <expand>
             <path>
-              <item name="suni_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="suni_project" type="462c0819:PsiDirectoryNode" />
+              <item name="suni" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suni" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="suni_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="suni_project" type="462c0819:PsiDirectoryNode" />
+              <item name="suni" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suni" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="suni_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="suni_project" type="462c0819:PsiDirectoryNode" />
+              <item name="suni" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suni" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
               <item name="demos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="suni" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suni" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="address" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="suni" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suni" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -294,13 +153,22 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/www/suni_project/dist/demos/login.html" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/lib/json" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\github\suni\dist\lib\json" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,28 +187,29 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d27d2ea7-d8e6-4aed-a910-adbebb99111e" name="Default Changelist" comment="" />
-      <created>1558008007745</created>
+      <changelist id="5968e28a-fcfb-4c80-a0e8-b45982eef787" name="Default Changelist" comment="" />
+      <created>1558061846728</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1558008007745</updated>
-      <workItem from="1558008009227" duration="4260000" />
+      <updated>1558061846728</updated>
+      <workItem from="1558061848050" duration="4552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4260000" />
+    <option name="totallyTimeSpent" value="4552000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="23" y="0" width="1121" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24930748" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32968238" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -357,98 +226,54 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/demos/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="236" selection-end-column="9" />
-          <folding>
-            <element signature="n#script#0;n#html#0;n#!!top" />
-            <element signature="n#script#1;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/information.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/demos/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="88" column="53" lean-forward="true" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+        <state relative-caret-position="-244">
+          <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/phone.html">
+    <entry file="file://$PROJECT_DIR$/dist/lib/json/provinces.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/lib/json/areas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
-          <folding>
-            <element signature="e#4473#4802#0" />
-          </folding>
-        </state>
+        <state relative-caret-position="-1800" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/changepassword.html">
+    <entry file="file://$PROJECT_DIR$/dist/lib/address.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="156" column="29" lean-forward="true" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+        <state relative-caret-position="394">
+          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
+        <state relative-caret-position="346">
+          <caret line="112" column="20" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/password.html">
+    <entry file="file://$PROJECT_DIR$/dist/demos/newaddress.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="133" column="8" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+        <state relative-caret-position="404">
+          <caret line="417" column="13" selection-start-line="417" selection-start-column="13" selection-end-line="417" selection-end-column="13" />
+          <folding>
+            <element signature="e#6458#6708#0" />
+            <element signature="e#6745#7231#0" />
+            <element signature="e#7264#7777#0" />
+            <element signature="e#9027#9337#0" />
+            <element signature="e#9373#9516#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/relname.html">
+    <entry file="file://$PROJECT_DIR$/dist/demos/addressmanagement.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="106" column="54" lean-forward="true" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/idnumber.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="121" column="45" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/wechatnum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="114" column="36" lean-forward="true" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/alipay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="120" column="9" lean-forward="true" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/demos/banknum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="137" column="57" selection-start-line="137" selection-start-column="57" selection-end-line="137" selection-end-column="57" />
+        <state relative-caret-position="380">
+          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
         </state>
       </provider>
     </entry>

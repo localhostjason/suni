@@ -275,69 +275,83 @@
     }
 </script>
 <script>
-    $(function () {
+    var prov = $('#prov');
+    var province_list = getProvince();
 
-        var prov = $('#prov');
-        var province_list = getProvince();
-
-        function set_pro_option(province_list) {
-            var province_option_html = '<option>请选择</option>';
-            province_list.forEach(function (value) {
-                province_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
-            });
-            prov.html(province_option_html);
-        }
-
-        set_pro_option(province_list);
-
-        var city = $('#city');
-        var city_list = getCity();
-
-        function set_city_option(city_list) {
-            var city_option_html = '<option>请选择</option>';
-            city_list.forEach(function (value) {
-                city_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
-            });
-            city.html(city_option_html);
-        }
-
-        set_city_option(city_list);
-
-
-        var area = $('#country');
-        var area_list = getArea();
-
-        function set_area_option(area_list) {
-            var area_option_html = '<option>请选择</option>';
-            area_list.forEach(function (value) {
-                area_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
-            });
-            area.html(area_option_html);
-        }
-
-        set_area_option(area_list);
-
-
-        prov.change(function () {
-            var code = $(this).val();
-            var city_info = getCity(code);
-            set_city_option(city_info);
-            city.val(city_info[0].code);
-
-            var area_info = getArea(city_info[0].code);
-            set_area_option(area_info);
-            area.val(area_info[0].code)
+    function set_pro_option(province_list) {
+        var province_option_html = '<option>请选择</option>';
+        province_list.forEach(function (value) {
+            province_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
         });
+        prov.html(province_option_html);
+    }
 
-        city.change(function () {
-            var area_info = getArea($(this).val());
-            set_area_option(area_info);
-            area.val(area_info[0].code)
+    set_pro_option(province_list);
+
+    var city = $('#city');
+    var city_list = getCity();
+
+    function set_city_option(city_list) {
+        var city_option_html = '<option>请选择</option>';
+        city_list.forEach(function (value) {
+            city_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
         });
-    })
+        city.html(city_option_html);
+    }
+
+    set_city_option(city_list);
+
+
+    var area = $('#country');
+    var area_list = getArea();
+
+    function set_area_option(area_list) {
+        var area_option_html = '<option>请选择</option>';
+        area_list.forEach(function (value) {
+            area_option_html += '<option value="' + value.code + '">' + value.name + '</option>';
+        });
+        area.html(area_option_html);
+    }
+
+    set_area_option(area_list);
+
+    prov.change(function () {
+        var code = $(this).val();
+        var city_info = getCity(code);
+        set_city_option(city_info);
+        city.val(city_info[0].code);
+
+        var area_info = getArea(city_info[0].code);
+        set_area_option(area_info);
+        area.val(area_info[0].code)
+    });
+
+    city.change(function () {
+        var area_info = getArea($(this).val());
+        set_area_option(area_info);
+        area.val(area_info[0].code)
+    });
 </script>
 <script>
     $(function () {
+        var id = getUrlParam('id');
+        if (id) {
+            sendAjax('api/address/' + id, '', 'GET', function (resp) {
+                set_city_option(getCity(resp.province));
+                set_area_option(getArea(resp.city));
+
+                $('input[name="recipient_name"]').val(resp.recipient_name);
+                $('input[name="recipient_phone"]').val(resp.recipient_phone);
+                $('#prov').val(resp.province);
+                $('#city').val(resp.city);
+                $('#country').val(resp.area);
+                $('input[name="address"]').val(resp.address);
+
+                $('input[name="is_default"]').prop("checked", resp.is_default);
+                $('input[name="is_default"]').val(resp.is_default);
+            })
+        }
+
         $(".log-button").on('click', function () {
             var recipient_name = $("input[name='recipient_name']").val();
             var recipient_phone = $("input[name='recipient_phone']").val();
@@ -388,12 +402,20 @@
                 city: city,
                 area: area,
                 address: address,
-                is_default: is_default === 'true'
+                is_default: is_default === 'true',
+                user: localStorage.getItem('user_id')
             };
-            sendAjax('api/address', data, 'post', function (res) {
-                LayerAlert1("新建成功");
-                window.location.href = "addressmanagement.html";
-            })
+            if (id) {
+                sendAjax('api/address/' + id, data, 'patch', function (res) {
+                    LayerAlert1("更新成功");
+                    window.location.href = "addressmanagement.html";
+                })
+            } else {
+                sendAjax('api/address', data, 'post', function (res) {
+                    LayerAlert1("新建成功");
+                    window.location.href = "addressmanagement.html";
+                })
+            }
         })
     })
 </script>
