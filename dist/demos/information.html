@@ -131,7 +131,7 @@
         // var we_chart =  $("#we_chart").val();
         // var alipay =  $("#alipay").val();
         // var bank_card =  $("#bank_card").val();
-        sendAjax('api/user/' + user_id, {}, 'GET', function (res) {
+        sendAjax('api/user/' + user_id, '', 'GET', function (res) {
             $("#phone").html(res.phone);
             $("#real_name").html(res.real_name);
             $("#id_card").html(res.id_card);

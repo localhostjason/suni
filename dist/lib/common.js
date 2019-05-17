@@ -8,7 +8,7 @@
  * @return
  */
 function sendAjax(url, param, method, callback, no_token) {
-    var url_site = 'http://192.168.1.3:2000/';
+    var url_site = 'http://192.168.120.244:2000/';
     var token = localStorage.getItem("token");
 
     var params = param ? JSON.stringify(param) : '';
@@ -31,8 +31,7 @@ function sendAjax(url, param, method, callback, no_token) {
                 setTimeout(function () {
                     window.location.href = "login.html"
                 }, 1000);
-            }
-            else {
+            } else {
                 LayerAlert1(resp._error.message);
             }
         }
@@ -107,4 +106,27 @@ function setTimeLoad(callback) {
     setTimeout(function () {
         callback();
     }, 1000)
+}
+
+
+//paraName 等找参数的名称
+function getUrlParam(paraName) {
+    var url = document.location.toString();
+    var arrObj = url.split("?");
+
+    if (arrObj.length > 1) {
+        var arrPara = arrObj[1].split("&");
+        var arr;
+
+        for (var i = 0; i < arrPara.length; i++) {
+            arr = arrPara[i].split("=");
+
+            if (arr != null && arr[0] == paraName) {
+                return arr[1];
+            }
+        }
+        return "";
+    } else {
+        return "";
+    }
 }
