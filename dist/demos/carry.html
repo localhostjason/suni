@@ -3,39 +3,42 @@
 <head>
     <title>提现</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <style>
-        .box{
+        .box {
             width: 90%;
             padding: 0 5%;
         }
-        .mode{
-            color:#C88F3A ;
+
+        .mode {
+            color: #C88F3A;
             font-size: 17px;
             margin-top: 24px;
         }
-        input[type="radio"]{
-            width:20px;
-            height:20px;
+
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
             display: inline-block;
             text-align: center;
             vertical-align: middle;
             line-height: 20px;
             position: relative;
         }
-        input[type="radio"]::before{
+
+        input[type="radio"]::before {
             content: "";
             position: absolute;
             top: 0;
@@ -46,34 +49,39 @@
             border-radius: 50%;
             border: 1px solid #C88F3A;
         }
-        input[type="radio"]:checked::before{
+
+        input[type="radio"]:checked::before {
             content: "\2713";
             background-color: #C88F3A;
             position: absolute;
             top: 0;
             left: 0;
-            width:100%;
-            color:#ffffff;
+            width: 100%;
+            color: #ffffff;
             /*font-size: 20px;*/
             font-weight: bold;
             border-radius: 50%;
             border: 1px solid #C88F3A;
         }
-        .choose{
+
+        .choose {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-top: 25px;
         }
-        .choose-tt{
+
+        .choose-tt {
             font-size: 14px;
             color: #333333;
         }
-        .choo{
+
+        .choo {
             border-bottom: 1px solid #F5F5F5;
             padding-bottom: 20px;
         }
-        .price{
+
+        .price {
             background-color: #F8F8F8;
             height: 50px;
             font-size: 26px;
@@ -83,11 +91,13 @@
             align-items: center;
             position: relative;
         }
-        .price span{
+
+        .price span {
             position: absolute;
-            left:5px;
-            top:4px;
+            left: 5px;
+            top: 4px;
         }
+
         .log-button { /* 按钮美化 */
             width: 100%;
             height: 45px; /* 高度 */
@@ -100,48 +110,54 @@
             text-align: center;
             border-radius: 22px;
         }
-        .log{
+
+        .log {
             padding-top: 41px;
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="mode">提现方式</div>
-        <div class="choo">
+<div class="box">
+    <div class="mode">提现方式</div>
+    <div class="choo">
         <div class="choose">
             <div class="choose-tt">微信号</div>
             <div class="checkbox01">
-                <input type="radio" id="btn1" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" type="checkbox"  withdrawal_method="we_chart" checked/>
+                <input type="radio" id="btn1" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)"
+                       type="checkbox" withdrawal_method="we_chart" checked/>
             </div>
         </div>
         <div class="choose">
-            <div class="choose-tt"  >支付宝</div>
+            <div class="choose-tt">支付宝</div>
             <div class="checkbox01">
-            <input type="radio" id="btn2" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" type="checkbox" withdrawal_method="alipay"/>
-        </div>
+                <input type="radio" id="btn2" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)"
+                       type="checkbox" withdrawal_method="alipay"/>
+            </div>
         </div>
         <div class="choose">
             <div class="choose-tt">银行卡</div>
             <div class="checkbox01">
-                <input type="radio" id="btn3" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" type="checkbox"  withdrawal_method="bank_card" />
+                <input type="radio" id="btn3" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)"
+                       type="checkbox" withdrawal_method="bank_card"/>
             </div>
         </div>
-        </div>
-        <div class="mode">提现金额</div>
-        <div class="price"><span>￥</span><input placeholder="请输入金额" style="padding-left:30px;outline: none;border: none;background-color: #f8f8f8;font-size: 21px" type="number" name="num"/></div>
-        <div class="log">
-        <button class="log-button">提&nbsp;现</button>
-        </div>
     </div>
+    <div class="mode">提现金额</div>
+    <div class="price"><span>￥</span><input placeholder="请输入金额"
+                                            style="padding-left:30px;outline: none;border: none;background-color: #f8f8f8;font-size: 21px"
+                                            type="number" name="num"/></div>
+    <div class="log">
+        <button class="log-button">提&nbsp;现</button>
+    </div>
+</div>
 <script src="../lib/jquery-2.1.4.js"></script>
 <script src="../lib/fastclick.js"></script>
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
 
@@ -160,11 +176,15 @@
                 return false;
             }
             //console.log(withdrawal_method);
-            var data = {number:parseFloat(num),withdrawal_method:withdrawal_method};
-            sendAjax('api/rebate_detail', data, 'post', 'json', function (res) {
-                LayerAlert1("提现成功");
-                setTimeLoad(function () {
-                    window.location.href="commission.html"
+            var data = {number: parseFloat(num), withdrawal_method: withdrawal_method};
+            sendAjax('api/rebate_detail', data, 'post', function (res) {
+
+                sendAjax('api/user/' + localStorage.getItem('user_id'), '', 'GET', function (resp) {
+                    LayerAlert1("提现成功");
+                    setTimeLoad(function () {
+                        window.location.href = "commission.html"
+                    })
+
                 })
             })
         })

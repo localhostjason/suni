@@ -3,27 +3,28 @@
 <head>
     <title>我的佣金</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <style>
-        .per-title{
-            height:116px;
-            background-image:url("images/beijing.png");
+        .per-title {
+            height: 116px;
+            background-image: url("images/beijing.png");
             margin-top: 20px;
             border-radius: 10px;
         }
-        .person{
+
+        .person {
             width: 90%;
             padding: 0 5%;
             display: flex;
@@ -31,30 +32,36 @@
             align-items: center;
             padding-top: 22px;
         }
-        .person-meg img{
+
+        .person-meg img {
             width: 60px;
             height: 60px;
         }
-        .person-meg{
+
+        .person-meg {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .person-meg .name{
+
+        .person-meg .name {
             font-size: 21px;
             color: #FFFFFF;
         }
-        .person-meg .yong{
+
+        .person-meg .yong {
             font-size: 15px;
-            color:#FFFFFF ;
+            color: #FFFFFF;
         }
-        .person-meg .meg-tt{
-            padding-left:17px ;
+
+        .person-meg .meg-tt {
+            padding-left: 17px;
         }
-        .person-tt{
+
+        .person-tt {
             font-size: 17px;
             color: #C88F3A;
-            background-color:#FFFFFF ;
+            background-color: #FFFFFF;
             border-radius: 15px;
             width: 80px;
             height: 30px;
@@ -62,31 +69,38 @@
             justify-content: center;
             align-items: center;
         }
-        .box{
+
+        .box {
             width: 90%;
             padding: 0 5%;
         }
-        .detailed{
+
+        .detailed {
             font-size: 16px;
             color: #626262;
             padding-top: 35px;
         }
-        .carry{
+
+        .carry {
             border-bottom: 1px solid #e5e5e5;
             padding-top: 20px;
         }
-        .carry-num{
+
+        .carry-num {
             display: flex;
             justify-content: space-between;
         }
-        .carry-num .num-name{
+
+        .carry-num .num-name {
             font-size: 16px;
             color: #626262;
         }
-        .carry-num .num-yuan{
+
+        .carry-num .num-yuan {
             font-size: 17px;
             color: #626262;
         }
+
         .carry-time {
             padding-top: 10px;
             padding-bottom: 5px;
@@ -94,13 +108,15 @@
             color: #626262;
             display: flex;
         }
-        .carry-time .time-jt{
+
+        .carry-time .time-jt {
             padding-right: 20px;
         }
-        a{
+
+        a {
             text-decoration: none;
             outline: none;
-            color:#C88F3A;
+            color: #C88F3A;
         }
     </style>
 </head>
@@ -166,20 +182,22 @@
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
 
 </body>
 <script>
     $(function () {
-        var data = { };
-        sendAjax('api/rebate_detail', data,'GET', 'json', function (res) {
-            $("#money").html(res.money);
+        var data = {};
+        $(".person-meg .name").text(localStorage.getItem('total_profit'));
+        sendAjax('api/rebate_detail', data, 'GET', function (res) {
+            // $("#money").html(res.money);
+            var rebates = res._items;
 
-        },2)
+        })
     })
 </script>
 </html>

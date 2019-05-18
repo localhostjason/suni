@@ -1,3 +1,6 @@
+BASE_API = 'http://192.168.1.3:2000/';
+_BASE_API = 'http://192.168.1.3:2000';
+
 /**
  * ajax post提交
  * @param url  请求地址
@@ -8,7 +11,8 @@
  * @return
  */
 function sendAjax(url, param, method, callback, no_token) {
-    var url_site = 'http://192.168.120.244:2000/';
+    // var url_site = 'http://192.168.120.244:2000/';
+    var url_site = BASE_API;
     var token = localStorage.getItem("token");
 
     var params = param ? JSON.stringify(param) : '';
@@ -129,4 +133,17 @@ function getUrlParam(paraName) {
     } else {
         return "";
     }
+}
+
+
+function filter_val(data, key, val, return_key) {
+    if (!data.length) return false;
+    var result = '';
+    for (var i = 0; i < data.length; i++) {
+        if (data[i][key] === val) {
+            result = data[i][return_key];
+            break
+        }
+    }
+    return result
 }
