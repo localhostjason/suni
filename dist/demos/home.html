@@ -548,13 +548,16 @@
 
                     // 近期热卖商品
                     var img = filter_val(val.imgs, 'is_desc', false, 'url');
-                    sale_html += '<a>';
+                    sale_html += '<div>';
                     sale_html += '<div class="details">';
+
+                    sale_html += '<div class="details-left"><a href="commoditydetails.html?id=' + val.id + '">';
                     if (img) {
-                        sale_html += '<div class="details-left"><img src="' + _BASE_API + img + '"></div>';
+                        sale_html += '<img src="' + _BASE_API + img + '">';
                     } else {
-                        sale_html += '<div class="details-left"><span></span></div>';
+                        sale_html += '<span></span>';
                     }
+                    sale_html += '</a></div>';
                     sale_html += '<div class="details-right">';
                     sale_html += '<div class="right-name">' + val.name + '</div>';
                     sale_html += '<div class="right-price">';
@@ -564,7 +567,7 @@
                     sale_html += '</div>';
                     sale_html += '</div>';
                     sale_html += '</div>';
-                    sale_html += '</a>';
+                    sale_html += '</div>';
                 })
             }
             $('.sw').html(b_img_html);

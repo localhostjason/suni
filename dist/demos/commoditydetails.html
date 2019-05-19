@@ -3,17 +3,17 @@
 <head>
     <title>商品详情</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <link rel="stylesheet" href="../css/style.css">
@@ -27,7 +27,7 @@
         }
 
         .details {
-            background-image: url("images/shangpingxq.png");
+            /*background-image: url("images/shangpingxq.png");*/
             width: 100%;
             height: 375px;
         }
@@ -130,42 +130,46 @@
             display: flex;
             align-items: center;
         }
-        .dbt{
-            width:50%;
-            height:40px;
-            background-color:#666666;
-            color:white;
+
+        .dbt {
+            width: 50%;
+            height: 40px;
+            background-color: #666666;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius:20px 0px 0px 20px;
+            border-radius: 20px 0px 0px 20px;
             font-size: 14px;
         }
-        .but{
-            width:50%;
-            height:40px;
-            background:linear-gradient(0deg,rgba(200,143,58,1),rgba(229,173,91,1));
-            color:white;
+
+        .but {
+            width: 50%;
+            height: 40px;
+            background: linear-gradient(0deg, rgba(200, 143, 58, 1), rgba(229, 173, 91, 1));
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius:0px 20px 20px 0px;
+            border-radius: 0px 20px 20px 0px;
             font-size: 14px;
         }
-        .butt{
+
+        .butt {
             display: flex;
             justify-content: space-between;
             position: absolute;
             right: 4%;
             width: 50%;
         }
-        .cov{
-            width:100%;
-            height:100%;
-            background-color:rgba(0, 0, 0, 0.5);
-            z-index:1000;
-            position:fixed;
-            text-align:center;
+
+        .cov {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            position: fixed;
+            text-align: center;
             font-size: 16px;
             top: 0;
             left: 0;
@@ -173,59 +177,70 @@
             align-items: center;
             display: flex;
         }
-        .con{
-            z-index:1100;
-            width:100%;
-            height:70%;
-            background-color:white;
+
+        .con {
+            z-index: 1100;
+            width: 100%;
+            height: 70%;
+            background-color: white;
             position: fixed;
-            bottom:0;
+            bottom: 0;
             font-size: 13px;
             color: #666666;
         }
-        .commen{
+
+        .commen {
             width: 90%;
             padding: 0 5%;
             padding-top: 15px;
         }
-        .commen-title{
+
+        .commen-title {
             display: flex;
             justify-content: space-between;
         }
-        .commen-title .tit{
+
+        .commen-title .tit {
             width: 80%;
             display: flex;
         }
-        .tit .img{
+
+        .tit .img {
             width: 100px;
             height: 100px;
         }
-        .img img{
+
+        .img img {
             width: 100%;
             height: 100%;
         }
-        .tit .price{
+
+        .tit .price {
             font-size: 17px;
             color: #666666;
             padding-top: 18px;
             padding-left: 20px;
         }
-        .close img{
+
+        .close img {
             width: 21px;
             height: 21px;
         }
-        .content{
+
+        .content {
             font-size: 15px;
             color: #666666;
             display: flex;
             justify-content: flex-start;
             padding-top: 15px;
         }
-        .content-tt{
+
+        .content-tt {
             display: flex;
-            padding-top:8px;
+            padding-top: 8px;
         }
-        .content-tt p{
+
+        .content-tt p {
             font-size: 12px;
             color: #666666;
             background-color: #EDEDED;
@@ -237,10 +252,12 @@
             align-items: center;
             justify-content: center;
         }
+
         .Spinner a i {
             background-image: url("images/BuynBtn.png");
         }
-        .spnumber{
+
+        .spnumber {
             height: 40px;
             border-top: 1px solid #EDEDED;
             border-bottom: 1px solid #EDEDED;
@@ -249,7 +266,8 @@
             align-items: center;
             margin-top: 15px;
         }
-        .spnumber .shopnum{
+
+        .spnumber .shopnum {
             font-size: 15px;
             color: #666666;
         }
@@ -259,14 +277,15 @@
             height: 40px; /* 高度 */
             border-width: 0px; /* 边框宽度 */
             border-radius: 20px; /* 边框半径 */
-            background:linear-gradient(0deg,rgba(200,143,58,1),rgba(229,173,91,1)); /* 背景颜色 */
+            background: linear-gradient(0deg, rgba(200, 143, 58, 1), rgba(229, 173, 91, 1)); /* 背景颜色 */
             outline: none; /* 不显示轮廓线 */
             color: #FFFFFF; /* 字体颜色 */
             font-size: 17px; /* 字体大小 */
             display: inline-block;
             text-align: center;
         }
-        .login{
+
+        .login {
             width: 90%;
             padding: 0 5%;
             position: fixed;
@@ -283,48 +302,55 @@
 <body>
 <div class="detail">
     <div class="details">
-        <div class="fanhui">
-            <img src="images/huijian.png">
+        <div class="fanhui" style="cursor: pointer">
+            <a href="home.html">
+                <img src="images/huijian.png">
+            </a>
         </div>
     </div>
     <div class="details-wen">
-        <div class="name">商品名称商品名称商品名称商品商品名称商品商品名称商品名称商品名称商品商品名称商品商品名称商品名称商品名称商品商品名称商品</div>
-        <div class="price"><p class="yuan">¥188.00</p>
-            <p class="num">月销6666</p></div>
+        <div class="name"></div>
+        <div class="price"><p class="yuan">¥ <span></span></p>
+            <p class="num">月销 <span></span></p></div>
     </div>
 </div>
 <div class="introduce">
     <div class="title">图文介绍</div>
-    <div class="jieshao"><img src="images/jieshao.png"></div>
-    <div class="jieshao"><img src="images/jieshao.png"></div>
+    <div class="desc_img"></div>
+    <!--<div class="jieshao"><img src="images/jieshao.png"></div>-->
+    <!--<div class="jieshao"><img src="images/jieshao.png"></div>-->
 </div>
 <div class="button">
     <div class="car">
         <img src="images/huiche.png">
-        <div class="right">100</div>
+        <div class="right"></div>
     </div>
     <div class="butt">
-            <div class="dbt" onclick="showCon()">加入购物车</div>
-            <div class="but">立即购买</div>
+        <div class="dbt" onclick="showCon()">加入购物车</div>
+        <div class="but">立即购买</div>
     </div>
 </div>
-<div class = "cov" style="display: none">
-    <div class = "con">
+<div class="cov" style="display: none">
+    <div class="con">
         <div class="commen">
-           <div class="commen-title">
-              <div class="tit">
-                  <div class="img"><img src="images/gwsp.png"></div>
-                  <div class="price">¥188.00</div>
-              </div>
-               <div class="close"  onclick="closeCon()"><img src="images/guanbi.png"></div>
-           </div>
+            <div class="commen-title">
+                <div class="tit">
+                    <div class="img"><img src="images/gwsp.png"></div>
+                    <div class="price">¥188.00</div>
+                </div>
+                <div class="close" onclick="closeCon()"><img src="images/guanbi.png"></div>
+            </div>
             <div class="content">净含量</div>
             <div class="content-tt">
-                <p>500ml</p><p>500ml</p><p>500ml</p><p>500ml</p>
+                <p>500ml</p>
+                <p>500ml</p>
+                <p>500ml</p>
+                <p>500ml</p>
             </div>
             <div class="content">包装方式</div>
             <div class="content-tt">
-                <p>简包装</p><p>礼盒包装</p>
+                <p>简包装</p>
+                <p>礼盒包装</p>
             </div>
             <div class="spnumber">
                 <div class="shopnum">购买数量</div>
@@ -334,16 +360,17 @@
             </div>
         </div>
         <div class="login">
-            <button class="login-button">登&nbsp;录</button>
+            <button class="login-button">加&nbsp;入</button>
         </div>
     </div>
 </div>
 
 <script>
-    function showCon(){
+    function showCon() {
         $(".cov").show();
     }
-    function closeCon(){
+
+    function closeCon() {
         $(".cov").hide();
     }
 </script>
@@ -352,9 +379,9 @@
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
 
@@ -368,6 +395,39 @@
     $(function () {
         $(".Spinner").Spinner({value: 1, len: 3, max: 999});
     });
+</script>
+<script>
+    $(function () {
+        var id = getUrlParam('id');
+        var embedded = {
+            imgs: true,
+            spec: true,
+            attr: true
+        };
+        var sorts = 'attr_name';
+        sendAjax('api/commodity/' + id + '?embedded=' + JSON.stringify(embedded) + '&sort=' + sorts, '', 'GET', function (resp) {
+            $('.details-wen .name').text(resp.name);
+            $('.details-wen .yuan span').text(resp.spec.length ? resp.spec[0].price : '--');
+            $('.details-wen .num span').text(resp.monthly_sales || 0);
+
+            var b_img = filter_val(resp.imgs, 'is_desc', false, 'url');
+            $('.details').css('background-image', "url(" + _BASE_API + b_img + ")");
+
+            var desc_img = filter_val_list(resp.imgs, 'is_desc', true);
+            var desc_img_html = '';
+            if (desc_img.length) {
+                desc_img.forEach(function (info) {
+                    desc_img_html += '<div class="jieshao"><img src="' + _BASE_API + info.url + '"></div>'
+                })
+            }
+            $(".desc_img").html(desc_img_html);
+
+            $('.car .right').text(resp.shopping_cart.length || 0);
+
+            var attr = group_type(resp.attr, 'attr_name', 'attr_value');
+            console.log(attr)
+        })
+    })
 </script>
 </body>
 </html>

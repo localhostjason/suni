@@ -153,3 +153,32 @@ function filter_val(data, key, val, return_key) {
     }
     return result
 }
+
+function filter_val_list(data, key, val) {
+    if (!data.length) return false;
+    var result = [];
+    for (var i = 0; i < data.length; i++) {
+        if (data[i][key] === val) {
+            result.push(data[i])
+        }
+    }
+    return result
+}
+
+function group_type(data, key, re_val) {
+    if (!data.length) return false;
+
+    var result = {};
+    data.forEach(function (val, index) {
+        var r = result[val[key]];
+        if (!r) {
+            result[val[key]] = r = []
+        }
+        if (index <= data.length - 2) {
+            if (val[key] === data[index + 1][key]) {
+                r.push(val[re_val]);
+            }
+        }
+    });
+    return result
+}

@@ -66,15 +66,15 @@
         $(".login-button").on('click', function () {
             var phone = $("input[name='phone']").val();
             var password = $("input[name='password']").val();
-            if (phone == '') {
+            if (phone === '') {
                 LayerAlert1("请输入手机号");
                 return false;
             }
-            if (checkPhone(phone) == false) {
+            if (checkPhone(phone) === false) {
                 LayerAlert1("手机号格式不正确");
                 return false;
             }
-            if (password == '') {
+            if (password === '') {
                 LayerAlert1("请输入密码");
                 return false;
             }
