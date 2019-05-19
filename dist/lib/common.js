@@ -17,7 +17,7 @@ function sendAjax(url, param, method, callback, no_token) {
 
     var params = param ? JSON.stringify(param) : '';
 
-    var header = no_token ? null : {'Authorization': token};
+    var header = no_token ? null : {'Authorization': 'Bearer ' + token};
     $.ajax({
         type: method,
         url: url_site + url,
@@ -28,7 +28,14 @@ function sendAjax(url, param, method, callback, no_token) {
         success: callback,
         error: function f1(re) {
             console.log(re);
-            var resp = JSON.parse(re.responseText);
+            var resp = {};
+            try {
+                resp = JSON.parse(re.responseText);
+            } catch (e) {
+                resp['_error'] = {
+                    code: 401
+                };
+            }
             if (resp._error.code === 401) {
                 //需要登录
                 LayerAlert1("登录已过期，请登录！");
@@ -64,11 +71,7 @@ function LayerAlert1(content) {
  *  验证手机号
  */
 function checkPhone(phone) {
-    if (!(/^1[34578]\d{9}$/.test(phone))) {
-        return false;
-    } else {
-        return true;
-    }
+    return /^1[34578]\d{9}$/.test(phone);
 }
 
 /*
@@ -85,6 +88,9 @@ function isCardNo(card) {
 /*
 * 验证姓名
 * */
+/**
+ * @return {boolean}
+ */
 function IsChinese(relname) {
     var reg = /^([\u4e00-\u9fa5]){2,7}$/; //只能是中文，长度为2-7位
     if (!reg.test(relname)) {
@@ -97,7 +103,7 @@ function IsChinese(relname) {
  */
 $('.see_pass').on('click', function () {
     var type = $(this).attr('type');
-    if (type == 1) {
+    if (type === 1) {
         $(this).prev().attr('type', 'text');
         $(this).attr('type', 2)
     } else {
@@ -125,7 +131,7 @@ function getUrlParam(paraName) {
         for (var i = 0; i < arrPara.length; i++) {
             arr = arrPara[i].split("=");
 
-            if (arr != null && arr[0] == paraName) {
+            if (arr != null && arr[0] === paraName) {
                 return arr[1];
             }
         }

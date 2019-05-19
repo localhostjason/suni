@@ -3,27 +3,28 @@
 <head>
     <title>我的团队</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <style>
-        .per-title{
-            height:116px;
-            background-image:url("images/beijing.png");
+        .per-title {
+            height: 116px;
+            background-image: url("images/beijing.png");
             margin-top: 20px;
             border-radius: 10px;
         }
-        .person{
+
+        .person {
             width: 90%;
             padding: 0 5%;
             display: flex;
@@ -32,55 +33,64 @@
             padding-top: 22px;
         }
 
-        .person-meg{
+        .person-meg {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .person-meg .name{
+
+        .person-meg .name {
             font-size: 20px;
             color: #FFFFFF;
             padding-bottom: 5px;
         }
-        .person-meg .yong{
+
+        .person-meg .yong {
             font-size: 15px;
-            color:#FFFFFF ;
+            color: #FFFFFF;
             padding-top: 5px;
         }
-        .person-tt{
-            background-color:#FFFFFF ;
+
+        .person-tt {
+            background-color: #FFFFFF;
             padding: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .box{
+
+        .box {
             width: 90%;
             padding: 0 5%;
         }
-        .team{
+
+        .team {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-top: 22px;
             border-bottom: 1px solid #e5e5e5;
         }
-        .team-meg img{
+
+        .team-meg img {
             width: 50px;
             height: 50px;
             border-radius: 100%;
         }
-        .team-meg{
+
+        .team-meg {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-bottom: 10px;
         }
-        .team-meg .name{
+
+        .team-meg .name {
             font-size: 15px;
             color: #626262;
         }
-        .team-meg .yong{
+
+        .team-meg .yong {
             font-size: 13px;
             color: #ffffff;
             background-color: #999999;
@@ -89,11 +99,13 @@
             justify-content: center;
             align-items: center;
         }
-        .team-tt{
+
+        .team-tt {
             color: #626262;
             font-size: 13px;
         }
-        .team-meg .meg-tt{
+
+        .team-meg .meg-tt {
             padding-left: 13px;
         }
     </style>
@@ -104,53 +116,18 @@
         <div class="person">
             <div class="person-meg">
                 <div class="meg-tt">
-                    <p class="name">UYGDIAS</p>
+                    <p class="name"></p>
                     <p class="yong">邀请码</p>
                 </div>
             </div>
-            <div class="person-tt"><img src="images/erweima.png"></div>
         </div>
     </div>
-    <div class="team">
-        <div class="team-meg">
-            <div><img src="images/teampen.png"></div>
-            <div class="meg-tt">
-                <p class="name">红太狼</p>
-                <p class="yong">888</p>
-            </div>
-        </div>
-        <div class="team-tt">2018.12.23加入团队</div>
+    <div>
+        <span>邀请新人加入团队：</span>
+        <input name="code">
+        <button class="acc">邀请</button>
     </div>
-    <div class="team">
-        <div class="team-meg">
-            <div><img src="images/teampen.png"></div>
-            <div class="meg-tt">
-                <p class="name">红太狼</p>
-                <p class="yong">888</p>
-            </div>
-        </div>
-        <div class="team-tt">2018.12.23加入团队</div>
-    </div>
-    <div class="team">
-        <div class="team-meg">
-            <div><img src="images/teampen.png"></div>
-            <div class="meg-tt">
-                <p class="name">红太狼</p>
-                <p class="yong">888</p>
-            </div>
-        </div>
-        <div class="team-tt">2018.12.23加入团队</div>
-    </div>
-    <div class="team">
-        <div class="team-meg">
-            <div><img src="images/teampen.png"></div>
-            <div class="meg-tt">
-                <p class="name">红太狼</p>
-                <p class="yong">888</p>
-            </div>
-        </div>
-        <div class="team-tt">2018.12.23加入团队</div>
-    </div>
+    <div class="team_content"></div>
 </div>
 
 <script src="../lib/jquery-2.1.4.js"></script>
@@ -158,11 +135,66 @@
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        sendAjax('api/ac_code?user_id=' + localStorage.getItem('user_id'), '', 'GET', function (resp) {
+            var code = resp.code;
+            $('.person-meg .name').text(code)
+        });
 
+        function get_team() {
+            sendAjax('api/team?user_id=' + localStorage.getItem('user_id'), '', 'GET', function (resp) {
+                var data = resp.data;
+                var team_htm = '';
+                if (data.length) {
+                    data.forEach(function (val) {
+                        team_htm += '<div class="team">';
+                        team_htm += '<div class="team-meg">';
+                        if (val.img_url) {
+                            team_htm += '<div><img src="' + _BASE_API + val.img_url + '"></div>';
+                        } else {
+                            team_htm += '<div style="width: 50px"><span></span></div>';
+                        }
+
+                        team_htm += '<div class="meg-tt">';
+                        team_htm += '<p class="name">' + (val.real_name || '--') + '</p>';
+                        team_htm += '<p class="yong">' + (val.total_profit || 0) + '</p>';
+                        team_htm += '</div>';
+                        team_htm += '</div>';
+                        team_htm += '<div class="team-tt">' + val.join_time + '加入团队</div>';
+                        team_htm += '</div>';
+                    })
+                }
+                $('.team_content').html(team_htm)
+            })
+        }
+
+        get_team();
+
+        $('.acc').click(function () {
+            var code = $('input[name="code"]').val();
+            if (!code) {
+                LayerAlert1("邀请不能为空");
+                return false;
+            }
+
+            var data = {
+                code: code,
+                owner: localStorage.getItem('user_id')
+            };
+            sendAjax('api/ac_code/info', data, 'POST', function (resp) {
+                //    todo 刷新
+                LayerAlert1("邀请成功");
+                get_team()
+            });
+
+        })
+    })
+</script>
 </body>
 </html>

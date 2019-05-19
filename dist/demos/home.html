@@ -378,14 +378,14 @@
     <!-- 近期热卖 -->
     <div class="biaoti">近期热卖</div>
     <div class="sale_com"></div>
-    <div class="refresh">
+    <div class="refresh" style="cursor: pointer">
         <img src="images/huan.png">
         <div class="refresh-tt">换一批</div>
     </div>
 </div>
 
 <!--为你推荐 -->
-<div class="recommend">
+<!--<div class="recommend">
     <div class="biaoti">为你推荐</div>
     <div class="recommend-list">
         <a>
@@ -469,7 +469,7 @@
             </div>
         </a>
     </div>
-</div>
+</div>-->
 <div class="cov">
     <div class="con">
         <div class="ptitle"><img src="images/cover.png"></div>
@@ -516,52 +516,76 @@
     </div>
 </div>
 <script>
-    var params = {
-        offline: false,
-        type: 'ct_sale'
-    };
-    var embedded = {
-        imgs: true,
-        spec: true
-    };
-    var sorts = 'monthly_sales';
-    sendAjax('api/commodity?where=' + JSON.stringify(params) + '&embedded=' + JSON.stringify(embedded) + '&sort=' + sorts, '', 'GET', function (resp) {
-        var data = resp._items;
-        var sale_html = '';
-        var b_img_html = '';
 
-        if (data.length) {
-            data.forEach(function (val, index) {
-                // 首页轮播
-                var b_img = filter_val(val.imgs, 'is_desc', true, 'url');
-                if (index < 3 && b_img) {
-                    b_img_html += '<div class="swiper-slide"><img src="' + _BASE_API + b_img + '"/></div>'
-                }
+    var total = 0;
+    var index = 1;
 
-                // 近期热卖商品
-                var img = filter_val(val.imgs, 'is_desc', false, 'url');
-                sale_html += '<a>';
-                sale_html += '<div class="details">';
-                if (img) {
-                    sale_html += '<div class="details-left"><img src="' + _BASE_API + img + '"></div>';
-                } else {
-                    sale_html += '<div class="details-left"><span></span></div>';
-                }
-                sale_html += '<div class="details-right">';
-                sale_html += '<div class="right-name">' + val.name + '</div>';
-                sale_html += '<div class="right-price">';
-                sale_html += '<div class="pric"><p class="yuan">¥' + (val.spec.length ? val.spec[0].price : '--') + '</p>';
-                sale_html += '<p class="xiao">月销' + (val.monthly_sales || 0) + '</p></div>';
-                sale_html += '<div class="num">立即购买</div>';
-                sale_html += '</div>';
-                sale_html += '</div>';
-                sale_html += '</div>';
-                sale_html += '</a>';
-            })
+    function get_commodity(page_num) {
+        page_num = page_num || 1;
+        var params = {
+            offline: false,
+            type: 'ct_sale'
+        };
+        var page = '&page=' + page_num + '&max_results=10';
+        var embedded = {
+            imgs: true,
+            spec: true
+        };
+        var sorts = 'monthly_sales';
+        sendAjax('api/commodity?where=' + JSON.stringify(params) + '&embedded=' + JSON.stringify(embedded) + '&sort=' + sorts + page, '', 'GET', function (resp) {
+            var data = resp._items;
+            total = resp._meta.total;
+            var sale_html = '';
+            var b_img_html = '';
+
+            if (data.length) {
+                data.forEach(function (val, index) {
+                    // 首页轮播
+                    var b_img = filter_val(val.imgs, 'is_desc', true, 'url');
+                    if (index < 3 && b_img) {
+                        b_img_html += '<div class="swiper-slide"><img src="' + _BASE_API + b_img + '"/></div>'
+                    }
+
+                    // 近期热卖商品
+                    var img = filter_val(val.imgs, 'is_desc', false, 'url');
+                    sale_html += '<a>';
+                    sale_html += '<div class="details">';
+                    if (img) {
+                        sale_html += '<div class="details-left"><img src="' + _BASE_API + img + '"></div>';
+                    } else {
+                        sale_html += '<div class="details-left"><span></span></div>';
+                    }
+                    sale_html += '<div class="details-right">';
+                    sale_html += '<div class="right-name">' + val.name + '</div>';
+                    sale_html += '<div class="right-price">';
+                    sale_html += '<div class="pric"><p class="yuan">¥' + (val.spec.length ? val.spec[0].price : '--') + '</p>';
+                    sale_html += '<p class="xiao">月销' + (val.monthly_sales || 0) + '</p></div>';
+                    sale_html += '<div class="num">立即购买</div>';
+                    sale_html += '</div>';
+                    sale_html += '</div>';
+                    sale_html += '</div>';
+                    sale_html += '</a>';
+                })
+            }
+            $('.sw').html(b_img_html);
+            $('.sale_com').html(sale_html)
+        })
+    }
+
+    get_commodity();
+
+    $('.refresh').click(function () {
+        var pn = Math.ceil(total / 10);
+        index++;
+        if (index <= pn) {
+            get_commodity(index);
+        } else {
+            get_commodity();
+            index = 1;
         }
-        $('.sw').html(b_img_html);
-        $('.sale_com').html(sale_html)
+
     })
+
 </script>
 
 <script>

@@ -135,46 +135,17 @@
         </div>
     </div>
     <div class="detailed">佣金明细</div>
-    <div class="carry">
-        <div class="carry-num">
-            <div class="num-name">提现</div>
-            <div class="num-yuan" id="money">-200.00</div>
-        </div>
-        <div class="carry-time">
-            <div class="time-jt">19/03/16&nbsp;12:25</div>
-            <div class="time-yi">已打款</div>
-        </div>
-    </div>
-    <div class="carry">
-        <div class="carry-num">
-            <div class="num-name">佣金</div>
-            <div class="num-yuan" id="money1">+200.00</div>
-        </div>
-        <div class="carry-time">
-            <div class="time-jt">19/03/16&nbsp;12:25</div>
-            <div class="time-yi">订单编号:123231511</div>
-        </div>
-    </div>
-    <div class="carry">
-        <div class="carry-num">
-            <div class="num-name">提现</div>
-            <div class="num-yuan">-200.00</div>
-        </div>
-        <div class="carry-time">
-            <div class="time-jt">19/03/16&nbsp;12:25</div>
-            <div class="time-yi">已打款</div>
-        </div>
-    </div>
-    <div class="carry">
-        <div class="carry-num">
-            <div class="num-name">佣金</div>
-            <div class="num-yuan">+200.00</div>
-        </div>
-        <div class="carry-time">
-            <div class="time-jt">19/03/16&nbsp;12:25</div>
-            <div class="time-yi">订单编号:123231511</div>
-        </div>
-    </div>
+    <div class="rebate"></div>
+    <!--<div class="carry">-->
+    <!--<div class="carry-num">-->
+    <!--<div class="num-name">佣金</div>-->
+    <!--<div class="num-yuan" id="money1">+200.00</div>-->
+    <!--</div>-->
+    <!--<div class="carry-time">-->
+    <!--<div class="time-jt">19/03/16&nbsp;12:25</div>-->
+    <!--<div class="time-yi">订单编号:123231511</div>-->
+    <!--</div>-->
+    <!--</div>-->
 </div>
 
 <script src="../lib/jquery-2.1.4.js"></script>
@@ -191,11 +162,32 @@
 </body>
 <script>
     $(function () {
-        var data = {};
+        var params = {
+            type: ['profit', 'withdrawed']
+        };
         $(".person-meg .name").text(localStorage.getItem('total_profit'));
-        sendAjax('api/rebate_detail', data, 'GET', function (res) {
+        sendAjax('api/rebate_detail?where=' + JSON.stringify(params), '', 'GET', function (res) {
             // $("#money").html(res.money);
             var rebates = res._items;
+            var rebate_html = '';
+            if (rebates.length) {
+                rebates.forEach(function (val) {
+                    rebate_html += '<div class="carry">';
+
+                    rebate_html += '<div class="carry-num">';
+                    rebate_html += '<div class="num-name">' + (val.type === 'profit' ? '佣金' : '提现') + '</div>';
+                    rebate_html += '<div class="num-yuan" id="money">' + (val.type === 'profit' ? '-' : '+') + val.number + '</div>';
+                    rebate_html += '</div>';
+
+                    rebate_html += '<div class="carry-time">';
+                    rebate_html += '<div class="time-jt">' + val.time + '</div>';
+                    rebate_html += '<div class="time-yi">' + val.desc + '</div>';
+                    rebate_html += '</div>';
+
+                    rebate_html += '</div>';
+                })
+            }
+            $('.rebate').html(rebate_html)
 
         })
     })

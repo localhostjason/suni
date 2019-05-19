@@ -135,7 +135,7 @@
                 <p class="yong">佣金:<span class="user_profit"></span></p>
             </div>
         </div>
-        <div class="person-tt"><img src="images/tiao.png"></div>
+        <div class="person-tt logout"><img src="images/tiao.png"></div>
     </div>
     <div class="box">
         <div class="box-nei">
@@ -350,6 +350,16 @@
                     },
                 ]
             });
+        })
+
+        $('.logout').click(function () {
+            var data = {
+                token: localStorage.getItem('token')
+            };
+            sendAjax('api/logout', data, 'POST', function (resp) {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html'
+            })
         })
     })
 </script>
