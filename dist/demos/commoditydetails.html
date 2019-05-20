@@ -335,23 +335,18 @@
         <div class="commen">
             <div class="commen-title">
                 <div class="tit">
-                    <div class="img"><img src="images/gwsp.png"></div>
-                    <div class="price">¥188.00</div>
+                    <div class="img price-img"></div>
+                    <div class="price">¥<span class="price-num"></span></div>
                 </div>
                 <div class="close" onclick="closeCon()"><img src="images/guanbi.png"></div>
             </div>
+
             <div class="content">净含量</div>
-            <div class="content-tt">
-                <p>500ml</p>
-                <p>500ml</p>
-                <p>500ml</p>
-                <p>500ml</p>
+            <div class="content-tt j-content">
             </div>
-            <div class="content">包装方式</div>
-            <div class="content-tt">
-                <p>简包装</p>
-                <p>礼盒包装</p>
-            </div>
+
+            <div class="attr"></div>
+
             <div class="spnumber">
                 <div class="shopnum">购买数量</div>
                 <div class="pro-amount fr">
@@ -359,6 +354,10 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" name="number">
+        <input type="hidden" name="commodity_id">
+        <input type="hidden" name="spec_id">
+        <input type="hidden" name="commodity_attr_id">
         <div class="login">
             <button class="login-button">加&nbsp;入</button>
         </div>
@@ -391,11 +390,6 @@
         FastClick.attach(document.body);
     });
 </script>
-<script type="text/javascript">
-    $(function () {
-        $(".Spinner").Spinner({value: 1, len: 3, max: 999});
-    });
-</script>
 <script>
     $(function () {
         var id = getUrlParam('id');
@@ -410,9 +404,12 @@
             $('.details-wen .yuan span').text(resp.spec.length ? resp.spec[0].price : '--');
             $('.details-wen .num span').text(resp.monthly_sales || 0);
 
+            // 商品图片
             var b_img = filter_val(resp.imgs, 'is_desc', false, 'url');
             $('.details').css('background-image', "url(" + _BASE_API + b_img + ")");
+            $('.price-img').html('<img src="' + _BASE_API + b_img + '">');
 
+            //图文描述
             var desc_img = filter_val_list(resp.imgs, 'is_desc', true);
             var desc_img_html = '';
             if (desc_img.length) {
@@ -422,10 +419,55 @@
             }
             $(".desc_img").html(desc_img_html);
 
+            //购物车数量
             $('.car .right').text(resp.shopping_cart.length || 0);
 
             var attr = group_type(resp.attr, 'attr_name', 'attr_value');
-            console.log(attr)
+
+            // 商品信息
+            var attr_html = '';
+            if (Object.keys(attr).length) {
+                for (var k in attr) {
+                    attr_html += '<div class="content">' + k + '</div>';
+                    attr_html += '<div class="content-tt">';
+                    if (attr[k].length) {
+                        attr[k].forEach(function (v) {
+                            attr_html += '<p>' + v + '</p>';
+                        })
+                    }
+                    attr_html += '</div>'
+                }
+            }
+            $('.attr').html(attr_html);
+
+            // 数量
+            $(".Spinner").Spinner({value: 1, len: 3, max: resp.stock});
+
+            //净含量
+            var j_content_html = '';
+            if (resp.spec && resp.spec.length) {
+                resp.spec.forEach(function (info) {
+                    j_content_html += '<p class="price" price="' + info.price + '">' + info.param + '</p>'
+                });
+
+                $('.price-num').text(resp.spec[0].price)
+            }
+            $('.j-content').html(j_content_html);
+
+            $('.price').click(function () {
+                var _this = $(this);
+                $('.price-num').text(_this.attr('price'))
+            })
+        })
+    })
+</script>
+
+<script>
+    $(function () {
+        $('.login-button').click(function () {
+            var number = $('input[name="number"]');
+
+            $(".cov").hide();
         })
     })
 </script>
