@@ -297,6 +297,10 @@
             justify-content: center;
             align-items: center;
         }
+
+        .price.active, .attr-type.active {
+            background: #b9b9ea;
+        }
     </style>
 </head>
 <body>
@@ -391,7 +395,7 @@
     });
 </script>
 <script>
-    $(function () {
+    function get_data() {
         var id = getUrlParam('id');
         var embedded = {
             imgs: true,
@@ -426,48 +430,91 @@
 
             // 商品信息
             var attr_html = '';
+            var attr_id = $('input[name="attr_id"]');
             if (Object.keys(attr).length) {
                 for (var k in attr) {
                     attr_html += '<div class="content">' + k + '</div>';
                     attr_html += '<div class="content-tt">';
                     if (attr[k].length) {
                         attr[k].forEach(function (v) {
-                            attr_html += '<p>' + v + '</p>';
+                            attr_html += '<p attr_id="' + v.id + '" class="attr-type">' + v + '</p>';
                         })
                     }
                     attr_html += '</div>'
                 }
             }
             $('.attr').html(attr_html);
+            $('.attr-type').click(function () {
+                var _this = $(this);
+                attr_id.val(_this.attr('attr_id'));
+                _this.addClass('active').siblings('p').removeClass('active');
+            });
 
             // 数量
             $(".Spinner").Spinner({value: 1, len: 3, max: resp.stock});
 
             //净含量
             var j_content_html = '';
+            var spec_id = $('input[name="spec_id"]');
             if (resp.spec && resp.spec.length) {
-                resp.spec.forEach(function (info) {
-                    j_content_html += '<p class="price" price="' + info.price + '">' + info.param + '</p>'
+                resp.spec.forEach(function (info, index) {
+                    if (index === 0) {
+                        spec_id.val(info.id);
+                        j_content_html += '<p class="price active" price_id="' + info.id + '" price="' + info.price + '">' + info.param + '</p>'
+                    } else
+                        j_content_html += '<p class="price" price_id="' + info.id + '" price="' + info.price + '">' + info.param + '</p>'
                 });
 
                 $('.price-num').text(resp.spec[0].price)
             }
             $('.j-content').html(j_content_html);
-
             $('.price').click(function () {
                 var _this = $(this);
-                $('.price-num').text(_this.attr('price'))
+                $('.price-num').text(_this.attr('price'));
+                spec_id.val(_this.attr('price_id'));
+                _this.addClass('active').siblings('p').removeClass('active');
             })
         })
-    })
+    }
+
+    get_data()
 </script>
 
 <script>
     $(function () {
         $('.login-button').click(function () {
-            var number = $('input[name="number"]');
+            var spec_id = $('input[name="spec_id"]').val();
+            console.log(spec_id);
+            if (!spec_id) {
+                LayerAlert1("请输入价格");
+                return false;
+            }
 
-            $(".cov").hide();
+            var attr_id = $('input[name="attr_id"]').val();
+
+            var number = $(".Amount").val();
+            try {
+                number = Number(number)
+            } catch (e) {
+                number = 0
+            }
+            if (number <= 0) {
+                LayerAlert1("数量必须大于0");
+                return false;
+            }
+
+            var data = {
+                spec: spec_id,
+                attr: attr_id,
+                user: localStorage.getItem('user_id'),
+                number: number,
+                commodity: getUrlParam('id')
+            };
+            sendAjax('api/shopping_cart', data, 'POST', function (resp) {
+                get_data();
+                $(".cov").hide();
+            });
+
         })
     })
 </script>
