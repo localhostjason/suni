@@ -363,7 +363,7 @@
         <input type="hidden" name="number">
         <input type="hidden" name="commodity_id">
         <input type="hidden" name="spec_id">
-        <input type="hidden" name="commodity_attr_id">
+        <input type="hidden" name="attr_id">
         <div class="login">
             <button class="login-button">加&nbsp;入</button>
         </div>
@@ -397,6 +397,8 @@
     });
 </script>
 <script>
+    var info = {};
+
     function get_data() {
         var id = getUrlParam('id');
         var embedded = {
@@ -439,7 +441,7 @@
                     attr_html += '<div class="content-tt">';
                     if (attr[k].length) {
                         attr[k].forEach(function (v) {
-                            attr_html += '<p attr_id="' + v.id + '" class="attr-type">' + v + '</p>';
+                            attr_html += '<p attr_key="' + k + '" attr_id="' + v + '" class="attr-type">' + v + '</p>';
                         })
                     }
                     attr_html += '</div>'
@@ -448,7 +450,7 @@
             $('.attr').html(attr_html);
             $('.attr-type').click(function () {
                 var _this = $(this);
-                attr_id.val(_this.attr('attr_id'));
+                info[_this.attr('attr_key')] = _this.attr('attr_id');
                 _this.addClass('active').siblings('p').removeClass('active');
             });
 
@@ -492,8 +494,6 @@
                 return false;
             }
 
-            var attr_id = $('input[name="attr_id"]').val();
-
             var number = $(".Amount").val();
             try {
                 number = Number(number)
@@ -507,7 +507,7 @@
 
             var data = {
                 spec: spec_id,
-                attr: attr_id,
+                attr: JSON.stringify(info),
                 user: localStorage.getItem('user_id'),
                 number: number,
                 commodity: getUrlParam('id')

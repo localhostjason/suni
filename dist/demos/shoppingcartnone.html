@@ -297,11 +297,6 @@
         FastClick.attach(document.body);
     });
 </script>
-<script type="text/javascript">
-    $(function () {
-        $(".Spinner").Spinner({value: 1, len: 3, max: 999});
-    });
-</script>
 <!---全选按钮-->
 <script type="text/javascript">
     $(document).ready(function () {
@@ -346,13 +341,46 @@
         sendAjax('api/shopping_cart?embedded=' + JSON.stringify(embedded), '', 'GET', function (resp) {
             var data = resp._items;
             var shopping_html = '';
+            var pn = [];
             if (data.length) {
-                data.forEach(function (val) {
+                data.forEach(function (val, index) {
                     shopping_html += '<div class="boxes"><div class="xiang">';
-                    shopping_html += '<div class="boxes"><div class="xiang">';
-                    shopping_html += '</div></div>'
+
+                    shopping_html += '<div class="check-w weui-cells_checkbox">';
+                    shopping_html += '<label class="weui-check__label" for="cart-pto' + (index + 1) + '">';
+                    shopping_html += '<div class="weui-cell__hd cat-check">';
+
+                    shopping_html += '<input type="checkbox" class="weui-check" name="cartpro" id="cart-pto' + (index + 1) + '">';
+                    shopping_html += '<i class="weui-icon-checked"></i>';
+
+                    shopping_html += '</div>';
+                    shopping_html += '</label>';
+                    shopping_html += '</div>';
+
+                    var b_img = filter_val(val.imgs, 'is_desc', false, 'url');
+                    shopping_html += '<div class="xiang-zh"><img class="" src="' + _BASE_API + b_img + '"></div>';
+                    shopping_html += '<div class="xiang-left">';
+                    shopping_html += '<div class="left-title">' + val.commodity.name + '</div>';
+                    shopping_html += '<div class="left-price">';
+                    shopping_html += '<div class="prices">¥<em class="">' + val.spec.price + '</em></div>';
+                    shopping_html += '<div class="pro-amount fr">';
+                    shopping_html += '<div class="Spinner sp' + index + '"></div>';
+                    shopping_html += '</div>';
+                    shopping_html += '</div>';
+                    shopping_html += '</div>';
+
+                    shopping_html += '</div></div>';
+
+                    pn.push(val.number)
                 })
             }
+            $('.crat_list').html(shopping_html);
+            if (pn.length) {
+                pn.forEach(function (value, index) {
+                    $(".sp" + index).Spinner({len: 3, max: 999, value: value});
+                })
+            }
+
             console.log(data)
         })
     })

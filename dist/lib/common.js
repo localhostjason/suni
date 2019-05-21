@@ -146,7 +146,7 @@ function filter_val(data, key, val, return_key) {
     if (!data.length) return false;
     var result = '';
     for (var i = 0; i < data.length; i++) {
-        if (data[i][key] === val) {
+        if (data[i][key] === val || !data[i][key]) {
             result = data[i][return_key];
             break
         }
