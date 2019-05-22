@@ -318,26 +318,11 @@
     });
 </script>
 <script>
-    $(document).on("click", ".wy-delete", function () {
-        $.confirm("您确定要把此商品从购物车删除吗?", "确认删除?", function () {
-            $.toast("文件已经删除!");
-        }, function () {
-            //取消操作
-        });
-    });
-</script>
-<script>
-    menu_index = 4;
-</script>
-
-<script>
-    $(function () {
+    function get_shopping_cart() {
         var embedded = {
             spec: true,
             commodity: true
         };
-
-        var user_id = localStorage.getItem('user_id');
         sendAjax('api/shopping_cart?embedded=' + JSON.stringify(embedded), '', 'GET', function (resp) {
             var data = resp._items;
             var shopping_html = '';
@@ -350,7 +335,7 @@
                     shopping_html += '<label class="weui-check__label" for="cart-pto' + (index + 1) + '">';
                     shopping_html += '<div class="weui-cell__hd cat-check">';
 
-                    shopping_html += '<input type="checkbox" class="weui-check" name="cartpro" id="cart-pto' + (index + 1) + '">';
+                    shopping_html += '<input type="checkbox" class="weui-check" name="cartpro" value="' + val.id + '" id="cart-pto' + (index + 1) + '">';
                     shopping_html += '<i class="weui-icon-checked"></i>';
 
                     shopping_html += '</div>';
@@ -383,7 +368,34 @@
 
             console.log(data)
         })
-    })
+    }
+
+    get_shopping_cart();
+</script>
+<script>
+    $(document).on("click", ".wy-delete", function () {
+        var chk_value = [];//定义一个数组
+        $('input[name="cartpro"]:checked').each(function () {
+            chk_value.push($(this).val());
+        });
+
+        $.confirm("您确定要把此商品从购物车删除吗?", "确认删除?", function () {
+            if (chk_value.length) {
+                chk_value.forEach(function (value) {
+                    sendAjax('api/shopping_cart/' + value, '', 'delete', function (resp) {
+                        get_shopping_cart();
+                    })
+                })
+            }
+            console.log(chk_value);
+            // $.toast("文件已经删除!");
+        }, function () {
+            //取消操作
+        });
+    });
+</script>
+<script>
+    menu_index = 4;
 </script>
 
 </body>
