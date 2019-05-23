@@ -271,13 +271,13 @@
             'orgin_path': 'images/me.png',
             'select_path': 'images/me.png',
             'src': 'person.html'
-        },
+        }
     ];
     $(function () {
         var html = '';
         $.each(menu_list, function (k, v) {
             html += '<a href="' + v.src + '" class="weui-tabbar__item" data-src="' + v.src + '">'
-            if (v.id == menu_index) {
+            if (v.id === menu_index) {
                 html += '<img src="' + v.select_path + '" alt="" class="weui-tabbar__icon">'
             } else {
                 html += '<img src="' + v.orgin_path + '" alt="" class="weui-tabbar__icon">'
@@ -296,6 +296,11 @@
     $(function () {
         FastClick.attach(document.body);
     });
+</script>
+<script>
+    $('input[name="cartpro"]').change(function () {
+        alert($(this).val())
+    })
 </script>
 <!---全选按钮-->
 <script type="text/javascript">
