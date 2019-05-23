@@ -194,7 +194,7 @@
             </label>
         </div>
         <div class="heji">
-            合计: 22222.00
+            合计: <span class="heji-number"></span>
         </div>
         <div class="anniu">
             <div class="shan">
@@ -298,9 +298,7 @@
     });
 </script>
 <script>
-    $('input[name="cartpro"]').change(function () {
-        alert($(this).val())
-    })
+
 </script>
 <!---全选按钮-->
 <script type="text/javascript">
@@ -352,7 +350,7 @@
                     shopping_html += '<div class="xiang-left">';
                     shopping_html += '<div class="left-title">' + val.commodity.name + '</div>';
                     shopping_html += '<div class="left-price">';
-                    shopping_html += '<div class="prices">¥<em class="">' + val.spec.price + '</em></div>';
+                    shopping_html += '<div class="prices">¥<em class="prices-number">' + val.spec.price + '</em></div>';
                     shopping_html += '<div class="pro-amount fr">';
                     shopping_html += '<div class="Spinner sp' + index + '"></div>';
                     shopping_html += '</div>';
@@ -370,6 +368,24 @@
                     $(".sp" + index).Spinner({len: 3, max: 999, value: value});
                 })
             }
+
+
+            $('input[name="cartpro"]').change(function () {
+                var checked_val = [];
+                var amount_total = [];
+                $('input[name="cartpro"]:checked').each(function () {
+                    checked_val.push($(this).val());
+                    var unit_price = $(this).parents('.boxes').find('.prices-number').text();
+                    var number = $(this).parents('.boxes').find('.Amount').val();
+                    amount_total.push(unit_price * number);
+
+                });
+                if (!checked_val.length) $("input[name=all-sec]").prop('checked', false);
+
+
+                $('.heji-number').text(eval(amount_total.join('+')));
+
+            });
 
             console.log(data)
         })
