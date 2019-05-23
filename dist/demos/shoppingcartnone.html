@@ -200,7 +200,7 @@
             <div class="shan">
                 <a href="javascript:;" class="wy-delete">删除</a>
             </div>
-            <a href="shoppingdetails.html">
+            <a href="javascript:void (0)">
                 <div class="jiesuan">
                     <p>结算</p>
                 </div>
@@ -390,10 +390,10 @@
                 })
             }
             $('.Increase').click(function () {
-                 get_total($(this))
+                get_total($(this))
             });
             $('.Decrease').click(function () {
-                 get_total($(this))
+                get_total($(this))
             });
 
 
@@ -431,6 +431,17 @@
 </script>
 <script>
     menu_index = 4;
+</script>
+<script>
+    $(document).ready(function () {
+        $('.jiesuan').click(function () {
+            if (!$('.heji-number').text()) {
+                LayerAlert1("请选择商品");
+                return false;
+            }
+            window.location.href = 'shoppingdetails.html'
+        })
+    })
 </script>
 
 </body>
