@@ -303,15 +303,18 @@
                 LayerAlert1("请选择商品");
                 return false;
             }
+
+
+            sendAjax('api/order', data, 'post', function (resp) {
+
+            });
             shopping.forEach(function (value) {
                 sendAjax('api/shopping_cart/' + value, '', 'delete', function (resp) {
 
                 })
             });
 
-            sendAjax('api/order', data, 'post', function (resp) {
-                window.location.href = 'pay.html?id=' + resp.id
-            })
+            window.location.href = 'pay.html?id=' + resp.id
         })
     })
 </script>
