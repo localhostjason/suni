@@ -125,7 +125,7 @@ gulp.task('watch', function () {
 gulp.task('server', function () {
     connect.server(
         {
-            port: 8080,
+            port: 3333,
             host: '0.0.0.0'
         }
     );
