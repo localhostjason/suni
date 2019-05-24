@@ -311,7 +311,11 @@
         $('input[name="cartpro"]:checked').each(function () {
             all_chk.push($(this).val())
         });
-        $("input[name=all-sec]").prop('checked', all_chk.length === checked_val.length);
+        if (!all_chk.length) {
+            $("input[name=all-sec]").prop('checked', false);
+        } else {
+            $("input[name=all-sec]").prop('checked', all_chk.length === checked_val.length);
+        }
         get_each();
 
         function get_each() {
@@ -406,6 +410,7 @@
                     pn.push([val.number, val.commodity.stock])
                 })
             }
+            console.log(pn)
             $('.crat_list').html(shopping_html);
             if (pn.length) {
                 pn.forEach(function (value, index) {
