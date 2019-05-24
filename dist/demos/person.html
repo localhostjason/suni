@@ -131,7 +131,7 @@
         <div class="person-meg">
             <div><img src="images/portrait.png"></div>
             <div class="meg-tt">
-                <p class="name">灰太狼</p>
+                <p class="name"></p>
                 <p class="yong">佣金:<span class="user_profit"></span></p>
             </div>
         </div>
@@ -336,6 +336,7 @@
 <script>
     $(function () {
         $('.user_profit').text(localStorage.getItem('total_profit') || 0);
+        $('.meg-tt .name').text(localStorage.getItem('phone'))
 
         $('.service').on('click', function () {
             //如果参数过多，通过 object 方式传入

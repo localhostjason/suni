@@ -312,6 +312,7 @@
             all_chk.push($(this).val())
         });
         $("input[name=all-sec]").prop('checked', all_chk.length === checked_val.length);
+        get_each();
 
         function get_each() {
             var amount_total = [];
@@ -423,7 +424,7 @@
             });
 
 
-            $('input[name="cartpro"]').change(function () {
+            $('input[name="cartpro"]').click(function () {
                 get_total($(this))
             });
 
@@ -495,7 +496,7 @@
                 });
             }
 
-            window.location.href = 'shoppingdetails.html'
+            window.location.href = 'shoppingdetails.html?shopping=' + chk_value.join(',')
 
 
         })

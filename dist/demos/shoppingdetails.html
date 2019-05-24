@@ -178,7 +178,7 @@
 <body>
 
 <div class="kuang">
-    <a class="weui-cell weui-cell_access form-cell bgcolor diqu" href="address_select.html">
+    <div class="weui-cell weui-cell_access to-select-address form-cell bgcolor diqu">
         <div class="weui-cell__hd"><img src="images/dibiao.png"></div>
         <div class="weui-cell__bd juti">
             <div class="address-info" style="display: none">
@@ -189,7 +189,7 @@
             <div class="dizhi">暂无收货地址,请先添加默认地址</div>
         </div>
         <div class="weui-cell__ft"></div>
-    </a>
+    </div>
 </div>
 <div class="kuang com-detail">
     <!--<a>
@@ -269,10 +269,10 @@
                     total.push(val.number * val.spec.price);
 
                     //订单提交数据
-                    commodity.push(val.id);
+                    commodity.push(val.commodity.id);
                     number += val.number;
                     commodity_info.push({
-                        commodity_id: val.id,
+                        commodity_id: val.commodity.id,
                         spec_id: val.spec.id,
                         number: val.number
                     })
@@ -298,6 +298,17 @@
                 address: getUrlParam('address')
 
             };
+            var shopping = getUrlParam('shopping').split(',');
+            if (!shopping.length) {
+                LayerAlert1("请选择商品");
+                return false;
+            }
+            shopping.forEach(function (value) {
+                sendAjax('api/shopping_cart/' + value, '', 'delete', function (resp) {
+
+                })
+            });
+
             sendAjax('api/order', data, 'post', function (resp) {
                 window.location.href = 'pay.html?id=' + resp.id
             })
@@ -307,6 +318,12 @@
 
 <script>
     $(document).ready(function () {
+        $('.to-select-address').click(function () {
+            var address = getUrlParam('address');
+            if (address) return false;
+            window.location.href = 'address_select.html?shopping=' + getUrlParam('shopping')
+        });
+
         function get_address() {
             var address = getUrlParam('address');
             if (!address) return false;

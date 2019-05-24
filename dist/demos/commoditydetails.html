@@ -398,7 +398,7 @@
 </script>
 <script>
     var info = {};
-
+    var i = 0;
     function get_data() {
         var id = getUrlParam('id');
         var embedded = {
@@ -434,7 +434,6 @@
 
             // 商品信息
             var attr_html = '';
-            var attr_id = $('input[name="attr_id"]');
             if (Object.keys(attr).length) {
                 for (var k in attr) {
                     attr_html += '<div class="content">' + k + '</div>';
@@ -455,6 +454,7 @@
             });
 
             // 数量
+            $(".Spinner").text('');
             $(".Spinner").Spinner({value: 1, len: 3, max: resp.stock});
 
             //净含量

@@ -142,7 +142,7 @@
 
         $('.select_address').click(function () {
             var address_id = $('input[name="address"]:checked').val();
-            window.location.href = "shoppingdetails.html?address=" + address_id;
+            window.location.href = "shoppingdetails.html?address=" + address_id + '&shopping=' + getUrlParam('shopping');
         })
 
     })
