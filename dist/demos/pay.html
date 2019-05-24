@@ -178,48 +178,15 @@
 <body>
 
 <div class="kuang">
-    <a class="weui-cell weui-cell_access form-cell bgcolor diqu" href="address_select.html">
-        <div class="weui-cell__hd"><img src="images/dibiao.png"></div>
-        <div class="weui-cell__bd juti">
-            <div class="address-info" style="display: none">
-                <span class="wen">小灰灰</span>
-                <span class="num">188888888</span>
-                <div class="details">江苏省常州市武进区湖塘镇大学城科教城信息产业园研发楼226</div>
-            </div>
-            <div class="dizhi">暂无收货地址,请先添加默认地址</div>
-        </div>
-        <div class="weui-cell__ft"></div>
-    </a>
+    <div class="dingdanxi">
+        <div class="xinxi">支付方式</div>
+        <div class="jine"><img src="images/weixin.png">支付宝支付</div>
+    </div>
 </div>
-<div class="kuang com-detail">
-    <!--<a>
-        <div class="details">
-            <div class="details-left">
-                <img src="images/shangping.png">
-            </div>
-            <div class="details-right">
-                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                <div class="right-price">
-                    <div class="price">￥188.00</div>
-                    <div class="num">*2</div>
-                </div>
-            </div>
-        </div>
-    </a>-->
-</div>
-<!--<div class="kuang">-->
-<!--    <div class="dingdanxi">-->
-<!--        <div class="xinxi">支付方式</div>-->
-<!--        <div class="jine"><img src="images/weixin.png">微信支付</div>-->
-<!--    </div>-->
-<!--</div>-->
 <div class="kuangg">
     <div class="fukaun">
-        <div class="fukaun-yuan">
-            <div class="heji">合计:<span class="total-amount"></span></div>
-        </div>
         <div class="zhifu">
-            <button class="zhifu-tt">提交订单</button>
+            <button class="zhifu-tt pay">支付</button>
         </div>
     </div>
 </div>
@@ -234,97 +201,21 @@
 </script>
 <script src="../js/jquery-weui.js"></script>
 <script>
-    $(document).ready(function () {
-        var embedded = {
-            spec: true,
-            commodity: true
-        };
-        var where = {
-            enabled: true
-        };
-        var commodity = [];
-        var commodity_info = [];
-        var number = 0;
-        var amount = 0;
-        sendAjax('api/shopping_cart?embedded=' + JSON.stringify(embedded) + '&where=' + JSON.stringify(where), '', 'get', function (resp) {
-            var data = resp._items;
-            var com_detail_html = '';
-            var total = [];
-            if (data.length) {
-                data.forEach(function (val) {
-                    com_detail_html += '<a><div class="details">';
-
-                    var b_img = filter_val(val.imgs, 'is_desc', false, 'url');
-                    com_detail_html += '<div class="details-left"><img src="' + _BASE_API + b_img + '"></div>';
-                    com_detail_html += '<div class="details-right">';
-
-                    com_detail_html += '<div class="right-name">' + val.commodity.name + '</div>' +
-                        '<div class="right-price"><div class="price">￥' + val.spec.price + '</div>' +
-                        '<div class="num">*' + val.number + '</div></div>';
-
-                    com_detail_html += '</div>';
-
-                    com_detail_html += '</div></a>';
-
-                    total.push(val.number * val.spec.price);
-
-                    //订单提交数据
-                    commodity.push(val.id);
-                    number += val.number;
-                    commodity_info.push({
-                        commodity_id: val.id,
-                        spec_id: val.spec.id,
-                        number: val.number
-                    })
-
-                })
-            }
-            amount = total.length ? eval(total.join('+')) : 0;
-            $('.total-amount').text(amount);
-
-            $('.com-detail').html(com_detail_html)
-        });
-
-
-        // 提交订单
-        $('.zhifu-tt').click(function (resp) {
-            var data = {
-                user: localStorage.getItem('user_id'),
-                amount: amount,
-                number: number,
-                commodity_info: JSON.stringify(commodity_info),
-                commodity: commodity,
-                status: 'to_pay',
-                address: getUrlParam('address')
-
+    $(document).ready(function (resp) {
+        // todo 插入支付接口
+        $('.pay').click(function () {
+            var order = getUrlParam('id');
+            var params = {
+                status: 'to_deliver'
             };
-            sendAjax('api/order', data, 'post', function (resp) {
-                window.location.href = 'pay.html?id=' + resp.id
+            //http://127.0.0.1:3333/dist/demos/pay.html?id=1
+            sendAjax('api/order/' + order, params, 'patch', function (resp) {
+                window.location.href = 'order.html#tab2'
             })
         })
     })
 </script>
 
-<script>
-    $(document).ready(function () {
-        function get_address() {
-            var address = getUrlParam('address');
-            if (!address) return false;
-
-            sendAjax('api/address/' + address, '', 'GET', function (resp) {
-                $('.address-info').show();
-                $('.dizhi').hide();
-
-                $('.address-info .wen').text(resp.recipient_name);
-                $('.address-info .num').text(resp.recipient_phone);
-                $('.address-info .details').text(resp.province_zh + resp.city_zh + resp.area_zh + ' ' + resp.address);
-
-            })
-        }
-
-        get_address()
-    })
-</script>
 <script>
 </script>
 </body>

@@ -303,6 +303,28 @@
 <!---全选按钮-->
 <script type="text/javascript">
     $(document).ready(function () {
+        var checked_val = [];
+        var all_chk = [];
+        $('input[name="cartpro"]').each(function () {
+            all_chk.push($(this).val())
+        });
+        $('input[name="cartpro"]:checked').each(function () {
+            all_chk.push($(this).val())
+        });
+        $("input[name=all-sec]").prop('checked', all_chk.length === checked_val.length);
+
+        function get_each() {
+            var amount_total = [];
+            $('input[name="cartpro"]:checked').each(function () {
+                var _this = $(this);
+                var unit_price = _this.parents('.boxes').find('.prices-number').text();
+                var number = _this.parents('.boxes').find('.Amount').val();
+                amount_total.push(unit_price * number);
+
+            });
+            $('.heji-number').text(amount_total.length ? eval(amount_total.join('+')) : '');
+        }
+
         $(".allselect").click(function () {
             if ($(this).find("input[name=all-sec]").prop("checked")) {
                 $("input[name=cartpro]").each(function () {
@@ -310,13 +332,10 @@
                 });
             } else {
                 $("input[name=cartpro]").each(function () {
-                    if ($(this).prop("checked")) {
-                        $(this).prop("checked", false);
-                    } else {
-                        $(this).prop("checked", true);
-                    }
+                    $(this).prop("checked", false);
                 });
             }
+            get_each();
         });
     });
 </script>
@@ -325,6 +344,10 @@
         var _this = dom;
         var checked_val = [];
         var amount_total = [];
+        var all_chk = [];
+        $('input[name="cartpro"]').each(function () {
+            all_chk.push($(this).val())
+        });
         $('input[name="cartpro"]:checked').each(function () {
             checked_val.push(_this.val());
             var unit_price = _this.parents('.boxes').find('.prices-number').text();
@@ -332,7 +355,7 @@
             amount_total.push(unit_price * number);
 
         });
-        if (!checked_val.length) $("input[name=all-sec]").prop('checked', false);
+        $("input[name=all-sec]").prop('checked', all_chk.length === checked_val.length);
 
 
         $('.heji-number').text(eval(amount_total.join('+')));
@@ -355,7 +378,10 @@
                     shopping_html += '<label class="weui-check__label" for="cart-pto' + (index + 1) + '">';
                     shopping_html += '<div class="weui-cell__hd cat-check">';
 
-                    shopping_html += '<input type="checkbox" class="weui-check" name="cartpro" value="' + val.id + '" id="cart-pto' + (index + 1) + '">';
+                    if (val.enabled)
+                        shopping_html += '<input type="checkbox" checked class="weui-check" name="cartpro" value="' + val.id + '" id="cart-pto' + (index + 1) + '">';
+                    else
+                        shopping_html += '<input type="checkbox" class="weui-check" name="cartpro" value="' + val.id + '" id="cart-pto' + (index + 1) + '">';
                     shopping_html += '<i class="weui-icon-checked"></i>';
 
                     shopping_html += '</div>';
@@ -435,11 +461,43 @@
 <script>
     $(document).ready(function () {
         $('.jiesuan').click(function () {
-            if (!$('.heji-number').text()) {
+            var chk_value = [];
+            var no_chk_value = [];
+            $('input[name="cartpro"]').each(function () {
+                if ($(this).is(':checked')) {
+                    chk_value.push($(this).val());
+                } else {
+                    no_chk_value.push($(this).val());
+                }
+
+            });
+
+            if (!chk_value.length) {
                 LayerAlert1("请选择商品");
                 return false;
             }
+
+            chk_value.forEach(function (value) {
+                var params = {
+                    enabled: true
+                };
+                sendAjax('api/shopping_cart/' + value, params, 'patch', function (resp) {
+                })
+            });
+
+            if (no_chk_value.length) {
+                no_chk_value.forEach(function (value) {
+                    var params = {
+                        enabled: false
+                    };
+                    sendAjax('api/shopping_cart/' + value, params, 'patch', function (resp) {
+                    })
+                });
+            }
+
             window.location.href = 'shoppingdetails.html'
+
+
         })
     })
 </script>

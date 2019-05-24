@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>地址管理</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
+
+
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        .bg {
+            background-image: url("images/dizhibj.png");
+            width: 100%;
+            height: 80px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .address {
+            width: 90%;
+            margin: 0 5%;
+            margin-top: 15px;
+        }
+
+        .xiangxi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            padding: 15px 5%;
+        }
+
+        .xiangxi .xiangxi-right {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        .message .message-name {
+            padding-right: 10px;
+        }
+
+        .message {
+            padding-bottom: 10px;
+        }
+
+        .xiangxi-left img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .background {
+            background-color: #FFFFFF;
+            height: 80px;
+        }
+
+        .background .xiangxi-right {
+            font-size: 14px;
+            color: #959595;
+        }
+
+        .newadd img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .newadd {
+            border-radius: 100%;
+            position: fixed;
+            bottom: 50px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9;
+        }
+    </style>
+</head>
+<div>
+    <div class="address_x"></div>
+    <div>
+        <button class="select_address">确认</button>
+    </div>
+</div>
+<a href="newaddress.html">
+    <div class="newadd">
+        <img src="images/newaddress.png">
+    </div>
+</a>
+<body>
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/layer.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        var sorts = '-is_default';
+        sendAjax('api/address?sort=' + sorts, '', 'GET', function (resp) {
+            var data = resp._items;
+            var address_html = '';
+
+            data.forEach(function (val) {
+                var bg = val.is_default ? 'bg' : 'background';
+                address_html += '<a href="newaddress.html?id=' + val.id + '"><div class="address"><div class="' + bg + '">';
+                address_html += '<input type="radio" name="address" value="' + val.id + '">';
+
+                address_html += '<div class="xiangxi">';
+                address_html += '<div class="xiangxi-right">';
+                address_html += '<div class="message">';
+                address_html += '<span class="message-name">' + val.recipient_name + '</span>';
+                address_html += '<span>' + val.recipient_phone + '</span>';
+                address_html += '</div>';
+                address_html += '<div class="zhuzhi">' + val.province_zh + val.city_zh + ' ' + val.address + '</div>';
+                address_html += '</div>';
+                address_html += '<div class="xiangxi-left"><img src="images/baibiao.png"></div>';
+                address_html += '</div>';
+                address_html += '</div></div></a>';
+            });
+
+            $('.address_x').html(address_html);
+
+        })
+
+
+        $('.select_address').click(function () {
+            var address_id = $('input[name="address"]:checked').val();
+            window.location.href = "shoppingdetails.html?address=" + address_id;
+        })
+
+    })
+</script>
+</body>
+</html>

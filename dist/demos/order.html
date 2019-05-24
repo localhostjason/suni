@@ -3,17 +3,17 @@
 <head>
     <title>我的订单</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <style>
@@ -85,14 +85,16 @@
             align-items: center;
             padding-top: 20px;
         }
-        .xiang{
+
+        .xiang {
             width: 92%;
             margin: 0 4%;
             height: auto;
-            background-color:#FFFFFF ;
+            background-color: #FFFFFF;
             margin-top: 15px;
         }
-        .state{
+
+        .state {
             display: flex;
             height: 42px;
             width: 92%;
@@ -100,42 +102,50 @@
             justify-content: space-between;
             align-items: center;
         }
-        .state .state-time{
+
+        .state .state-time {
             font-size: 13px;
             color: #AFAFAF;
         }
-        .state .state-tt{
+
+        .state .state-tt {
             font-size: 13px;
             color: #333333;
         }
-        .details{
+
+        .details {
             width: 90%;
             margin: 0 5%;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
         }
-        .details-left{
+
+        .details-left {
             width: 25%;
             height: 25%;
             overflow: hidden;
         }
-        .details-left img{
+
+        .details-left img {
             width: 100%;
             height: 100%;
         }
-        .details-right{
+
+        .details-right {
             /*padding-left: 10px;*/
             width: 100%;
             margin-left: 10px;
         }
-        .details-right .right-name{
+
+        .details-right .right-name {
             font-size: 6px;
             color: #666666;
             /*width: 235px;*/
             height: auto;
         }
-        .details-right .right-price{
+
+        .details-right .right-price {
             color: #C9903B;
             font-size: 13px;
             display: flex;
@@ -143,7 +153,8 @@
             justify-content: space-between;
             height: auto;
         }
-        .weui-navbar + .weui-tab__bd{
+
+        .weui-navbar + .weui-tab__bd {
             padding-top: 40px;
         }
 
@@ -152,246 +163,254 @@
 <body ontouchstart>
 <div class="weui-tab">
     <div class="weui-navbar">
-        <a class="weui-navbar__item proinfo-tab-tit font-14 weui-bar__item--on" href="#tab1">
+        <a class="weui-navbar__item proinfo-tab-tit tab-hash font-14 weui-bar__item--on" href="#tab1">
             待支付
         </a>
-        <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab2">
+        <a class="weui-navbar__item proinfo-tab-tit tab-hash font-14" href="#tab2">
             待发货
         </a>
-        <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab3">
+        <a class="weui-navbar__item proinfo-tab-tit tab-hash font-14" href="#tab3">
             待收货
         </a>
-        <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab4">
+        <a class="weui-navbar__item proinfo-tab-tit tab-hash font-14" href="#tab4">
             已签收
         </a>
-        <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab5">
+        <a class="weui-navbar__item proinfo-tab-tit tab-hash font-14" href="#tab5">
             售后服务
         </a>
     </div>
 
     <div class="weui-tab__bd">
-        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+        <div id="tab1" class="weui-tab__bd-item tab-content">
             <!--<div class="wu">-->
             <!--<div class="wu-img"><img src="images/logoo.png"></div>-->
             <!--<div class="wu-tt">暂无订单,快去挑选商品!</div>-->
             <!--</div>-->
-            <a href="paid.html"><div class="xiang">
-                <div class="state">
-                    <div class="state-time">19/03/13&nbsp;12:22</div>
-                    <div class="state-tt">待支付</div>
+            <a href="paid.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待支付</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                   <a>
-                       <div class="details">
-                           <div class="details-left">
-                               <img src="images/shangping.png">
-                           </div>
-                           <div class="details-right">
-                               <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                               <div class="right-price">
-                                   <div class="price">￥188.00</div>
-                                   <div class="num">*2</div>
-                               </div>
-                           </div>
-                       </div>
-                   </a>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
+            </a>
+            <a href="paid.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待支付</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div></a>
-            <a href="paid.html"><div class="xiang">
-                <div class="state">
-                    <div class="state-time">19/03/13&nbsp;12:22</div>
-                    <div class="state-tt">待支付</div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div></a>
+            </a>
         </div>
-<!--待发货-->
-        <div id="tab2" class="weui-tab__bd-item">
-           <a href="shipped.html">
-               <div class="xiang">
-                   <div class="state">
-                       <div class="state-time">19/03/13&nbsp;12:22</div>
-                       <div class="state-tt">待发货</div>
-                   </div>
-                   <a>
-                       <div class="details">
-                           <div class="details-left">
-                               <img src="images/shangping.png">
-                           </div>
-                           <div class="details-right">
-                               <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                               <div class="right-price">
-                                   <div class="price">￥188.00</div>
-                                   <div class="num">*2</div>
-                               </div>
-                           </div>
-                       </div>
-                   </a>
-                   <a>
-                       <div class="details">
-                           <div class="details-left">
-                               <img src="images/shangping.png">
-                           </div>
-                           <div class="details-right">
-                               <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                               <div class="right-price">
-                                   <div class="price">￥188.00</div>
-                                   <div class="num">*2</div>
-                               </div>
-                           </div>
-                       </div>
-                   </a>
-               </div>
-           </a>
-           <a href="shipped.html">
-            <div class="xiang">
-                <div class="state">
-                    <div class="state-time">19/03/13&nbsp;12:22</div>
-                    <div class="state-tt">待发货</div>
+        <!--待发货-->
+        <div id="tab2" class="weui-tab__bd-item tab-content">
+            <a href="shipped.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待发货</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
+            </a>
+            <a href="shipped.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待发货</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-           </a>
+                    </a>
+                </div>
+            </a>
         </div>
-<!--待收货-->
-        <div id="tab3" class="weui-tab__bd-item">
-            <a href="received.html"><div class="xiang">
-                <div class="state">
-                    <div class="state-time">19/03/13&nbsp;12:22</div>
-                    <div class="state-tt">待收货</div>
+        <!--待收货-->
+        <div id="tab3" class="weui-tab__bd-item tab-content">
+            <a href="received.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待收货</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
+            </a>
+            <a href="received.html">
+                <div class="xiang">
+                    <div class="state">
+                        <div class="state-time">19/03/13&nbsp;12:22</div>
+                        <div class="state-tt">待收货</div>
+                    </div>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
+                    </a>
+                    <a>
+                        <div class="details">
+                            <div class="details-left">
+                                <img src="images/shangping.png">
+                            </div>
+                            <div class="details-right">
+                                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
+                                <div class="right-price">
+                                    <div class="price">￥188.00</div>
+                                    <div class="num">*2</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div></a>
-            <a href="received.html"><div class="xiang">
-                <div class="state">
-                    <div class="state-time">19/03/13&nbsp;12:22</div>
-                    <div class="state-tt">待收货</div>
+                    </a>
                 </div>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a>
-                    <div class="details">
-                        <div class="details-left">
-                            <img src="images/shangping.png">
-                        </div>
-                        <div class="details-right">
-                            <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                            <div class="right-price">
-                                <div class="price">￥188.00</div>
-                                <div class="num">*2</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div></a>
+            </a>
         </div>
         <!--已签收-->
-        <div id="tab4" class="weui-tab__bd-item">
+        <div id="tab4" class="weui-tab__bd-item tab-content">
             <div class="xiang">
                 <div class="state">
                     <div class="state-time">19/03/13&nbsp;12:22</div>
@@ -462,7 +481,7 @@
             </div>
         </div>
         <!--售后服务-->
-        <div id="tab5" class="weui-tab__bd-item">
+        <div id="tab5" class="weui-tab__bd-item tab-content">
             <div class="xiang">
                 <div class="state">
                     <div class="state-time">19/03/13&nbsp;12:22</div>
@@ -540,9 +559,30 @@
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var hash = window.location.hash;
+        $('.tab-hash').each(function () {
+            if ($(this).attr('href') === hash) {
+                $(this).addClass('weui-bar__item--on')
+            } else {
+                $(this).removeClass('weui-bar__item--on')
+            }
+        });
+
+        $('.tab-content').each(function () {
+            console.log(hash.substring(1, hash.length))
+            if ($(this).attr('id') === hash.substring(1, hash.length)) {
+                $(this).addClass('weui-tab__bd-item--active')
+            } else {
+                $(this).removeClass('weui-tab__bd-item--active')
+            }
+        })
+    })
 </script>
 <script src="../js/jquery-weui.js"></script>
 

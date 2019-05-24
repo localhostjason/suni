@@ -189,8 +189,17 @@
             };
             sendAjax('api/ac_code/info', data, 'POST', function (resp) {
                 //    todo 刷新
-                LayerAlert1("邀请成功");
-                get_team()
+                var post_id = resp.post_id;
+                console.log(post_id);
+                var params = {
+                    owner: localStorage.getItem('user_id'),
+                    join_time: timeStamp2String(new Date().getTime())
+                };
+                sendAjax('api/user/' + post_id, params, 'patch', function (r) {
+                    LayerAlert1("邀请成功");
+                    get_team()
+                })
+
             });
 
         })

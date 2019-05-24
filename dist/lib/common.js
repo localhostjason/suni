@@ -1,5 +1,5 @@
-BASE_API = 'http://192.168.1.3:2000/';
-_BASE_API = 'http://192.168.1.3:2000';
+BASE_API = 'http://192.168.120.244:2000/';
+_BASE_API = 'http://192.168.120.244:2000';
 
 /**
  * ajax post提交
@@ -25,6 +25,7 @@ function sendAjax(url, param, method, callback, no_token) {
         headers: header,
         contentType: "application/json",
         dataType: 'json',
+        async: false, // 不使用异步
         success: callback,
         error: function f1(re) {
             console.log(re);
@@ -36,6 +37,11 @@ function sendAjax(url, param, method, callback, no_token) {
                     code: 401
                 };
             }
+            if (resp._issues) {
+                LayerAlert1('错误：' + JSON.stringify(resp._issues));
+                return
+            }
+
             if (resp._error.code === 401) {
                 //需要登录
                 LayerAlert1("登录已过期，请登录！");
@@ -181,4 +187,18 @@ function group_type(data, key, re_val) {
         }
     });
     return result
+}
+
+
+//在Jquery里格式化Date日期时间数据
+function timeStamp2String(time) {
+    var datetime = new Date();
+    datetime.setTime(time);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+    var hour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+    var minute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+    var second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+    return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
 }
