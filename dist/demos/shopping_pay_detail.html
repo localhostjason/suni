@@ -182,9 +182,9 @@
         <div class="weui-cell__hd"><img src="images/dibiao.png"></div>
         <div class="weui-cell__bd juti">
             <div class="address-info" style="display: none">
-                <span class="wen"></span>
-                <span class="num"></span>
-                <div class="details"></div>
+                <span class="wen">小灰灰</span>
+                <span class="num">188888888</span>
+                <div class="details">江苏省常州市武进区湖塘镇大学城科教城信息产业园研发楼226</div>
             </div>
             <div class="dizhi">暂无收货地址,请先添加默认地址</div>
         </div>
@@ -237,80 +237,56 @@
     $(document).ready(function () {
         var embedded = {
             spec: true,
-            commodity: true
-        };
-        var where = {
-            enabled: true
+            imgs: true
         };
         var commodity = [];
         var commodity_info = [];
-        var number = 0;
-        var amount = 0;
-        sendAjax('api/shopping_cart?embedded=' + JSON.stringify(embedded) + '&where=' + JSON.stringify(where), '', 'get', function (resp) {
-            var data = resp._items;
+        var price = 0;
+        sendAjax('api/commodity/' + getUrlParam('id') + '?embedded=' + JSON.stringify(embedded), '', 'get', function (resp) {
+            var data = resp;
             var com_detail_html = '';
-            var total = [];
-            if (data.length) {
-                data.forEach(function (val) {
-                    com_detail_html += '<a><div class="details">';
 
-                    var b_img = filter_val(val.imgs, 'is_desc', false, 'url');
-                    com_detail_html += '<div class="details-left"><img src="' + _BASE_API + b_img + '"></div>';
-                    com_detail_html += '<div class="details-right">';
+            com_detail_html += '<a><div class="details">';
+            var b_img = filter_val(data.imgs, 'is_desc', false, 'url');
+            com_detail_html += '<div class="details-left"><img src="' + _BASE_API + b_img + '"></div>';
+            com_detail_html += '<div class="details-right">';
 
-                    com_detail_html += '<div class="right-name">' + val.commodity.name + '</div>' +
-                        '<div class="right-price"><div class="price">￥' + val.spec.price + '</div>' +
-                        '<div class="num">*' + val.number + '</div></div>';
+            var spec = data.spec.filter(function (val) {
+                return val.id === Number(getUrlParam('spec'))
+            });
+            price = spec.length ? spec[0].price : 0;
+            com_detail_html += '<div class="right-name">' + data.name + '</div>' +
+                '<div class="right-price"><div class="price">￥' + price + '</div>' +
+                '<div class="num">*' + getUrlParam('number') + '</div></div>';
 
-                    com_detail_html += '</div>';
+            com_detail_html += '</div>';
+            com_detail_html += '</div></a>';
 
-                    com_detail_html += '</div></a>';
-
-                    total.push(val.number * val.spec.price);
-
-                    //订单提交数据
-                    commodity.push(val.commodity.id);
-                    number += val.number;
-                    commodity_info.push({
-                        commodity_id: val.commodity.id,
-                        spec_id: val.spec.id,
-                        number: val.number
-                    })
-
-                })
-            }
-            amount = total.length ? eval(total.join('+')) : 0;
-            $('.total-amount').text(amount);
-
+            //订单提交数据
+            commodity.push(data.id);
+            commodity_info.push({
+                commodity_id: data.id,
+                spec_id: getUrlParam('spec'),
+                number: getUrlParam('number')
+            });
             $('.com-detail').html(com_detail_html)
         });
+        $('.total-amount').text(price * Number(getUrlParam('number')));
 
 
         // 提交订单
         $('.zhifu-tt').click(function (resp) {
             var data = {
                 user: Number(localStorage.getItem('user_id')),
-                amount: amount,
-                number: number,
+                amount: price * Number(getUrlParam('number')),
+                number: Number(getUrlParam('number')),
                 commodity_info: JSON.stringify(commodity_info),
                 commodity: commodity,
                 status: 'to_pay',
                 address: Number(getUrlParam('address'))
-
             };
-            var shopping = getUrlParam('shopping').split(',');
-            if (!shopping.length) {
-                LayerAlert1("请选择商品");
-                return false;
-            }
-
 
             sendAjax('api/order', data, 'post', function (resp) {
-                shopping.forEach(function (value) {
-                    sendAjax('api/shopping_cart/' + value, '', 'delete', function (resp) {
-
-                    })
-                });
                 window.location.href = 'pay.html?id=' + resp.id
             });
         })
@@ -319,10 +295,12 @@
 
 <script>
     $(document).ready(function () {
+        var search = window.location.search;
+
         $('.to-select-address').click(function () {
             var address = getUrlParam('address');
             if (address) return false;
-            window.location.href = 'address_select.html?shopping=' + getUrlParam('shopping')
+            window.location.href = 'address_select.html' + search;
         });
 
         function get_address() {

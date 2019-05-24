@@ -141,8 +141,14 @@
 
 
         $('.select_address').click(function () {
+            var search = window.location.search;
             var address_id = $('input[name="address"]:checked').val();
-            window.location.href = "shoppingdetails.html?address=" + address_id + '&shopping=' + getUrlParam('shopping');
+            if (getUrlParam('shopping')) {
+                window.location.href = "shoppingdetails.html" + search + '&address=' + address_id;
+            } else {
+                window.location.href = "shopping_pay_detail.html" + search + '&address=' + address_id;
+
+            }
         })
 
     })

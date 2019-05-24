@@ -563,7 +563,7 @@
                     sale_html += '<div class="right-price">';
                     sale_html += '<div class="pric"><p class="yuan">¥' + (val.spec.length ? val.spec[0].price : '--') + '</p>';
                     sale_html += '<p class="xiao">月销' + (val.monthly_sales || 0) + '</p></div>';
-                    sale_html += '<div class="num">立即购买</div>';
+                    sale_html += '<a href="commoditydetails.html?id=' + val.id + '"><div class="num">立即购买</div></a>';
                     sale_html += '</div>';
                     sale_html += '</div>';
                     sale_html += '</div>';
@@ -571,7 +571,7 @@
                 })
             }
             $('.sw').html(b_img_html);
-            $('.sale_com').html(sale_html)
+            $('.sale_com').html(sale_html);
         })
     }
 
