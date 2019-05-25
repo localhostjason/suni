@@ -180,7 +180,9 @@
 <div class="kuang">
     <div class="dingdanxi">
         <div class="xinxi">支付方式</div>
-        <div class="jine"><img src="images/weixin.png">支付宝支付</div>
+        <input type="radio" name="pay_action" value="alipay">支付宝支付
+        <input type="radio" name="pay_action" value="we_chart">微信支付
+        <input type="radio" name="pay_action" value="bank_card">银行卡支付
     </div>
 </div>
 <div class="kuangg">
@@ -208,8 +210,16 @@
         // todo 插入支付接口
         $('.pay').click(function () {
             var order = getUrlParam('id');
+            var pay_action = $('input[name="pay_action"]:checked').val();
+            if (!pay_action) {
+                LayerAlert1("请选择支付方式");
+                return false;
+            }
+
             var params = {
-                status: 'to_deliver'
+                status: 'to_deliver',
+                pay_action: pay_action,
+                pay_time: timeStamp2String(new Date().getTime())
             };
             //http://127.0.0.1:3333/dist/demos/pay.html?id=1
             sendAjax('api/order/' + order, params, 'patch', function (resp) {

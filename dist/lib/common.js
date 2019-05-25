@@ -1,5 +1,5 @@
-BASE_API = 'http://192.168.120.244:2000/';
-_BASE_API = 'http://192.168.120.244:2000';
+BASE_API = 'http://192.168.1.3:2000/';
+_BASE_API = 'http://192.168.1.3:2000';
 
 /**
  * ajax post提交
@@ -201,4 +201,26 @@ function timeStamp2String(time) {
     var minute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
     var second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
     return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+}
+
+function pay_action(t) {
+    /*
+    获取支付方式
+    * */
+    var result;
+    switch (t) {
+        case 'alipay':
+            result = '支付宝支付';
+            break;
+        case 'we_chart':
+            result = '微信支付';
+            break;
+        case 'bank_card':
+            result = '银行卡支付';
+            break;
+        default:
+            result = '支付宝支付';
+            break;
+    }
+    return result
 }

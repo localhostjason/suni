@@ -3,38 +3,42 @@
 <head>
     <title>售后服务</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <link rel="stylesheet" href="../lib/weui.carry.css">
     <style>
-        .boxes{
+        .boxes {
             width: 90%;
             padding: 0 5%;
         }
-        .shou .shou-tt{
+
+        .shou .shou-tt {
             font-size: 17px;
             color: #C88F3A;
             padding-top: 20px;
             padding-bottom: 12px;
         }
-        .shou{
+
+        .shou {
             border-bottom: 2px solid #F5F5F5;
         }
-        .shou .shou-wenben{
+
+        .shou .shou-wenben {
             padding-bottom: 24px;
         }
-        .choo{
+
+        .choo {
             border: 0px;
         }
     </style>
@@ -44,7 +48,8 @@
     <div class="shou">
         <div class="shou-tt">售后原因</div>
         <div class="shou-wenben">
-            <textarea style="height: 80px;background-color: #EEEEEE;border-radius: 5px;width: 95%;font-size: 14px;color: #999999;border: 0;padding: 10px">请填写需要售后的原因</textarea>
+            <textarea name="desc"
+                      style="height: 80px;background-color: #EEEEEE;border-radius: 5px;width: 95%;font-size: 14px;color: #999999;border: 0;padding: 10px"></textarea>
         </div>
     </div>
     <div class="mode">退款方式</div>
@@ -52,33 +57,79 @@
         <div class="choose">
             <div class="choose-tt">微信号</div>
             <div class="checkbox01">
-                <input type="radio" id="btn1" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+                <input type="radio"
+                       id="btn1"
+                       name="pay_action"
+                       value="we_chart"
+                       nuoxin="position:absolute;clip: rect(6 15 15 6)"/>
             </div>
         </div>
         <div class="choose">
             <div class="choose-tt">支付宝</div>
             <div class="checkbox01">
-                <input type="radio" id="btn2" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+                <input type="radio"
+                       id="btn2"
+                       name="pay_action"
+                       value="alipay"
+                       nuoxin="position:absolute;clip: rect(6 15 15 6)"/>
             </div>
         </div>
         <div class="choose">
             <div class="choose-tt">银行卡</div>
             <div class="checkbox01">
-                <input type="radio" id="btn3" name="btn" nuoxin="position:absolute;clip: rect(6 15 15 6)" />
+                <input type="radio"
+                       id="btn3"
+                       name="pay_action"
+                       value="bank_card"
+                       nuoxin="position:absolute;clip: rect(6 15 15 6)"/>
             </div>
         </div>
     </div>
+
+    <div class="boxx">
+        <button class="submit-refund">提交</button>
+    </div>
 </div>
-    <script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/jquery-2.1.4.js"></script>
 <script src="../lib/fastclick.js"></script>
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.submit-refund').click(function () {
+            var pay_action = $('input[name="pay_action"]:checked').val();
+            if (!pay_action) {
+                LayerAlert1("请选择支付方式");
+                return false;
+            }
+            var desc = $('[name="desc"]').val();
+            if (!desc) {
+                LayerAlert1("请输入退款理由");
+                return false;
+            }
 
+            var params = {
+                status: 'is_refund',
+                refund_type: pay_action
+            };
+            sendAjax('api/order/' + getUrlParam('id'), params, 'patch', function () {
+                var refund = {
+                    order: Number(getUrlParam('id')),
+                    desc: desc
+                };
+                sendAjax('api/refund', refund, 'post', function () {
+                    window.location.href = 'order.html#tab5'
+                })
+            })
+
+        })
+    })
+</script>
 </body>
 </html>

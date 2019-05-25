@@ -3,130 +3,153 @@
 <head>
     <title>确认订单</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <link rel="stylesheet" href="../lib/weui.order.css">
     <style>
-        body{
+        body {
             background-color: #EDEDED;
         }
-        .kuang{
+
+        .kuang {
             width: 90%;
             padding: 0 5%;
             background-color: #FFFFFF;
             margin-bottom: 10px;
         }
-        .dingdan{
+
+        .dingdan {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 65px;
         }
-        .dingdan .dingdan-tai{
+
+        .dingdan .dingdan-tai {
             font-size: 18px;
             color: #C88F3A;
         }
-        .dingdan .dingdan-num{
+
+        .dingdan .dingdan-num {
             font-size: 13px;
             color: #999999;
         }
-        .weui-cell{
+
+        .weui-cell {
             padding: 0;
         }
-        .weui-cell:before{
+
+        .weui-cell:before {
             border: 0;
         }
-        .weui-cell__bd .wen{
+
+        .weui-cell__bd .wen {
             font-size: 13px;
             color: #333333;
             position: relative;
             top: -10px;
             padding-right: 15px;
         }
-        .weui-cell__bd .num{
+
+        .weui-cell__bd .num {
             font-size: 13px;
             color: #999999;
             position: relative;
             top: -10px;
         }
-        .weui-cell__bd .dizhi{
+
+        .weui-cell__bd .dizhi {
             font-size: 6px;
             color: #999999;
         }
-        .diqu{
+
+        .diqu {
             height: 100px;
         }
-        .juti{
-            padding-left:20px ;
+
+        .juti {
+            padding-left: 20px;
         }
+
         /*.xiang{*/
         /*width: 100%;*/
         /*height: auto;*/
         /*background-color: #FFFFFF;*/
         /*margin-top: 10px;*/
         /*}*/
-        .details-left{
+        .details-left {
             width: 32%;
             height: 32%;
         }
-        .right-price .price{
+
+        .right-price .price {
             font-size: 15px;
             color: #C88F3A;
         }
-        .right-price .num{
+
+        .right-price .num {
             font-size: 16px;
             color: #C88F3A;
         }
-        .details{
+
+        .details {
             padding-top: 15px;
             padding-bottom: 5px;
-            width:100%;
+            width: 100%;
             margin: 0;
         }
+
         .details-right {
             margin-left: 14px;
         }
-        .details-right .right-name{
+
+        .details-right .right-name {
             margin-bottom: 20px;
         }
-        .dingdanxi{
+
+        .dingdanxi {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 50px;
             border-bottom: 1px solid #F5F5F5;
         }
-        .dingdanxi .xinxi{
+
+        .dingdanxi .xinxi {
             color: #333333;
             font-size: 13px;
         }
-        .dingdanxi .jine{
+
+        .dingdanxi .jine {
             color: #E51C23;
             font-size: 14px;
         }
-        .ddxinxi{
+
+        .ddxinxi {
             height: auto;
             padding: 18px 0px;
         }
-        .ddxinxi .ddxinxi-zz{
+
+        .ddxinxi .ddxinxi-zz {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
             color: #999999;
         }
-        .ddxinxi .ddxinxi-zzz{
+
+        .ddxinxi .ddxinxi-zzz {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -134,14 +157,16 @@
             color: #999999;
             padding-top: 14px;
         }
-        .shouhou{
+
+        .shouhou {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             height: 45px;
             padding-left: 10px;
         }
-        .shouhou .shouhou-tt{
+
+        .shouhou .shouhou-tt {
             color: #000000;
             border: 1px solid #BBBBBB;
             border-radius: 15px;
@@ -152,12 +177,14 @@
             justify-content: center;
             align-items: center;
         }
-        .kuangg{
+
+        .kuangg {
             width: 90%;
             padding: 0 5%;
             background-color: #FFFFFF;
         }
-        .an{
+
+        .an {
             display: flex;
             justify-content: flex-end;
         }
@@ -167,77 +194,49 @@
 <div class="kuang">
     <div class="dingdan">
         <div class="dingdan-tai">待付款</div>
-        <div class="dingdan-num">订单编号:123321123321123212</div>
+        <div class="dingdan-num">订单编号:<span class="order-number"></span></div>
     </div>
 </div>
 <div class="kuang">
     <a class="weui-cell weui-cell_access form-cell bgcolor diqu" href="javascript:;">
         <div class="weui-cell__hd"><img src="images/dibiao.png"></div>
         <div class="weui-cell__bd juti">
-            <spanp class="wen">小灰灰</spanp>
-            <span class="num">188888888</span>
-            <div class="dizhi">江苏省常州市武进区湖塘镇大学城科教城信息产业园研发楼226</div>
+            <spanp class="wen"></spanp>
+            <span class="num"></span>
+            <div class="dizhi"></div>
         </div>
         <div class="weui-cell__ft"></div>
     </a>
 </div>
-<div class="kuang">
-    <a>
-        <div class="details">
-            <div class="details-left">
-                <img src="images/shangping.png">
-            </div>
-            <div class="details-right">
-                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                <div class="right-price">
-                    <div class="price">￥188.00</div>
-                    <div class="num">*2</div>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a>
-        <div class="details">
-            <div class="details-left">
-                <img src="images/shangping.png">
-            </div>
-            <div class="details-right">
-                <div class="right-name">商品名称商品名称商品名称商品名称商品名称商品名称</div>
-                <div class="right-price">
-                    <div class="price">￥188.00</div>
-                    <div class="num">*2</div>
-                </div>
-            </div>
-        </div>
-    </a>
+<div class="kuang com-content">
 </div>
 <div class="kuang">
     <div class="dingdanxi">
         <div class="xinxi">订单信息</div>
-        <div class="jine">金额:8888.00</div>
+        <div class="jine">金额:<span class="amount-total"></span></div>
     </div>
     <div class="ddxinxi">
         <div class="ddxinxi-zz">
-            <span>支付方式</span><span>微信支付</span>
+            <span>支付方式</span><span class="pay-action"></span>
         </div>
         <div class="ddxinxi-zzz">
-            <span>创建时间</span><span>19/03/16&nbsp;12:22</span>
+            <span>创建时间</span><span class="created-time"></span>
         </div>
         <!--<div class="ddxinxi-zzz">-->
-            <!--<span>支付时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--<span>支付时间</span><span>19/03/16&nbsp;12:22</span>-->
         <!--</div>-->
         <!--<div class="ddxinxi-zzz">-->
-            <!--<span>发货时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--<span>发货时间</span><span>19/03/16&nbsp;12:22</span>-->
         <!--</div>-->
         <!--<div class="ddxinxi-zzz">-->
-            <!--<span>签收时间</span><span>19/03/16&nbsp;12:22</span>-->
+        <!--<span>签收时间</span><span>19/03/16&nbsp;12:22</span>-->
         <!--</div>-->
     </div>
 </div>
 <div class="kuangg">
     <div class="an">
         <div class="shouhou">
-            <div class="shouhou-tt">删除订单</div>
+            <div class="shouhou-tt delete-order">删除订单</div>
         </div>
         <div class="shouhou">
             <div class="shouhou-tt">立即支付</div>
@@ -249,11 +248,70 @@
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
 
+<script>
+    $(document).ready(function (resp) {
+        function get_to_paid() {
+            var embedded = {
+                record: true,
+                address: true
+            };
+            sendAjax('api/order/' + getUrlParam('id') + '?embedded=' + JSON.stringify(embedded), '', 'get', function (resp) {
+                $('.order-number').text(resp.id);
+
+                var address = resp.address;
+                if (address) {
+                    $('.juti .wen').text(address.recipient_name);
+                    $('.juti .num').text(address.recipient_phone)
+                    $('.juti .dizhi').text(address.province_zh + address.city_zh + address.area_zh + ' ' + address.address)
+                }
+
+                var record = resp.record;
+                var com_html = '';
+                if (record && record.length) {
+                    record.forEach(function (info) {
+                        com_html += '<a>';
+                        com_html += '<div class="details">';
+
+                        com_html += '<div class="details-left"><img src="' + _BASE_API + info.img_one + '"></div>';
+
+                        com_html += '<div class="details-right">';
+                        com_html += '<div class="right-name">' + info.commodity_name + '</div>';
+                        com_html += '<div class="right-price">';
+                        com_html += '<div class="price">￥' + info.spec_price + '</div>';
+                        com_html += '<div class="num">*' + info.number + '</div>';
+                        com_html += '</div>';
+                        com_html += '</div>';
+
+
+                        com_html += '</div>';
+                        com_html += '</a>';
+                    })
+                }
+                $('.com-content').html(com_html);
+
+                $('.amount-total').text(resp.amount);
+                $('.pay-action').text(pay_action(resp.pay_action));
+                $('.created-time').text(resp._created);
+            })
+        }
+
+        get_to_paid();
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $('.delete-order').click(function () {
+            sendAjax('api/order/' + getUrlParam('id'), '', 'delete', function () {
+                window.location.href = 'order.html#tab1'
+            })
+        })
+    })
+</script>
 </body>
 </html>
