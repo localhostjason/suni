@@ -1,146 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>jQuery WeUI</title>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../lib/weui.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
-<link rel="stylesheet" href="../lib/need/layer.css">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../lib/weui.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="../lib/need/layer.css">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
-  </head>
+</head>
 
-  <body ontouchstart>
-  <div class="weui-search-bar" id="search_bar">
-    <form class="weui-search-bar__form">
-      <div class="weui-search-bar__box">
-        <i class="weui-icon-search"></i>
-        <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
-        <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
-      </div>
-      <label for="search_input" class="weui-search-bar__label" id="search_text">
-        <i class="weui-icon-search"></i>
-        <span>搜索</span>
-      </label>
-    </form>
-    <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
-  </div>
-  <div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide"><img src="./images/swiper-1.jpg" /></div>
-      <div class="swiper-slide"><img src="./images/swiper-2.jpg" /></div>
-      <div class="swiper-slide"><img src="./images/swiper-3.jpg" /></div>
-    </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
-  <a href="article.html">跳转</a>
-  <style>
-    .weui-tabbar__icon{
-        width: 20px;
-        height: 20px;
-    }
-    .weui-tabbar__label{
-        font-size: 13px;
-        color: #000000;
-    }
-    .weui-tabbar{
-        background-color: #FFFFFF;
-        position: fixed;
-    }
-</style>
+<body ontouchstart>
+
+
 <div class="">
-    <div class="weui-tabbar">
-    </div>
+
 </div>
-<script>
 
-    var menu_list = [
-        {
-            'id':1,
-            'name':'首页',
-            'orgin_path':'images/shouye.png',
-            'select_path':'images/me.png',
-            'src':'home.html'
-        },
-        {
-            'id':2,
-            'name':'分类',
-            'orgin_path':'images/fenlei.png',
-            'select_path':'images/me.png',
-            'src':'classification.html'
-        },
-        {
-            'id':3,
-            'name':'购物车',
-            'orgin_path':'images/gouwuche.png',
-            'select_path':'images/me.png',
-            'src':'shoppingcartnone.html'
-        },
-        {
-            'id':4,
-            'name':'我的',
-            'orgin_path':'images/me.png',
-            'select_path':'images/me.png',
-            'src':'person.html'
-        },
-    ];
-    $(function () {
-        var html = '';
-        $.each(menu_list,function (k,v) {
-            html += '<a href="'+v.src+'" class="weui-tabbar__item" data-src="'+v.src+'">'
-            if(v.id == menu_index){
-                html += '<img src="'+v.select_path+'" alt="" class="weui-tabbar__icon">'
-            }else{
-                html += '<img src="'+v.orgin_path+'" alt="" class="weui-tabbar__icon">'
-            }
-            html +=   '<p class="weui-tabbar__label">'+v.name+'</p>'
-            html +=    '</a>';
-        });
-        $('.weui-tabbar').html('');
-        $('.weui-tabbar').html(html);
-    })
-
-</script>
-
-    <style>
-      .weui-footer {
-        margin: 25px 0 10px 0;
-      }
-    </style>
-
-
-    <script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/jquery-2.1.4.js"></script>
 <script src="../lib/fastclick.js"></script>
 <script src="../lib/common.js"></script>
 <script src="../lib/layer.js"></script>
 <script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
+    $(function () {
+        FastClick.attach(document.body);
+    });
 </script>
 <script src="../js/jquery-weui.js"></script>
 
-  <script src="../js/swiper.js"></script>
+<script src="../js/swiper.js"></script>
 
-  <script>
+<script>
     $(".swiper-container").swiper({
-      loop: true,
-      autoplay: 3000
+        loop: true,
+        autoplay: 3000
     });
-  </script>
-  </body>
+</script>
+<script>
+    $(document).ready(function () {
+        //获取微信code
+        sendAjax('api/open_code', '', 'get', function (resp) {
+            
+        }, true)
+    })
+</script>
+</body>
 
 
 </html>

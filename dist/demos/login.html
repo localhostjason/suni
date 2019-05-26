@@ -83,15 +83,22 @@
             sendAjax('api/login', data, 'post', function (res) {
                 var token = res.token;
 
+                var wx_code = getUrlParam('code');
+                if (!wx_code) {
+                    LayerAlert1('参数不对');
+                    return false
+                }
 
                 localStorage.setItem("user_id", res.data.id);
                 localStorage.setItem('phone', res.data.phone);
                 localStorage.setItem("token", token);
                 localStorage.setItem('total_profit', res.total_profit);
 
-                LayerAlert1("登录成功");
-                window.location.href = "home.html";
-
+                localStorage.setItem('code', wx_code);
+                // sendAjax('api/open_id?code=' + wx_code + '&user_id=' + res.data.id, '', 'get', function (resp) {
+                    LayerAlert1("登录成功");
+                    window.location.href = "home.html";
+                // });
 
             }, true)
         })

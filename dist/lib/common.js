@@ -46,7 +46,12 @@ function sendAjax(url, param, method, callback, no_token) {
                 //需要登录
                 LayerAlert1("登录已过期，请登录！");
                 setTimeout(function () {
-                    window.location.href = "login.html"
+                    if (localStorage.getItem('code')) {
+                        window.location.href = "login.html?code=" + localStorage.getItem('code')
+                    } else {
+                        window.location.href = "login.html"
+                    }
+
                 }, 1000);
             } else {
                 LayerAlert1(resp._error.message);

@@ -358,7 +358,12 @@
                 token: localStorage.getItem('token')
             };
             sendAjax('api/logout', data, 'POST', function (resp) {
+                localStorage.removeItem('phone');
+                localStorage.removeItem('user_id');
                 localStorage.removeItem('token');
+                localStorage.removeItem('total_profit');
+                localStorage.removeItem('code');
+
                 window.location.href = 'login.html'
             })
         })
