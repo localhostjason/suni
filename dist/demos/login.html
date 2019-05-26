@@ -83,11 +83,11 @@
             sendAjax('api/login', data, 'post', function (res) {
                 var token = res.token;
 
-                var wx_code = getUrlParam('code');
-                if (!wx_code) {
-                    LayerAlert1('参数不对');
-                    return false
-                }
+                // var wx_code = getUrlParam('code');
+                // if (!wx_code) {
+                //     LayerAlert1('参数不对');
+                //     return false
+                // }
 
                 localStorage.setItem("user_id", res.data.id);
                 localStorage.setItem('phone', res.data.phone);
