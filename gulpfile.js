@@ -99,27 +99,27 @@ gulp.task('cssmin', ["less"], function () {
 });
 
 gulp.task('ejs', function () {
-    return gulp.src(["./demos/*.html", "!./demos/_*.html"])
+    return gulp.src(["./app/*.html", "!./app/_*.html"])
         .pipe(ejs({}))
-        .pipe(gulp.dest("./dist/demos/"));
+        .pipe(gulp.dest("./dist/app/"));
 });
 
 gulp.task('copy', function () {
     gulp.src(['./src/lib/**/*'])
         .pipe(gulp.dest('./dist/lib/'));
 
-    gulp.src(['./demos/images/*.*'])
-        .pipe(gulp.dest('./dist/demos/images/'));
+    gulp.src(['./app/images/*.*'])
+        .pipe(gulp.dest('./dist/app/images/'));
 
-    gulp.src(['./demos/css/*.css'])
-        .pipe(gulp.dest('./dist/demos/css/'));
+    gulp.src(['./app/css/*.css'])
+        .pipe(gulp.dest('./dist/app/css/'));
 });
 
 gulp.task('watch', function () {
     gulp.watch('src/js/**/*.js', ['js']);
     gulp.watch('src/less/**/*.less', ['less']);
-    gulp.watch('demos/*.html', ['ejs']);
-    gulp.watch('demos/css/*.css', ['copy']);
+    gulp.watch('app/*.html', ['ejs']);
+    gulp.watch('app/css/*.css', ['copy']);
 });
 
 gulp.task('server', function () {
